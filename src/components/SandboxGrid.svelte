@@ -402,8 +402,11 @@
               {@const cellCenter = getCellCenter(cell)}
               {@const isTriggerHovered = hoveredBlockId === cell.id || hoveredBlockId === triggerBlock.id}
               {@const coords = getShortenedLine(triggerCenter, cellCenter, 58)}
-              {@const midX = (triggerCenter.x + cellCenter.x) / 2}
-              {@const midY = (triggerCenter.y + cellCenter.y) / 2}
+              {@const dx = cellCenter.x - triggerCenter.x}
+              {@const dy = cellCenter.y - triggerCenter.y}
+              {@const len = Math.sqrt(dx * dx + dy * dy)}
+              {@const plusX = triggerCenter.x + (len > 0 ? (dx / len) * 58 : 0)}
+              {@const plusY = triggerCenter.y + (len > 0 ? (dy / len) * 58 : 0)}
               
               <line
                 x1={coords.x1}
@@ -417,8 +420,8 @@
                 marker-end={isTriggerHovered ? "url(#arrowActive)" : "url(#arrowTrigger)"}
               />
 
-              <!-- Plus Sign Badge at Midpoint of the triggered connection -->
-              <g transform="translate({midX}, {midY})">
+              <!-- Plus Sign Badge positioned towards the radical box -->
+              <g transform="translate({plusX}, {plusY})">
                 <circle r="9" fill="#dc2626" stroke="#ffffff" stroke-width="1.5" />
                 <text 
                   text-anchor="middle" 
