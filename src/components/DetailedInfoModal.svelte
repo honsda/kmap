@@ -46,30 +46,57 @@
     sentences = [];
     loadingSentences = true;
     try {
-      const targetUrl = `https://tatoeba.org/en/api_v0/search?from=jpn&to=eng&query=${encodeURIComponent(char)}`;
-      const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
-      const res = await fetch(proxyUrl);
+      // Use Jisho.org sentences search
+      const res = await fetch(`https://jisho.org/api/v1/search/words?keyword=${encodeURIComponent(char)}`);
       if (!res.ok) throw new Error('Network error');
-      const result = await res.json();
-      const json = JSON.parse(result.contents);
+      const json = await res.json();
       
-      if (json.results && json.results.length > 0) {
-        sentences = json.results.slice(0, 2).map(item => {
-          const jpnText = item.text;
-          const engText = item.translations && item.translations.length > 0 
-            ? item.translations[0].map(t => t.text).join(' | ') 
-            : 'No translation available';
-          return { japanese: jpnText, english: engText };
-        });
+      if (json.data && json.data.length > 0) {
+        // Build sentences from the top results' senses
+        const built = [];
+        for (const entry of json.data.slice(0, 8)) {
+          if (built.length >= 2) break;
+          
+          const word = entry.japanese?.[0];
+          if (!word) continue;
+          
+          const wordText = word.word || word.reading || '';
+          const reading = word.reading || '';
+          
+          // Only use entries that actually contain our character
+          if (!wordText.includes(char) && !reading.includes(char)) continue;
+          
+          const meanings = entry.senses?.[0]?.english_definitions?.join('; ') || '';
+          if (!meanings) continue;
+
+          // Build a simple example using the word
+          const jpSentence = wordText;
+          const enMeaning = meanings;
+
+          built.push({
+            word: wordText,
+            reading: reading,
+            meaning: enMeaning,
+            character: char
+          });
+        }
+        sentences = built;
       } else {
         sentences = [];
       }
     } catch (err) {
-      console.error('Failed to fetch example sentences:', err);
+      console.error('Failed to fetch word data:', err);
       sentences = [];
     } finally {
       loadingSentences = false;
     }
+  }
+
+  // Highlight the kanji character in a string
+  function highlightChar(text, char) {
+    if (!text || !char) return text;
+    const parts = text.split(char);
+    return parts;
   }
 </script>
 
@@ -86,8 +113,8 @@
           {data.character}
         </div>
         <div>
-          <h2 class="text-xl font-bold text-black tracking-tight">{data.meaning.toUpperCase()}</h2>
-          <p class="text-[11px] text-zinc-550 mt-1 font-medium">Radical Details & Constituent Kanji</p>
+          <h2 class="text-xl font-bold text-black tracking-tight">{typeof data.meaning === 'string' ? data.meaning.toUpperCase() : (Array.isArray(data.meaning) ? data.meaning.join(', ').toUpperCase() : 'UNKNOWN')}</h2>
+          <p class="text-[11px] text-zinc-550 mt-1 font-medium">Details & Constituent Kanji</p>
         </div>
       </div>
       <button 
@@ -117,30 +144,37 @@
         </div>
       </div>
 
-      <!-- Example Sentences Section -->
+      <!-- Word Examples Section -->
       <div class="space-y-3 pb-1 border-b border-zinc-200">
-        <h3 class="text-xs font-bold text-black uppercase tracking-wider">Example Sentences</h3>
+        <h3 class="text-xs font-bold text-black uppercase tracking-wider">Word Examples</h3>
         
         {#if loadingSentences}
           <div class="flex items-center gap-2 py-4 text-[11px] text-zinc-500 font-medium">
             <span class="h-3 w-3 rounded-full border border-zinc-350 border-t-red-650 animate-spin"></span>
-            Loading examples from Tatoeba...
+            Loading examples...
           </div>
         {:else if sentences.length === 0}
           <div class="text-[11px] text-zinc-550 italic py-2">
-            No example sentences available for this character.
+            No word examples available for this character.
           </div>
         {:else}
           <div class="space-y-2.5">
-            {#each sentences as sentence}
-              <div class="bg-zinc-50 border border-zinc-200 p-3 rounded-none space-y-1">
-                <!-- Japanese text -->
-                <p class="text-xs font-bold text-black tracking-normal leading-relaxed select-all">
-                  {sentence.japanese}
-                </p>
-                <!-- English translation -->
-                <p class="text-[10px] text-zinc-655 font-medium leading-normal select-all">
-                  {sentence.english}
+            {#each sentences as entry}
+              <div class="bg-zinc-50 border border-zinc-200 p-3 rounded-none space-y-1.5">
+                <!-- Word with highlighted kanji -->
+                <div class="flex items-baseline gap-2">
+                  <p class="text-base font-bold text-black tracking-normal leading-relaxed select-all">
+                    {#each highlightChar(entry.word, data.character) as part, i}
+                      {part}{#if i < highlightChar(entry.word, data.character).length - 1}<span class="text-red-600 underline decoration-red-400 decoration-2 underline-offset-2">{data.character}</span>{/if}
+                    {/each}
+                  </p>
+                  {#if entry.reading && entry.reading !== entry.word}
+                    <span class="text-[11px] text-zinc-500 font-mono">【{entry.reading}】</span>
+                  {/if}
+                </div>
+                <!-- English meaning -->
+                <p class="text-[11px] text-zinc-600 font-medium leading-normal select-all">
+                  {entry.meaning}
                 </p>
               </div>
             {/each}
