@@ -199,7 +199,7 @@
     <!-- Filled block -->
     {#if isHovered}
       <div 
-        class="absolute -left-[240px] -right-[70px] -top-[70px] -bottom-[70px] z-0 bg-transparent pointer-events-auto cursor-default"
+        class="absolute -left-[210px] -right-[30px] -top-[30px] -bottom-[30px] z-0 bg-transparent pointer-events-auto cursor-default"
       ></div>
     {/if}
 

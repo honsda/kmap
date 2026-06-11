@@ -42,6 +42,16 @@
     }
   });
 
+  // Sentence patterns to wrap words in natural-sounding example sentences
+  const sentencePatterns = [
+    { jp: (w) => `${w}は大切です。`, en: (m) => `${m} is important.` },
+    { jp: (w) => `${w}を使います。`, en: (m) => `I use ${m.toLowerCase()}.` },
+    { jp: (w) => `これは${w}です。`, en: (m) => `This is ${m.toLowerCase()}.` },
+    { jp: (w) => `${w}が好きです。`, en: (m) => `I like ${m.toLowerCase()}.` },
+    { jp: (w) => `${w}を見ました。`, en: (m) => `I saw ${m.toLowerCase()}.` },
+    { jp: (w) => `${w}がありました。`, en: (m) => `There was ${m.toLowerCase()}.` },
+  ];
+
   async function fetchWords(char) {
     wordExamples = [];
     loadingWords = true;
@@ -74,7 +84,15 @@
           .sort((a, b) => a.score - b.score)
           .slice(0, 3);
 
-        wordExamples = scored;
+        // Generate usage sentences for each word
+        wordExamples = scored.map((entry, i) => {
+          const pattern = sentencePatterns[i % sentencePatterns.length];
+          return {
+            ...entry,
+            sentenceJp: pattern.jp(entry.word),
+            sentenceEn: pattern.en(entry.meaning)
+          };
+        });
       }
     } catch (err) {
       console.error('Failed to fetch word examples:', err);

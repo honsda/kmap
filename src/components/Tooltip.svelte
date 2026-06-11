@@ -11,7 +11,7 @@
           {#if data.jlpt}
             <span class="text-[9px] font-mono bg-red-100 text-red-700 px-1 font-bold uppercase">N{data.jlpt}</span>
           {/if}
-          <span class="text-[10px] text-zinc-550 font-mono">Stroke: {data.stroke_count || 1}</span>
+          <span class="text-[10px] text-black font-mono">Stroke: {data.stroke_count || 1}</span>
         </div>
       </div>
       
