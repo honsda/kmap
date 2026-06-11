@@ -1,5 +1,5 @@
 <script>
-  import { gridActions } from '../stores/gridStore.js';
+  import { gridStore, gridActions, getBlockConstituentRadicals, getTreeBlockIds, getRootBlockId } from '../stores/gridStore.js';
 
   let {
     isOpen = false,
@@ -15,23 +15,46 @@
   let isDropdownOpen = $state(false);
 
   let primaryRads = $derived(
-    primaryRadical?.type === 'kanji'
-      ? (kanjiDataMap[primaryRadical.character]?.radicals || [])
-      : [primaryRadical?.character]
+    primaryRadical ? getBlockConstituentRadicals($gridStore, primaryRadical, kanjiDataMap) : []
   );
 
   let evolutionCandidates = $derived.by(() => {
-    if (!primaryRadical) return [];
-    const targetLength = primaryRads.length + 1;
-    const list = [];
+    if (!primaryRadical || primaryRads.length === 0) return [];
+    
+    // Find existing kanjis in this tree to avoid duplicates
+    const rootId = getRootBlockId($gridStore, primaryRadical.id);
+    const treeIds = getTreeBlockIds($gridStore, rootId);
+    const existingKanjis = new Set(
+      $gridStore
+        .filter(b => b.type === 'kanji' && treeIds.has(b.id))
+        .map(b => b.character)
+    );
+
+    let candidates = [];
     for (const [kanjiChar, kInfo] of Object.entries(kanjiDataMap)) {
-      if (!kInfo.radicals || kInfo.radicals.length !== targetLength) continue;
+      if (existingKanjis.has(kanjiChar)) continue;
+      if (!kInfo.radicals || kInfo.radicals.length === 0) continue;
+
       const hasAll = primaryRads.every(r => kInfo.radicals.includes(r));
       if (hasAll) {
-        list.push(kanjiChar);
+        const missing = kInfo.radicals.filter(r => !primaryRads.includes(r));
+        if (missing.length > 0) {
+          candidates.push({
+            kanji: kanjiChar,
+            diffCount: missing.length,
+            missingRadicals: missing
+          });
+        }
       }
     }
-    return list;
+
+    if (candidates.length === 0) return [];
+
+    // Find the minimum number of missing radicals
+    const minDiff = Math.min(...candidates.map(c => c.diffCount));
+    
+    // Return only the best candidates (i.e. those with minDiff missing radicals)
+    return candidates.filter(c => c.diffCount === minDiff).map(c => c.kanji);
   });
 
   // Filter radicals for selector dropdown

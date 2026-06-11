@@ -376,7 +376,8 @@
               {@const cellCenter = getCellCenter(cell)}
               {@const isHovered = hoveredBlockId === cell.id || 
                                   hoveredBlockId === parentBlock.id || 
-                                  (cell.triggeredById && hoveredBlockId === cell.triggeredById)}
+                                  cell.triggeredById === hoveredBlockId ||
+                                  (cell.triggeredByIds && cell.triggeredByIds.includes(hoveredBlockId))}
               {@const coords = getShortenedLine(parentCenter, cellCenter, 58)}
               
               {#if cell.type === 'radical'}
@@ -425,28 +426,30 @@
             {/if}
           {/if}
 
-          <!-- If it's a kanji block and has a triggering radical, connect them as well to form a relation triangle -->
-          {#if cell.type === 'kanji' && cell.triggeredById}
-            {@const triggerBlock = $gridStore.find(b => b.id === cell.triggeredById)}
-            {#if triggerBlock}
-              {@const triggerCenter = getCellCenter(triggerBlock)}
-              {@const cellCenter = getCellCenter(cell)}
-              {@const isTriggerHovered = hoveredBlockId === cell.id || hoveredBlockId === triggerBlock.id}
-              {@const coords = getShortenedLine(triggerCenter, cellCenter, 58)}
-              
-              <!-- Connection to Formed Kanji from trigger block: show arrowhead pointing to Kanji -->
-              <line
-                x1={coords.x1}
-                y1={coords.y1}
-                x2={coords.x2}
-                y2={coords.y2}
-                stroke={isTriggerHovered ? "url(#webGradActive)" : "#dc2626"}
-                stroke-width={isTriggerHovered ? "2.5" : "1.2"}
-                filter={isTriggerHovered ? "url(#webGlow)" : ""}
-                stroke-dasharray="3 3"
-                marker-end={isTriggerHovered ? "url(#arrowActive)" : "url(#arrowTrigger)"}
-              />
-            {/if}
+          <!-- If it's a kanji block and has triggering radicals, connect them as well to form a relation network -->
+          {#if cell.type === 'kanji'}
+            {#each (cell.triggeredByIds || (cell.triggeredById ? [cell.triggeredById] : [])) as triggerId}
+              {@const triggerBlock = $gridStore.find(b => b.id === triggerId)}
+              {#if triggerBlock}
+                {@const triggerCenter = getCellCenter(triggerBlock)}
+                {@const cellCenter = getCellCenter(cell)}
+                {@const isTriggerHovered = hoveredBlockId === cell.id || hoveredBlockId === triggerBlock.id}
+                {@const coords = getShortenedLine(triggerCenter, cellCenter, 58)}
+                
+                <!-- Connection to Formed Kanji from trigger block: show arrowhead pointing to Kanji -->
+                <line
+                  x1={coords.x1}
+                  y1={coords.y1}
+                  x2={coords.x2}
+                  y2={coords.y2}
+                  stroke={isTriggerHovered ? "url(#webGradActive)" : "#dc2626"}
+                  stroke-width={isTriggerHovered ? "2.5" : "1.2"}
+                  filter={isTriggerHovered ? "url(#webGlow)" : ""}
+                  stroke-dasharray="3 3"
+                  marker-end={isTriggerHovered ? "url(#arrowActive)" : "url(#arrowTrigger)"}
+                />
+              {/if}
+            {/each}
           {/if}
         {/each}
       </svg>

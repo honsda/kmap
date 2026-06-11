@@ -98,8 +98,7 @@
 
   // Derived state to check if block can evolve further
   let canEvolve = $derived.by(() => {
-    const activeParentId = cell.parentId || cell.id;
-    return getAvailableEvolutions($gridStore, cell.character, cell.type, activeParentId, radicalDataMap, kanjiDataMap).length > 0;
+    return getAvailableEvolutions($gridStore, cell, radicalDataMap, kanjiDataMap).length > 0;
   });
 
   // Action callbacks
@@ -130,7 +129,10 @@
     const list = blockData?.common_kanji || [];
     if (list.length > 0) {
       const randomKanji = list[Math.floor(Math.random() * list.length)];
-      gridActions.addBlock('kanji', randomKanji, { character: randomKanji }, radicalDataMap, cell.id);
+      const res = gridActions.addSpecificCombination(cell.id, randomKanji, radicals, radicalDataMap, kanjiDataMap);
+      if (!res.success) {
+        onShowNotification(res.message);
+      }
     } else {
       onShowNotification("No common kanji associated with this radical.");
     }
