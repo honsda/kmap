@@ -1,0 +1,4291 @@
+[
+  {
+    "character": "一",
+    "original_character": "⼀",
+    "meaning": "one, one radical (no.1)",
+    "onyomi": [
+      "イチ",
+      "イツ"
+    ],
+    "kunyomi": [
+      "ひと-",
+      "ひと.つ"
+    ],
+    "stroke_count": 1,
+    "reading": "いち"
+  },
+  {
+    "character": "丨",
+    "original_character": "⼁",
+    "meaning": "number one, line, rod radical (no. 2)",
+    "onyomi": [
+      "コン",
+      "シ",
+      "ジョ",
+      "ニョ"
+    ],
+    "kunyomi": [
+      "すす.む",
+      "しりぞ.く"
+    ],
+    "stroke_count": 1,
+    "reading": "たてぼう"
+  },
+  {
+    "character": "丶",
+    "original_character": "⼂",
+    "meaning": "dot, tick or dot radical (no. 3)",
+    "onyomi": [
+      "チュ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 1,
+    "reading": "てん"
+  },
+  {
+    "character": "丿",
+    "original_character": "⼃",
+    "meaning": "katakana no radical (no. 4)",
+    "onyomi": [
+      "ヘツ"
+    ],
+    "kunyomi": [
+      "えい",
+      "よう"
+    ],
+    "stroke_count": 1,
+    "reading": "の"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "diagonal sweeping stroke",
+    "onyomi": [],
+    "kunyomi": [
+      "のかんむり"
+    ],
+    "stroke_count": 1,
+    "reading": "のかんむり"
+  },
+  {
+    "character": "乙",
+    "original_character": "⼄",
+    "meaning": "the latter, duplicate, strange, witty, fishhook radical (no. 5)",
+    "onyomi": [
+      "オツ",
+      "イツ"
+    ],
+    "kunyomi": [
+      "おと-",
+      "きのと"
+    ],
+    "stroke_count": 1,
+    "reading": "おつ"
+  },
+  {
+    "character": "乚",
+    "original_character": "⺃",
+    "meaning": "hidden, mysterious, secret, to conceal, small, minute, fishhook radical variant (no. 5)",
+    "onyomi": [
+      "イン",
+      "オン"
+    ],
+    "kunyomi": [
+      "かく.す",
+      "かく.れる",
+      "かか.す",
+      "よ.る"
+    ],
+    "stroke_count": 1,
+    "reading": "おつ"
+  },
+  {
+    "character": "亅",
+    "original_character": "⼅",
+    "meaning": "feathered stick, barb radical (no. 6)",
+    "onyomi": [
+      "ケツ"
+    ],
+    "kunyomi": [
+      "かぎ"
+    ],
+    "stroke_count": 1,
+    "reading": "はねぼう"
+  },
+  {
+    "character": "二",
+    "original_character": "⼆",
+    "meaning": "two, two radical (no. 7)",
+    "onyomi": [
+      "ニ",
+      "ジ"
+    ],
+    "kunyomi": [
+      "ふた",
+      "ふた.つ",
+      "ふたたび"
+    ],
+    "stroke_count": 2,
+    "reading": "に"
+  },
+  {
+    "character": "亠",
+    "original_character": "⼇",
+    "meaning": "kettle lid radical (no. 8)",
+    "onyomi": [
+      "トウ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 2,
+    "reading": "なべぶた"
+  },
+  {
+    "character": "人",
+    "original_character": "⼈",
+    "meaning": "person",
+    "onyomi": [
+      "ジン",
+      "ニン"
+    ],
+    "kunyomi": [
+      "ひと",
+      "-り",
+      "-と"
+    ],
+    "stroke_count": 2,
+    "reading": "ひと"
+  },
+  {
+    "character": "亻",
+    "original_character": "⺅",
+    "meaning": "radical number 9",
+    "onyomi": [],
+    "kunyomi": [
+      "にんべん"
+    ],
+    "stroke_count": 2,
+    "reading": "にんべん"
+  },
+  {
+    "character": "𠆢",
+    "original_character": "𠆢",
+    "meaning": "person",
+    "onyomi": [],
+    "kunyomi": [
+      "ひとやね"
+    ],
+    "stroke_count": 2,
+    "reading": "ひとやね"
+  },
+  {
+    "character": "儿",
+    "original_character": "⼉",
+    "meaning": "legs radical (no. 10)",
+    "onyomi": [
+      "ジン",
+      "ニン"
+    ],
+    "kunyomi": [
+      "がい"
+    ],
+    "stroke_count": 2,
+    "reading": "ひとあし"
+  },
+  {
+    "character": "入",
+    "original_character": "⼊",
+    "meaning": "enter, insert",
+    "onyomi": [
+      "ニュウ",
+      "ジュ"
+    ],
+    "kunyomi": [
+      "い.る",
+      "-い.る",
+      "-い.り",
+      "い.れる",
+      "-い.れ",
+      "はい.る"
+    ],
+    "stroke_count": 2,
+    "reading": "いる"
+  },
+  {
+    "character": "八",
+    "original_character": "⼋",
+    "meaning": "eight, eight radical (no. 12)",
+    "onyomi": [
+      "ハチ",
+      "ハツ"
+    ],
+    "kunyomi": [
+      "や",
+      "や.つ",
+      "やっ.つ",
+      "よう"
+    ],
+    "stroke_count": 2,
+    "reading": "はち"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "eight",
+    "onyomi": [],
+    "kunyomi": [
+      "はちがしら"
+    ],
+    "stroke_count": 2,
+    "reading": "はちがしら"
+  },
+  {
+    "character": "冂",
+    "original_character": "⼌",
+    "meaning": "upside-down box radical (no. 13)",
+    "onyomi": [
+      "キョウ",
+      "ケイ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 2,
+    "reading": "けいがまえ"
+  },
+  {
+    "character": "冖",
+    "original_character": "⼍",
+    "meaning": "wa-shaped crown radical (no. 14)",
+    "onyomi": [
+      "ベキ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 2,
+    "reading": "わかんむり"
+  },
+  {
+    "character": "冫",
+    "original_character": "⼎",
+    "meaning": "two-stroke water radical or ice radical (no. 15)",
+    "onyomi": [
+      "ヒョウ"
+    ],
+    "kunyomi": [
+      "こおり"
+    ],
+    "stroke_count": 2,
+    "reading": "にすい"
+  },
+  {
+    "character": "几",
+    "original_character": "⼏",
+    "meaning": "table, table enclosure, table or windy radical (no. 16)",
+    "onyomi": [
+      "キ"
+    ],
+    "kunyomi": [
+      "きにょう"
+    ],
+    "stroke_count": 2,
+    "reading": "きにょう"
+  },
+  {
+    "character": "𠘨",
+    "original_character": "⺇",
+    "meaning": "wind",
+    "onyomi": [],
+    "kunyomi": [
+      "かぜかんむり"
+    ],
+    "stroke_count": 2,
+    "reading": "かぜかんむり"
+  },
+  {
+    "character": "凵",
+    "original_character": "⼐",
+    "meaning": "open box enclosure, open box radical (no. 17)",
+    "onyomi": [
+      "カン"
+    ],
+    "kunyomi": [],
+    "stroke_count": 2,
+    "reading": "かんにょう"
+  },
+  {
+    "character": "刀",
+    "original_character": "⼑",
+    "meaning": "sword, saber, knife",
+    "onyomi": [
+      "トウ"
+    ],
+    "kunyomi": [
+      "かたな",
+      "そり"
+    ],
+    "stroke_count": 2,
+    "reading": "かたな"
+  },
+  {
+    "character": "刂",
+    "original_character": "⺉",
+    "meaning": "knife, standing sword radical (no. 18)",
+    "onyomi": [
+      "トウ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 2,
+    "reading": "りっとう"
+  },
+  {
+    "character": "力",
+    "original_character": "⼒",
+    "meaning": "power, strength, strong, strain, bear up, exert",
+    "onyomi": [
+      "リョク",
+      "リキ",
+      "リイ"
+    ],
+    "kunyomi": [
+      "ちから"
+    ],
+    "stroke_count": 2,
+    "reading": "ちから"
+  },
+  {
+    "character": "勹",
+    "original_character": "⼓",
+    "meaning": "wrapping enclosure, wrapping radical (no. 20)",
+    "onyomi": [
+      "ホウ"
+    ],
+    "kunyomi": [
+      "つつ.む"
+    ],
+    "stroke_count": 2,
+    "reading": "つつみがまえ"
+  },
+  {
+    "character": "匕",
+    "original_character": "⼔",
+    "meaning": "spoon, spoon or katakana hi radical (no. 21)",
+    "onyomi": [
+      "ヒ"
+    ],
+    "kunyomi": [
+      "さじ"
+    ],
+    "stroke_count": 2,
+    "reading": "さじ"
+  },
+  {
+    "character": "匚",
+    "original_character": "⼕",
+    "meaning": "box-on-side enclosure radical (no. 22)",
+    "onyomi": [
+      "ホウ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 2,
+    "reading": "はこがまえ"
+  },
+  {
+    "character": "匸",
+    "original_character": "⼖",
+    "meaning": "hiding enclosure radical (no. 23)",
+    "onyomi": [
+      "ケイ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 2,
+    "reading": "かくしがまえ"
+  },
+  {
+    "character": "十",
+    "original_character": "⼗",
+    "meaning": "ten",
+    "onyomi": [
+      "ジュウ",
+      "ジッ",
+      "ジュッ"
+    ],
+    "kunyomi": [
+      "とお",
+      "と",
+      "そ"
+    ],
+    "stroke_count": 2,
+    "reading": "じゅう"
+  },
+  {
+    "character": "卜",
+    "original_character": "⼘",
+    "meaning": "divining, fortune-telling, divination or katakana to radical (no. 25)",
+    "onyomi": [
+      "ボク"
+    ],
+    "kunyomi": [
+      "うらな.う",
+      "うらない"
+    ],
+    "stroke_count": 2,
+    "reading": "ぼく"
+  },
+  {
+    "character": "卩",
+    "original_character": "⼙",
+    "meaning": "seal radical (no. 26)",
+    "onyomi": [
+      "セツ"
+    ],
+    "kunyomi": [
+      "わりふ"
+    ],
+    "stroke_count": 2,
+    "reading": "ふしづくり"
+  },
+  {
+    "character": "厂",
+    "original_character": "⼚",
+    "meaning": "wild goose, trailing cliff radical (no. 27)",
+    "onyomi": [
+      "カン"
+    ],
+    "kunyomi": [
+      "かりがね"
+    ],
+    "stroke_count": 2,
+    "reading": "がんだれ"
+  },
+  {
+    "character": "厶",
+    "original_character": "⼛",
+    "meaning": "I, myself, katakana mu radical (no. 28)",
+    "onyomi": [
+      "シ",
+      "ボウ",
+      "ム"
+    ],
+    "kunyomi": [
+      "わたくし",
+      "ござ.る"
+    ],
+    "stroke_count": 2,
+    "reading": "む"
+  },
+  {
+    "character": "又",
+    "original_character": "⼜",
+    "meaning": "or again, furthermore, on the other hand",
+    "onyomi": [
+      "ユウ"
+    ],
+    "kunyomi": [
+      "また",
+      "また-",
+      "また.の-"
+    ],
+    "stroke_count": 2,
+    "reading": "また"
+  },
+  {
+    "character": "口",
+    "original_character": "⼝",
+    "meaning": "mouth",
+    "onyomi": [
+      "コウ",
+      "ク"
+    ],
+    "kunyomi": [
+      "くち"
+    ],
+    "stroke_count": 3,
+    "reading": "くち"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "mouth",
+    "onyomi": [],
+    "kunyomi": [
+      "くちへん"
+    ],
+    "stroke_count": 3,
+    "reading": "くちへん"
+  },
+  {
+    "character": "囗",
+    "original_character": "⼞",
+    "meaning": "box, box or enclosure radical (no. 31)",
+    "onyomi": [
+      "イ",
+      "コク"
+    ],
+    "kunyomi": [],
+    "stroke_count": 3,
+    "reading": "くにがまえ"
+  },
+  {
+    "character": "土",
+    "original_character": "⼟",
+    "meaning": "soil, earth, ground, Turkey",
+    "onyomi": [
+      "ド",
+      "ト"
+    ],
+    "kunyomi": [
+      "つち"
+    ],
+    "stroke_count": 3,
+    "reading": "つち"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "earth",
+    "onyomi": [],
+    "kunyomi": [
+      "つちへん"
+    ],
+    "stroke_count": 3,
+    "reading": "つちへん"
+  },
+  {
+    "character": "士",
+    "original_character": "⼠",
+    "meaning": "gentleman, scholar, samurai, samurai radical (no. 33)",
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "さむらい"
+    ],
+    "stroke_count": 3,
+    "reading": "さむらい"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "man, scholar, samurai",
+    "onyomi": [],
+    "kunyomi": [
+      "さむらいかんむり"
+    ],
+    "stroke_count": 3,
+    "reading": "さむらいかんむり"
+  },
+  {
+    "character": "夂",
+    "original_character": "⼡",
+    "meaning": "late, delayed, winter radical (no. 34)",
+    "onyomi": [
+      "チ"
+    ],
+    "kunyomi": [
+      "しゅう"
+    ],
+    "stroke_count": 3,
+    "reading": "のまた"
+  },
+  {
+    "character": "夊",
+    "original_character": "⼢",
+    "meaning": "winter variant radical (no. 34)",
+    "onyomi": [
+      "スイ"
+    ],
+    "kunyomi": [
+      "ゆき"
+    ],
+    "stroke_count": 3,
+    "reading": "なつあし"
+  },
+  {
+    "character": "夕",
+    "original_character": "⼣",
+    "meaning": "evening",
+    "onyomi": [
+      "セキ"
+    ],
+    "kunyomi": [
+      "ゆう"
+    ],
+    "stroke_count": 3,
+    "reading": "ゆうべ"
+  },
+  {
+    "character": "大",
+    "original_character": "⼤",
+    "meaning": "large, big",
+    "onyomi": [
+      "ダイ",
+      "タイ"
+    ],
+    "kunyomi": [
+      "おお-",
+      "おお.きい",
+      "-おお.いに"
+    ],
+    "stroke_count": 3,
+    "reading": "だい"
+  },
+  {
+    "character": "女",
+    "original_character": "⼥",
+    "meaning": "woman, female",
+    "onyomi": [
+      "ジョ",
+      "ニョ",
+      "ニョウ"
+    ],
+    "kunyomi": [
+      "おんな",
+      "め"
+    ],
+    "stroke_count": 3,
+    "reading": "おんな"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "woman",
+    "onyomi": [],
+    "kunyomi": [
+      "おんなへん"
+    ],
+    "stroke_count": 3,
+    "reading": "おんなへん"
+  },
+  {
+    "character": "子",
+    "original_character": "⼦",
+    "meaning": "child, sign of the rat, 11PM-1AM, first sign of Chinese zodiac",
+    "onyomi": [
+      "シ",
+      "ス",
+      "ツ"
+    ],
+    "kunyomi": [
+      "こ",
+      "-こ",
+      "ね"
+    ],
+    "stroke_count": 3,
+    "reading": "こ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "child, son",
+    "onyomi": [],
+    "kunyomi": [
+      "こへん"
+    ],
+    "stroke_count": 3,
+    "reading": "こへん"
+  },
+  {
+    "character": "宀",
+    "original_character": "⼧",
+    "meaning": "shaped crown, katakana u radical (no. 40)",
+    "onyomi": [
+      "ベン",
+      "メン"
+    ],
+    "kunyomi": [],
+    "stroke_count": 3,
+    "reading": "うかんむり"
+  },
+  {
+    "character": "寸",
+    "original_character": "⼨",
+    "meaning": "measurement, tenth of a shaku, a little, small",
+    "onyomi": [
+      "スン"
+    ],
+    "kunyomi": [],
+    "stroke_count": 3,
+    "reading": "すん"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "inch, (2.25 cm)",
+    "onyomi": [],
+    "kunyomi": [
+      "すんづくり"
+    ],
+    "stroke_count": 3,
+    "reading": "すんづくり"
+  },
+  {
+    "character": "小",
+    "original_character": "⼩",
+    "meaning": "little, small",
+    "onyomi": [
+      "ショウ"
+    ],
+    "kunyomi": [
+      "ちい.さい",
+      "こ-",
+      "お-",
+      "さ-"
+    ],
+    "stroke_count": 3,
+    "reading": "しょう"
+  },
+  {
+    "character": "小",
+    "original_character": "⺌",
+    "meaning": "little, small",
+    "onyomi": [
+      "ショウ"
+    ],
+    "kunyomi": [
+      "ちい.さい",
+      "こ-",
+      "お-",
+      "さ-"
+    ],
+    "stroke_count": 3,
+    "reading": "しょうかんむり"
+  },
+  {
+    "character": "尢",
+    "original_character": "⺐",
+    "meaning": "crooked-big radical (no. 43)",
+    "onyomi": [
+      "オウ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 3,
+    "reading": "だいのまげあし"
+  },
+  {
+    "character": "尸",
+    "original_character": "⼫",
+    "meaning": "corpse, remains, flag radical (no. 44)",
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "かたしろ"
+    ],
+    "stroke_count": 3,
+    "reading": "しかばね"
+  },
+  {
+    "character": "屮",
+    "original_character": "⼬",
+    "meaning": "left hand, old grass radical (no. 45)",
+    "onyomi": [
+      "テツ",
+      "サ"
+    ],
+    "kunyomi": [
+      "ひだりて"
+    ],
+    "stroke_count": 3,
+    "reading": "くさのめ"
+  },
+  {
+    "character": "山",
+    "original_character": "⼭",
+    "meaning": "mountain",
+    "onyomi": [
+      "サン",
+      "セン"
+    ],
+    "kunyomi": [
+      "やま"
+    ],
+    "stroke_count": 3,
+    "reading": "やま"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "mountain",
+    "onyomi": [],
+    "kunyomi": [
+      "やまへん"
+    ],
+    "stroke_count": 3,
+    "reading": "やまへん"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "mountain",
+    "onyomi": [],
+    "kunyomi": [
+      "やまかんむり"
+    ],
+    "stroke_count": 3,
+    "reading": "やまかんむり"
+  },
+  {
+    "character": "巛",
+    "original_character": "⼮",
+    "meaning": "curving river radical (no.47)",
+    "onyomi": [
+      "セン"
+    ],
+    "kunyomi": [
+      "かわ"
+    ],
+    "stroke_count": 3,
+    "reading": "まがりがわ"
+  },
+  {
+    "character": "川",
+    "original_character": "川",
+    "meaning": "stream, river, river or three-stroke river radical (no. 47)",
+    "onyomi": [
+      "セン"
+    ],
+    "kunyomi": [
+      "かわ"
+    ],
+    "stroke_count": 3,
+    "reading": "さんぼんがわ"
+  },
+  {
+    "character": "工",
+    "original_character": "⼯",
+    "meaning": "craft, construction, katakana e radical (no. 48)",
+    "onyomi": [
+      "コウ",
+      "ク",
+      "グ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 3,
+    "reading": "たくみ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "work, carpenter, skill",
+    "onyomi": [],
+    "kunyomi": [
+      "たくみへん"
+    ],
+    "stroke_count": 3,
+    "reading": "たくみへん"
+  },
+  {
+    "character": "己",
+    "original_character": "⼰",
+    "meaning": "self",
+    "onyomi": [
+      "コ",
+      "キ"
+    ],
+    "kunyomi": [
+      "おのれ",
+      "つちのと",
+      "な"
+    ],
+    "stroke_count": 3,
+    "reading": "おのれ"
+  },
+  {
+    "character": "巾",
+    "original_character": "⼱",
+    "meaning": "towel, hanging scroll, width, cloth radical (no. 50)",
+    "onyomi": [
+      "キン",
+      "フク"
+    ],
+    "kunyomi": [
+      "おお.い",
+      "ちきり",
+      "きれ"
+    ],
+    "stroke_count": 3,
+    "reading": "はば"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "cloth",
+    "onyomi": [],
+    "kunyomi": [
+      "はばへん"
+    ],
+    "stroke_count": 3,
+    "reading": "はばへん"
+  },
+  {
+    "character": "干",
+    "original_character": "⼲",
+    "meaning": "dry, parch, ebb, recede, interfere, intercede",
+    "onyomi": [
+      "カン"
+    ],
+    "kunyomi": [
+      "ほ.す",
+      "ほ.し-",
+      "-ぼ.し",
+      "ひ.る"
+    ],
+    "stroke_count": 3,
+    "reading": "かん"
+  },
+  {
+    "character": "幺",
+    "original_character": "⺓",
+    "meaning": "short thread radical (no. 52)",
+    "onyomi": [
+      "ヨウ"
+    ],
+    "kunyomi": [
+      "ちいさい"
+    ],
+    "stroke_count": 3,
+    "reading": "いとがしら"
+  },
+  {
+    "character": "广",
+    "original_character": "⼴",
+    "meaning": "dotted cliff radical (no. 53)",
+    "onyomi": [
+      "ゲン"
+    ],
+    "kunyomi": [],
+    "stroke_count": 3,
+    "reading": "まだれ"
+  },
+  {
+    "character": "廴",
+    "original_character": "⼵",
+    "meaning": "long stride or stretching radical (no. 54)",
+    "onyomi": [
+      "イン"
+    ],
+    "kunyomi": [],
+    "stroke_count": 3,
+    "reading": "えんにょう"
+  },
+  {
+    "character": "廾",
+    "original_character": "⼶",
+    "meaning": "twenty, twenty or letter H radical (no. 55)",
+    "onyomi": [
+      "キョウ",
+      "ク"
+    ],
+    "kunyomi": [
+      "にじゅう"
+    ],
+    "stroke_count": 3,
+    "reading": "にじゅうあし"
+  },
+  {
+    "character": "弋",
+    "original_character": "⼷",
+    "meaning": "piling, ceremony radical (no. 56)",
+    "onyomi": [
+      "ヨク"
+    ],
+    "kunyomi": [
+      "いぐるみ"
+    ],
+    "stroke_count": 3,
+    "reading": "いぐるみ"
+  },
+  {
+    "character": "弓",
+    "original_character": "⼸",
+    "meaning": "bow, bow (archery, violin)",
+    "onyomi": [
+      "キュウ"
+    ],
+    "kunyomi": [
+      "ゆみ"
+    ],
+    "stroke_count": 3,
+    "reading": "ゆみ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "bow （in archery）",
+    "onyomi": [],
+    "kunyomi": [
+      "ゆみへん"
+    ],
+    "stroke_count": 3,
+    "reading": "ゆみへん"
+  },
+  {
+    "character": "彐",
+    "original_character": "⼹",
+    "meaning": "snout, pig's head radical (no. 58)",
+    "onyomi": [
+      "ケイ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 3,
+    "reading": "けいがしら"
+  },
+  {
+    "character": "𫜹",
+    "original_character": "⺕",
+    "meaning": "pig’s head",
+    "onyomi": [],
+    "kunyomi": [
+      "けいがしら"
+    ],
+    "stroke_count": 3,
+    "reading": "けいがしら"
+  },
+  {
+    "character": "彑",
+    "original_character": "⺔",
+    "meaning": "pig's head radical variant (no. 58)",
+    "onyomi": [
+      "ケイ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 3,
+    "reading": "けいがしら"
+  },
+  {
+    "character": "彡",
+    "original_character": "⼺",
+    "meaning": "three, hair ornament, short hair or fur radical (no. 59)",
+    "onyomi": [
+      "サン",
+      "セン"
+    ],
+    "kunyomi": [],
+    "stroke_count": 3,
+    "reading": "さんづくり"
+  },
+  {
+    "character": "彳",
+    "original_character": "⼻",
+    "meaning": "stop, linger, loiter, going man radical (no. 60)",
+    "onyomi": [
+      "テキ"
+    ],
+    "kunyomi": [
+      "たたず.む"
+    ],
+    "stroke_count": 3,
+    "reading": "ぎょうにんべん"
+  },
+  {
+    "character": "艹",
+    "original_character": "⺾",
+    "meaning": "grass, radical number 140",
+    "onyomi": [],
+    "kunyomi": [
+      "くさかんむり"
+    ],
+    "stroke_count": 3,
+    "reading": "くさかんむり"
+  },
+  {
+    "character": "辶",
+    "original_character": "⻌",
+    "meaning": "walk, walking, road radical variant (no. 162)",
+    "onyomi": [
+      "チャク"
+    ],
+    "kunyomi": [],
+    "stroke_count": 3,
+    "reading": "しんにょう"
+  },
+  {
+    "character": "邑",
+    "original_character": "⻏",
+    "meaning": "village, rural community, right village radical (no. 163)",
+    "onyomi": [
+      "ユウ"
+    ],
+    "kunyomi": [
+      "むら"
+    ],
+    "stroke_count": 3,
+    "reading": "おおざと"
+  },
+  {
+    "character": "阝",
+    "original_character": "⻖",
+    "meaning": "place, left village radical - 2 stroke form (no. 170)",
+    "onyomi": [],
+    "kunyomi": [
+      "こざと"
+    ],
+    "stroke_count": 3,
+    "reading": "こざとへん"
+  },
+  {
+    "character": "⺍",
+    "original_character": "⺍",
+    "meaning": "Katakana Tsu",
+    "onyomi": [],
+    "kunyomi": [
+      "つ"
+    ],
+    "stroke_count": 3,
+    "reading": "つ"
+  },
+  {
+    "character": "忄",
+    "original_character": "⺖",
+    "meaning": "heart, standing heart radical variant (no. 61)",
+    "onyomi": [
+      "シン"
+    ],
+    "kunyomi": [
+      "こころ"
+    ],
+    "stroke_count": 3,
+    "reading": "りっしんべん"
+  },
+  {
+    "character": "扌",
+    "original_character": "⺘",
+    "meaning": "hand, hand radical (no. 64)",
+    "onyomi": [
+      "シュ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 3,
+    "reading": "てへん"
+  },
+  {
+    "character": "氵",
+    "original_character": "⺡",
+    "meaning": "water, water radical (no. 85)",
+    "onyomi": [],
+    "kunyomi": [
+      "さんずい"
+    ],
+    "stroke_count": 3,
+    "reading": "さんずい"
+  },
+  {
+    "character": "犭",
+    "original_character": "⺨",
+    "meaning": "dog, dog radical (no. 94)",
+    "onyomi": [],
+    "kunyomi": [
+      "けものへん"
+    ],
+    "stroke_count": 3,
+    "reading": "けものへん"
+  },
+  {
+    "character": "心",
+    "original_character": "⼼",
+    "meaning": "heart, mind, spirit, heart radical (no. 61)",
+    "onyomi": [
+      "シン"
+    ],
+    "kunyomi": [
+      "こころ",
+      "-ごころ"
+    ],
+    "stroke_count": 4,
+    "reading": "こころ"
+  },
+  {
+    "character": "心",
+    "original_character": "⺗",
+    "meaning": "heart, mind, spirit, heart radical (no. 61)",
+    "onyomi": [
+      "シン"
+    ],
+    "kunyomi": [
+      "こころ",
+      "-ごころ"
+    ],
+    "stroke_count": 4,
+    "reading": "したごころ"
+  },
+  {
+    "character": "戈",
+    "original_character": "⼽",
+    "meaning": "halberd, arms, festival car, float, tasselled spear radical (no. 62)",
+    "onyomi": [
+      "カ"
+    ],
+    "kunyomi": [
+      "ほこ",
+      "ほこづくり"
+    ],
+    "stroke_count": 4,
+    "reading": "ほこ"
+  },
+  {
+    "character": "戶",
+    "original_character": "⼾",
+    "meaning": "door",
+    "onyomi": [],
+    "kunyomi": [
+      "と"
+    ],
+    "stroke_count": 4,
+    "reading": "と"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "door",
+    "onyomi": [],
+    "kunyomi": [
+      "とだれ"
+    ],
+    "stroke_count": 4,
+    "reading": "とだれ"
+  },
+  {
+    "character": "手",
+    "original_character": "⼿",
+    "meaning": "hand",
+    "onyomi": [
+      "シュ",
+      "ズ"
+    ],
+    "kunyomi": [
+      "て",
+      "て-",
+      "-て",
+      "た-"
+    ],
+    "stroke_count": 4,
+    "reading": "て"
+  },
+  {
+    "character": "支",
+    "original_character": "⽀",
+    "meaning": "branch, support, sustain, branch radical (no. 65)",
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "ささ.える",
+      "つか.える",
+      "か.う"
+    ],
+    "stroke_count": 4,
+    "reading": "しにょう"
+  },
+  {
+    "character": "攴",
+    "original_character": "⽁",
+    "meaning": "strike, hit, folding chair radical (no. 66)",
+    "onyomi": [
+      "ホク"
+    ],
+    "kunyomi": [],
+    "stroke_count": 4,
+    "reading": "ぼくづくり"
+  },
+  {
+    "character": "攵",
+    "original_character": "⺙",
+    "meaning": "strike, hit, folding chair radical variant (no. 66)",
+    "onyomi": [
+      "ホク"
+    ],
+    "kunyomi": [],
+    "stroke_count": 4,
+    "reading": "ぼくづくり"
+  },
+  {
+    "character": "文",
+    "original_character": "⽂",
+    "meaning": "sentence, literature, style, art, decoration, figures, plan, literary radical (no. 67)",
+    "onyomi": [
+      "ブン",
+      "モン"
+    ],
+    "kunyomi": [
+      "ふみ",
+      "あや"
+    ],
+    "stroke_count": 4,
+    "reading": "ぶん"
+  },
+  {
+    "character": "斗",
+    "original_character": "⽃",
+    "meaning": "Big Dipper, ten sho (vol), sake dipper, dots and cross radical (no. 68)",
+    "onyomi": [
+      "ト",
+      "トウ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 4,
+    "reading": "ますづくり"
+  },
+  {
+    "character": "斤",
+    "original_character": "⽄",
+    "meaning": "axe, 1.32 lb, catty, counter for loaves of bread, axe radical (no. 69)",
+    "onyomi": [
+      "キン"
+    ],
+    "kunyomi": [],
+    "stroke_count": 4,
+    "reading": "おのづくり"
+  },
+  {
+    "character": "方",
+    "original_character": "⽅",
+    "meaning": "direction, person, alternative",
+    "onyomi": [
+      "ホウ"
+    ],
+    "kunyomi": [
+      "かた",
+      "-かた",
+      "-がた"
+    ],
+    "stroke_count": 4,
+    "reading": "ほう"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "direction, flag",
+    "onyomi": [],
+    "kunyomi": [
+      "ほうへん"
+    ],
+    "stroke_count": 4,
+    "reading": "ほうへん"
+  },
+  {
+    "character": "无",
+    "original_character": "⽆",
+    "meaning": "nothing, not exist, crooked heaven radical (no.71)",
+    "onyomi": [
+      "ブ",
+      "ム"
+    ],
+    "kunyomi": [
+      "なし",
+      "ない"
+    ],
+    "stroke_count": 4,
+    "reading": "むにょう"
+  },
+  {
+    "character": "日",
+    "original_character": "⽇",
+    "meaning": "day, sun, Japan, counter for days",
+    "onyomi": [
+      "ニチ",
+      "ジツ"
+    ],
+    "kunyomi": [
+      "ひ",
+      "-び",
+      "-か"
+    ],
+    "stroke_count": 4,
+    "reading": "ひ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "sun, day, time",
+    "onyomi": [],
+    "kunyomi": [
+      "ひへん"
+    ],
+    "stroke_count": 4,
+    "reading": "ひへん"
+  },
+  {
+    "character": "曰",
+    "original_character": "⽈",
+    "meaning": "say, reason, pretext, history, past, flat sun radical (no. 73)",
+    "onyomi": [
+      "エツ"
+    ],
+    "kunyomi": [
+      "いわ.く",
+      "のたま.う",
+      "のたま.わく",
+      "ここに"
+    ],
+    "stroke_count": 4,
+    "reading": "ひらび"
+  },
+  {
+    "character": "月",
+    "original_character": "⽉",
+    "meaning": "month, moon",
+    "onyomi": [
+      "ゲツ",
+      "ガツ"
+    ],
+    "kunyomi": [
+      "つき"
+    ],
+    "stroke_count": 4,
+    "reading": "つき"
+  },
+  {
+    "character": "月",
+    "original_character": "⺝",
+    "meaning": "month, moon",
+    "onyomi": [
+      "ゲツ",
+      "ガツ"
+    ],
+    "kunyomi": [
+      "つき"
+    ],
+    "stroke_count": 4,
+    "reading": "つきへん"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "meat, flesh",
+    "onyomi": [],
+    "kunyomi": [
+      "にくづき"
+    ],
+    "stroke_count": 4,
+    "reading": "にくづき"
+  },
+  {
+    "character": "木",
+    "original_character": "⽊",
+    "meaning": "tree, wood",
+    "onyomi": [
+      "ボク",
+      "モク"
+    ],
+    "kunyomi": [
+      "き",
+      "こ-"
+    ],
+    "stroke_count": 4,
+    "reading": "き"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "tree, wood",
+    "onyomi": [],
+    "kunyomi": [
+      "きへん"
+    ],
+    "stroke_count": 4,
+    "reading": "きへん"
+  },
+  {
+    "character": "欠",
+    "original_character": "⽋",
+    "meaning": "lack, gap, fail, yawning radical (no. 76)",
+    "onyomi": [
+      "ケツ",
+      "ケン"
+    ],
+    "kunyomi": [
+      "か.ける",
+      "か.く"
+    ],
+    "stroke_count": 4,
+    "reading": "あくび"
+  },
+  {
+    "character": "止",
+    "original_character": "⽌",
+    "meaning": "stop, halt",
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "と.まる",
+      "-ど.まり",
+      "と.める",
+      "-と.める",
+      "-ど.め",
+      "とど.める",
+      "とど.め",
+      "とど.まる",
+      "や.める",
+      "や.む",
+      "-や.む",
+      "よ.す",
+      "-さ.す",
+      "-さ.し"
+    ],
+    "stroke_count": 4,
+    "reading": "とめる"
+  },
+  {
+    "character": "歹",
+    "original_character": "⽍",
+    "meaning": "bare bone, bad, wrong, death radical (n. 78)",
+    "onyomi": [
+      "ガツ",
+      "ガチ",
+      "タイ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 4,
+    "reading": "がつ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "death & dying, to decompose",
+    "onyomi": [],
+    "kunyomi": [
+      "がつへん"
+    ],
+    "stroke_count": 4,
+    "reading": "がつへん"
+  },
+  {
+    "character": "殳",
+    "original_character": "⽎",
+    "meaning": "pike, windy-again radical (no. 79)",
+    "onyomi": [
+      "シュ"
+    ],
+    "kunyomi": [
+      "また",
+      "ほこ"
+    ],
+    "stroke_count": 4,
+    "reading": "るまた"
+  },
+  {
+    "character": "毋",
+    "original_character": "⽏",
+    "meaning": "do not, must not, be not, mother radical (no. 80)",
+    "onyomi": [
+      "ブ",
+      "ム"
+    ],
+    "kunyomi": [
+      "はは",
+      "ぼ",
+      "ない",
+      "なか.れ"
+    ],
+    "stroke_count": 4,
+    "reading": "なかれ"
+  },
+  {
+    "character": "比",
+    "original_character": "⽐",
+    "meaning": "compare, race, ratio, Philippines",
+    "onyomi": [
+      "ヒ"
+    ],
+    "kunyomi": [
+      "くら.べる"
+    ],
+    "stroke_count": 4,
+    "reading": "くらべる"
+  },
+  {
+    "character": "毛",
+    "original_character": "⽑",
+    "meaning": "fur, hair, feather, down",
+    "onyomi": [
+      "モウ"
+    ],
+    "kunyomi": [
+      "け"
+    ],
+    "stroke_count": 4,
+    "reading": "け"
+  },
+  {
+    "character": "氏",
+    "original_character": "⽒",
+    "meaning": "family name, surname, clan",
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "うじ",
+      "-うじ"
+    ],
+    "stroke_count": 4,
+    "reading": "うじ"
+  },
+  {
+    "character": "气",
+    "original_character": "⽓",
+    "meaning": "spirit, steam radical (no. 84)",
+    "onyomi": [
+      "キ",
+      "ケ"
+    ],
+    "kunyomi": [
+      "いき"
+    ],
+    "stroke_count": 4,
+    "reading": "きがまえ"
+  },
+  {
+    "character": "水",
+    "original_character": "⽔",
+    "meaning": "water",
+    "onyomi": [
+      "スイ"
+    ],
+    "kunyomi": [
+      "みず",
+      "みず-"
+    ],
+    "stroke_count": 4,
+    "reading": "みず"
+  },
+  {
+    "character": "火",
+    "original_character": "⽕",
+    "meaning": "fire",
+    "onyomi": [
+      "カ"
+    ],
+    "kunyomi": [
+      "ひ",
+      "-び",
+      "ほ-"
+    ],
+    "stroke_count": 4,
+    "reading": "ひ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "fire",
+    "onyomi": [],
+    "kunyomi": [
+      "ひへん"
+    ],
+    "stroke_count": 4,
+    "reading": "ひへん"
+  },
+  {
+    "character": "灬",
+    "original_character": "⺣",
+    "meaning": "fire, fire radical (no. 86)",
+    "onyomi": [
+      "ヒョウ",
+      "カ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 4,
+    "reading": "れっか"
+  },
+  {
+    "character": "爪",
+    "original_character": "⽖",
+    "meaning": "claw, nail, talon",
+    "onyomi": [
+      "ソウ"
+    ],
+    "kunyomi": [
+      "つめ",
+      "つま-"
+    ],
+    "stroke_count": 4,
+    "reading": "つめ"
+  },
+  {
+    "character": "爫",
+    "original_character": "⺤",
+    "meaning": "claw radical (no. 87)",
+    "onyomi": [],
+    "kunyomi": [
+      "つめかんむり"
+    ],
+    "stroke_count": 4,
+    "reading": "つめかんむり"
+  },
+  {
+    "character": "爫",
+    "original_character": "爫",
+    "meaning": "claw radical (no. 87)",
+    "onyomi": [],
+    "kunyomi": [
+      "つめかんむり"
+    ],
+    "stroke_count": 4,
+    "reading": "つめかんむり"
+  },
+  {
+    "character": "父",
+    "original_character": "⽗",
+    "meaning": "father",
+    "onyomi": [
+      "フ"
+    ],
+    "kunyomi": [
+      "ちち"
+    ],
+    "stroke_count": 4,
+    "reading": "ちち"
+  },
+  {
+    "character": "爻",
+    "original_character": "⽘",
+    "meaning": "to mix with, to associate with, to join, double X radical (no. 89)",
+    "onyomi": [
+      "コウ",
+      "ギョウ"
+    ],
+    "kunyomi": [
+      "まじ.わる"
+    ],
+    "stroke_count": 4,
+    "reading": "こう"
+  },
+  {
+    "character": "爿",
+    "original_character": "⽙",
+    "meaning": "left-side kata radical (no. 90)",
+    "onyomi": [
+      "ショウ",
+      "ソウ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 4,
+    "reading": "しょうへん"
+  },
+  {
+    "character": "片",
+    "original_character": "⽚",
+    "meaning": "one-sided, leaf, sheet, right-side kata radical (no. 91)",
+    "onyomi": [
+      "ヘン"
+    ],
+    "kunyomi": [
+      "かた-",
+      "かた"
+    ],
+    "stroke_count": 4,
+    "reading": "かた"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "split wood",
+    "onyomi": [],
+    "kunyomi": [
+      "かたへん"
+    ],
+    "stroke_count": 4,
+    "reading": "かたへん"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "fang, canine tooth",
+    "onyomi": [],
+    "kunyomi": [
+      "きば"
+    ],
+    "stroke_count": 4,
+    "reading": "きば"
+  },
+  {
+    "character": "牛",
+    "original_character": "⽜",
+    "meaning": "cow",
+    "onyomi": [
+      "ギュウ"
+    ],
+    "kunyomi": [
+      "うし"
+    ],
+    "stroke_count": 4,
+    "reading": "うし"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "cow",
+    "onyomi": [],
+    "kunyomi": [
+      "うしへん"
+    ],
+    "stroke_count": 4,
+    "reading": "うしへん"
+  },
+  {
+    "character": "犬",
+    "original_character": "⽝",
+    "meaning": "dog",
+    "onyomi": [
+      "ケン"
+    ],
+    "kunyomi": [
+      "いぬ",
+      "いぬ-"
+    ],
+    "stroke_count": 4,
+    "reading": "いぬ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "jewelry, jeweled king",
+    "onyomi": [],
+    "kunyomi": [
+      "おうへん"
+    ],
+    "stroke_count": 4,
+    "reading": "おうへん"
+  },
+  {
+    "character": "礻",
+    "original_character": "⺭",
+    "meaning": "cult, showing radical (no. 113)",
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 4,
+    "reading": "しめすへん"
+  },
+  {
+    "character": "㓁",
+    "original_character": "㓁",
+    "meaning": "a net, net-like, radical 122",
+    "onyomi": [],
+    "kunyomi": [
+      "あみがしら"
+    ],
+    "stroke_count": 4,
+    "reading": "あみがしら"
+  },
+  {
+    "character": "耂",
+    "original_character": "⺹",
+    "meaning": "variant of radical 125",
+    "onyomi": [],
+    "kunyomi": [
+      "おいかんむり"
+    ],
+    "stroke_count": 4,
+    "reading": "おいかんむり"
+  },
+  {
+    "character": "玄",
+    "original_character": "⽞",
+    "meaning": "mysterious, occultness, black, deep, profound",
+    "onyomi": [
+      "ゲン"
+    ],
+    "kunyomi": [
+      "くろ",
+      "くろ.い"
+    ],
+    "stroke_count": 5,
+    "reading": "げん"
+  },
+  {
+    "character": "玉",
+    "original_character": "⽟",
+    "meaning": "jewel, ball",
+    "onyomi": [
+      "ギョク"
+    ],
+    "kunyomi": [
+      "たま",
+      "たま-",
+      "-だま"
+    ],
+    "stroke_count": 5,
+    "reading": "たま"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "melon",
+    "onyomi": [],
+    "kunyomi": [
+      "うり"
+    ],
+    "stroke_count": 5,
+    "reading": "うり"
+  },
+  {
+    "character": "瓦",
+    "original_character": "⽡",
+    "meaning": "tile, gram",
+    "onyomi": [
+      "ガ"
+    ],
+    "kunyomi": [
+      "かわら",
+      "ぐらむ"
+    ],
+    "stroke_count": 5,
+    "reading": "かわら"
+  },
+  {
+    "character": "甘",
+    "original_character": "⽢",
+    "meaning": "sweet, coax, pamper, be content, sugary",
+    "onyomi": [
+      "カン"
+    ],
+    "kunyomi": [
+      "あま.い",
+      "あま.える",
+      "あま.やかす",
+      "うま.い"
+    ],
+    "stroke_count": 5,
+    "reading": "あまい"
+  },
+  {
+    "character": "生",
+    "original_character": "⽣",
+    "meaning": "life, genuine, birth",
+    "onyomi": [
+      "セイ",
+      "ショウ"
+    ],
+    "kunyomi": [
+      "い.きる",
+      "い.かす",
+      "い.ける",
+      "う.まれる",
+      "うま.れる",
+      "う.まれ",
+      "うまれ",
+      "う.む",
+      "お.う",
+      "は.える",
+      "は.やす",
+      "き",
+      "なま",
+      "なま-",
+      "な.る",
+      "な.す",
+      "む.す",
+      "-う"
+    ],
+    "stroke_count": 5,
+    "reading": "うまれる"
+  },
+  {
+    "character": "用",
+    "original_character": "⽤",
+    "meaning": "utilize, business, service, use, employ",
+    "onyomi": [
+      "ヨウ"
+    ],
+    "kunyomi": [
+      "もち.いる"
+    ],
+    "stroke_count": 5,
+    "reading": "もちいる"
+  },
+  {
+    "character": "田",
+    "original_character": "⽥",
+    "meaning": "rice field, rice paddy",
+    "onyomi": [
+      "デン"
+    ],
+    "kunyomi": [
+      "た"
+    ],
+    "stroke_count": 5,
+    "reading": "た"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "rice paddy",
+    "onyomi": [],
+    "kunyomi": [
+      "たへん"
+    ],
+    "stroke_count": 5,
+    "reading": "たへん"
+  },
+  {
+    "character": "疋",
+    "original_character": "⽦",
+    "meaning": "head, counter for animals",
+    "onyomi": [
+      "ヒキ",
+      "ショ",
+      "ソ",
+      "ヒツ"
+    ],
+    "kunyomi": [
+      "あし"
+    ],
+    "stroke_count": 5,
+    "reading": "ひき"
+  },
+  {
+    "character": "𤴔",
+    "original_character": "⺪",
+    "meaning": "bolt of cloth",
+    "onyomi": [],
+    "kunyomi": [
+      "ひきへん"
+    ],
+    "stroke_count": 5,
+    "reading": "ひきへん"
+  },
+  {
+    "character": "疒",
+    "original_character": "⽧",
+    "meaning": "trailing sickness, sick radical (no. 104)",
+    "onyomi": [
+      "ダク",
+      "ニャク",
+      "ソウ",
+      "ジョウ",
+      "シツ"
+    ],
+    "kunyomi": [
+      "や.む"
+    ],
+    "stroke_count": 5,
+    "reading": "やまいだれ"
+  },
+  {
+    "character": "癶",
+    "original_character": "⽨",
+    "meaning": "dotted tent radical (no. 105)",
+    "onyomi": [
+      "ハツ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 5,
+    "reading": "はつがしら"
+  },
+  {
+    "character": "白",
+    "original_character": "⽩",
+    "meaning": "white",
+    "onyomi": [
+      "ハク",
+      "ビャク"
+    ],
+    "kunyomi": [
+      "しろ",
+      "しら-",
+      "しろ.い"
+    ],
+    "stroke_count": 5,
+    "reading": "しろ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "white",
+    "onyomi": [],
+    "kunyomi": [
+      "はくへん"
+    ],
+    "stroke_count": 5,
+    "reading": "はくへん"
+  },
+  {
+    "character": "皮",
+    "original_character": "⽪",
+    "meaning": "pelt, skin, hide, leather, skin radical (no. 107)",
+    "onyomi": [
+      "ヒ"
+    ],
+    "kunyomi": [
+      "かわ"
+    ],
+    "stroke_count": 5,
+    "reading": "けがわ"
+  },
+  {
+    "character": "皿",
+    "original_character": "⽫",
+    "meaning": "dish, a helping, plate",
+    "onyomi": [
+      "ベイ"
+    ],
+    "kunyomi": [
+      "さら"
+    ],
+    "stroke_count": 5,
+    "reading": "さら"
+  },
+  {
+    "character": "目",
+    "original_character": "⽬",
+    "meaning": "eye, class, look, insight, experience, care, favor",
+    "onyomi": [
+      "モク",
+      "ボク"
+    ],
+    "kunyomi": [
+      "め",
+      "-め",
+      "ま-"
+    ],
+    "stroke_count": 5,
+    "reading": "め"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "eye",
+    "onyomi": [],
+    "kunyomi": [
+      "めへん"
+    ],
+    "stroke_count": 5,
+    "reading": "めへん"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "eye",
+    "onyomi": [],
+    "kunyomi": [
+      "よこめ"
+    ],
+    "stroke_count": 5,
+    "reading": "よこめ"
+  },
+  {
+    "character": "矛",
+    "original_character": "⽭",
+    "meaning": "halberd, arms, festival float",
+    "onyomi": [
+      "ム",
+      "ボウ"
+    ],
+    "kunyomi": [
+      "ほこ"
+    ],
+    "stroke_count": 5,
+    "reading": "ほこ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "halberd",
+    "onyomi": [],
+    "kunyomi": [
+      "ほこへん"
+    ],
+    "stroke_count": 5,
+    "reading": "ほこへん"
+  },
+  {
+    "character": "矢",
+    "original_character": "⽮",
+    "meaning": "dart, arrow",
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "や"
+    ],
+    "stroke_count": 5,
+    "reading": "や"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "arrow",
+    "onyomi": [],
+    "kunyomi": [
+      "やへん"
+    ],
+    "stroke_count": 5,
+    "reading": "やへん"
+  },
+  {
+    "character": "石",
+    "original_character": "⽯",
+    "meaning": "stone",
+    "onyomi": [
+      "セキ",
+      "シャク",
+      "コク"
+    ],
+    "kunyomi": [
+      "いし"
+    ],
+    "stroke_count": 5,
+    "reading": "いし"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "stone",
+    "onyomi": [],
+    "kunyomi": [
+      "いしへん"
+    ],
+    "stroke_count": 5,
+    "reading": "いしへん"
+  },
+  {
+    "character": "示",
+    "original_character": "⽰",
+    "meaning": "show, indicate, point out, express, display",
+    "onyomi": [
+      "ジ",
+      "シ"
+    ],
+    "kunyomi": [
+      "しめ.す"
+    ],
+    "stroke_count": 5,
+    "reading": "しめす"
+  },
+  {
+    "character": "禸",
+    "original_character": "⽱",
+    "meaning": "rump, footprint radical (no. 114)",
+    "onyomi": [
+      "ジュウ",
+      "ニュ"
+    ],
+    "kunyomi": [
+      "あしあと"
+    ],
+    "stroke_count": 5,
+    "reading": "じゅうのあし"
+  },
+  {
+    "character": "禾",
+    "original_character": "⽲",
+    "meaning": "two-branch tree radical (no. 115)",
+    "onyomi": [
+      "カ"
+    ],
+    "kunyomi": [
+      "いね"
+    ],
+    "stroke_count": 5,
+    "reading": "のぎへん"
+  },
+  {
+    "character": "穴",
+    "original_character": "⽳",
+    "meaning": "hole, aperture, slit, cave, den",
+    "onyomi": [
+      "ケツ"
+    ],
+    "kunyomi": [
+      "あな"
+    ],
+    "stroke_count": 5,
+    "reading": "あな"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "hole, cave",
+    "onyomi": [],
+    "kunyomi": [
+      "あなかんむり"
+    ],
+    "stroke_count": 5,
+    "reading": "あなかんむり"
+  },
+  {
+    "character": "立",
+    "original_character": "⽴",
+    "meaning": "stand up, rise, set up, erect",
+    "onyomi": [
+      "リツ",
+      "リュウ",
+      "リットル"
+    ],
+    "kunyomi": [
+      "た.つ",
+      "-た.つ",
+      "た.ち-",
+      "た.てる",
+      "-た.てる",
+      "た.て-",
+      "たて-",
+      "-た.て",
+      "-だ.て",
+      "-だ.てる"
+    ],
+    "stroke_count": 5,
+    "reading": "たつ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "to stand",
+    "onyomi": [],
+    "kunyomi": [
+      "たつへん"
+    ],
+    "stroke_count": 5,
+    "reading": "たつへん"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "fang, canine tooth",
+    "onyomi": [],
+    "kunyomi": [
+      "きば"
+    ],
+    "stroke_count": 5,
+    "reading": "きば"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "fang, canine tooth",
+    "onyomi": [],
+    "kunyomi": [
+      "きばへん"
+    ],
+    "stroke_count": 5,
+    "reading": "きばへん"
+  },
+  {
+    "character": "氺",
+    "original_character": "氺",
+    "meaning": "water radical variant (no. 85)",
+    "onyomi": [
+      "スイ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 5,
+    "reading": "したみず"
+  },
+  {
+    "character": "目",
+    "original_character": "⺫",
+    "meaning": "eye, class, look, insight, experience, care, favor",
+    "onyomi": [
+      "モク",
+      "ボク"
+    ],
+    "kunyomi": [
+      "め",
+      "-め",
+      "ま-"
+    ],
+    "stroke_count": 5,
+    "reading": "あみがしら"
+  },
+  {
+    "character": "𦉰",
+    "original_character": "𦉰",
+    "meaning": "net",
+    "onyomi": [],
+    "kunyomi": [
+      "あみがしら"
+    ],
+    "stroke_count": 5,
+    "reading": "あみがしら"
+  },
+  {
+    "character": "衤",
+    "original_character": "⻂",
+    "meaning": "clothes, clothing radical (no. 145",
+    "onyomi": [],
+    "kunyomi": [
+      "ころも"
+    ],
+    "stroke_count": 5,
+    "reading": "ころもへん"
+  },
+  {
+    "character": "旡",
+    "original_character": "⺛",
+    "meaning": "sob, choke, crooked heaven radical variant (no.71)",
+    "onyomi": [
+      "キ",
+      "ケ"
+    ],
+    "kunyomi": [
+      "む",
+      "なし"
+    ],
+    "stroke_count": 5,
+    "reading": "むにょう"
+  },
+  {
+    "character": "竹",
+    "original_character": "⽵",
+    "meaning": "bamboo",
+    "onyomi": [
+      "チク"
+    ],
+    "kunyomi": [
+      "たけ"
+    ],
+    "stroke_count": 6,
+    "reading": "たけ"
+  },
+  {
+    "character": "𥫗",
+    "original_character": "⺮",
+    "meaning": "bamboo",
+    "onyomi": [],
+    "kunyomi": [
+      "たけかんむり"
+    ],
+    "stroke_count": 6,
+    "reading": "たけかんむり"
+  },
+  {
+    "character": "米",
+    "original_character": "⽶",
+    "meaning": "rice, USA, metre",
+    "onyomi": [
+      "ベイ",
+      "マイ",
+      "メエトル"
+    ],
+    "kunyomi": [
+      "こめ",
+      "よね"
+    ],
+    "stroke_count": 6,
+    "reading": "こめ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "rice",
+    "onyomi": [],
+    "kunyomi": [
+      "こめへん"
+    ],
+    "stroke_count": 6,
+    "reading": "こめへん"
+  },
+  {
+    "character": "糸",
+    "original_character": "⽷",
+    "meaning": "thread",
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "いと"
+    ],
+    "stroke_count": 6,
+    "reading": "いと"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "thread",
+    "onyomi": [],
+    "kunyomi": [
+      "いとへん"
+    ],
+    "stroke_count": 6,
+    "reading": "いとへん"
+  },
+  {
+    "character": "缶",
+    "original_character": "⽸",
+    "meaning": "tin can, container, jar radical (no. 121)",
+    "onyomi": [
+      "カン"
+    ],
+    "kunyomi": [
+      "かま"
+    ],
+    "stroke_count": 6,
+    "reading": "みずがめ"
+  },
+  {
+    "character": "网",
+    "original_character": "⽹",
+    "meaning": "net, net or net crown radical (no. 122)",
+    "onyomi": [
+      "モウ",
+      "ボウ"
+    ],
+    "kunyomi": [
+      "あみ"
+    ],
+    "stroke_count": 6,
+    "reading": "あみめ"
+  },
+  {
+    "character": "羊",
+    "original_character": "⽺",
+    "meaning": "sheep",
+    "onyomi": [
+      "ヨウ"
+    ],
+    "kunyomi": [
+      "ひつじ"
+    ],
+    "stroke_count": 6,
+    "reading": "ひつじ"
+  },
+  {
+    "character": "𦍌",
+    "original_character": "⺷",
+    "meaning": "sheep",
+    "onyomi": [],
+    "kunyomi": [
+      "ひつじ"
+    ],
+    "stroke_count": 6,
+    "reading": "ひつじ"
+  },
+  {
+    "character": "羽",
+    "original_character": "羽",
+    "meaning": "feather, wing",
+    "onyomi": [],
+    "kunyomi": [
+      "はね"
+    ],
+    "stroke_count": 6,
+    "reading": "はね"
+  },
+  {
+    "character": "羽",
+    "original_character": "⽻",
+    "meaning": "feathers, counter for birds, rabbits",
+    "onyomi": [
+      "ウ"
+    ],
+    "kunyomi": [
+      "は",
+      "わ",
+      "はね"
+    ],
+    "stroke_count": 6,
+    "reading": "はね"
+  },
+  {
+    "character": "老",
+    "original_character": "⽼",
+    "meaning": "old man, old age, grow old",
+    "onyomi": [
+      "ロウ"
+    ],
+    "kunyomi": [
+      "お.いる",
+      "ふ.ける"
+    ],
+    "stroke_count": 6,
+    "reading": "おいかんむり"
+  },
+  {
+    "character": "而",
+    "original_character": "⽽",
+    "meaning": "and yet, and then, but, however, nevertheless",
+    "onyomi": [
+      "ジ",
+      "ニ"
+    ],
+    "kunyomi": [
+      "しこ.うして",
+      "しか.して",
+      "しか.も",
+      "しか.れども",
+      "すなわち",
+      "なんじ",
+      "しかるに"
+    ],
+    "stroke_count": 6,
+    "reading": "しこうして"
+  },
+  {
+    "character": "耒",
+    "original_character": "⽾",
+    "meaning": "come, plough, three-branch tree radical (no. 127)",
+    "onyomi": [
+      "ライ",
+      "ルイ"
+    ],
+    "kunyomi": [
+      "き",
+      "く",
+      "すき"
+    ],
+    "stroke_count": 6,
+    "reading": "らいすき"
+  },
+  {
+    "character": "耳",
+    "original_character": "⽿",
+    "meaning": "ear",
+    "onyomi": [
+      "ジ"
+    ],
+    "kunyomi": [
+      "みみ"
+    ],
+    "stroke_count": 6,
+    "reading": "みみ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "ear",
+    "onyomi": [],
+    "kunyomi": [
+      "みみへん"
+    ],
+    "stroke_count": 6,
+    "reading": "みみへん"
+  },
+  {
+    "character": "聿",
+    "original_character": "⾀",
+    "meaning": "brush, finally, self, relate, follow, here, fast, writing brush radical (no. 129)",
+    "onyomi": [
+      "イチ",
+      "イツ"
+    ],
+    "kunyomi": [
+      "ふで",
+      "ここに"
+    ],
+    "stroke_count": 6,
+    "reading": "ふでづくり"
+  },
+  {
+    "character": "肉",
+    "original_character": "⾁",
+    "meaning": "meat",
+    "onyomi": [
+      "ニク"
+    ],
+    "kunyomi": [
+      "しし"
+    ],
+    "stroke_count": 6,
+    "reading": "にく"
+  },
+  {
+    "character": "臣",
+    "original_character": "⾂",
+    "meaning": "retainer, subject",
+    "onyomi": [
+      "シン",
+      "ジン"
+    ],
+    "kunyomi": [],
+    "stroke_count": 6,
+    "reading": "しん"
+  },
+  {
+    "character": "自",
+    "original_character": "⾃",
+    "meaning": "oneself",
+    "onyomi": [
+      "ジ",
+      "シ"
+    ],
+    "kunyomi": [
+      "みずか.ら",
+      "おの.ずから",
+      "おの.ずと"
+    ],
+    "stroke_count": 6,
+    "reading": "みずから"
+  },
+  {
+    "character": "至",
+    "original_character": "⾄",
+    "meaning": "climax, arrive, proceed, reach, attain, result in",
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "いた.る"
+    ],
+    "stroke_count": 6,
+    "reading": "いたる"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "to arrive, reach",
+    "onyomi": [],
+    "kunyomi": [
+      "いたるへん"
+    ],
+    "stroke_count": 6,
+    "reading": "いたるへん"
+  },
+  {
+    "character": "臼",
+    "original_character": "⾅",
+    "meaning": "mortar",
+    "onyomi": [
+      "キュウ",
+      "グ"
+    ],
+    "kunyomi": [
+      "うす",
+      "うすづ.く"
+    ],
+    "stroke_count": 6,
+    "reading": "うす"
+  },
+  {
+    "character": "舌",
+    "original_character": "⾆",
+    "meaning": "tongue, reed, clapper",
+    "onyomi": [
+      "ゼツ"
+    ],
+    "kunyomi": [
+      "した"
+    ],
+    "stroke_count": 6,
+    "reading": "した"
+  },
+  {
+    "character": "舛",
+    "original_character": "⾇",
+    "meaning": "dancing radical (no. 136)",
+    "onyomi": [
+      "ブ",
+      "セン"
+    ],
+    "kunyomi": [
+      "まい",
+      "そむ.く"
+    ],
+    "stroke_count": 6,
+    "reading": "まいあし"
+  },
+  {
+    "character": "舟",
+    "original_character": "⾈",
+    "meaning": "boat, ship",
+    "onyomi": [
+      "シュウ"
+    ],
+    "kunyomi": [
+      "ふね",
+      "ふな-",
+      "-ぶね"
+    ],
+    "stroke_count": 6,
+    "reading": "ふね"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "ship, boat",
+    "onyomi": [],
+    "kunyomi": [
+      "ふねへん"
+    ],
+    "stroke_count": 6,
+    "reading": "ふねへん"
+  },
+  {
+    "character": "艮",
+    "original_character": "⾉",
+    "meaning": "northeast (Oriental zodiac), stopping, good radical (no. 138)",
+    "onyomi": [
+      "コン",
+      "ゴン"
+    ],
+    "kunyomi": [
+      "うしとら"
+    ],
+    "stroke_count": 6,
+    "reading": "こん"
+  },
+  {
+    "character": "色",
+    "original_character": "⾊",
+    "meaning": "color",
+    "onyomi": [
+      "ショク",
+      "シキ"
+    ],
+    "kunyomi": [
+      "いろ"
+    ],
+    "stroke_count": 6,
+    "reading": "いろ"
+  },
+  {
+    "character": "艸",
+    "original_character": "⾋",
+    "meaning": "grass, plants, grass radical (no. 140)",
+    "onyomi": [
+      "ソウ"
+    ],
+    "kunyomi": [
+      "くさ"
+    ],
+    "stroke_count": 6,
+    "reading": "くさ"
+  },
+  {
+    "character": "虍",
+    "original_character": "⾌",
+    "meaning": "tiger spots, mottled, tiger or tiger crown radical (no. 141)",
+    "onyomi": [
+      "コ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 6,
+    "reading": "とらがしら"
+  },
+  {
+    "character": "虫",
+    "original_character": "⾍",
+    "meaning": "insect, bug, temper",
+    "onyomi": [
+      "チュウ",
+      "キ"
+    ],
+    "kunyomi": [
+      "むし"
+    ],
+    "stroke_count": 6,
+    "reading": "むし"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "worm, insect, bug",
+    "onyomi": [],
+    "kunyomi": [
+      "むしへん"
+    ],
+    "stroke_count": 6,
+    "reading": "むしへん"
+  },
+  {
+    "character": "血",
+    "original_character": "⾎",
+    "meaning": "blood",
+    "onyomi": [
+      "ケツ"
+    ],
+    "kunyomi": [
+      "ち"
+    ],
+    "stroke_count": 6,
+    "reading": "ち"
+  },
+  {
+    "character": "行",
+    "original_character": "⾏",
+    "meaning": "going, journey, carry out, conduct, act, line, row, bank",
+    "onyomi": [
+      "コウ",
+      "ギョウ",
+      "アン"
+    ],
+    "kunyomi": [
+      "い.く",
+      "ゆ.く",
+      "-ゆ.き",
+      "-ゆき",
+      "-い.き",
+      "-いき",
+      "おこな.う",
+      "おこ.なう"
+    ],
+    "stroke_count": 6,
+    "reading": "ぎょうがまえ"
+  },
+  {
+    "character": "衣",
+    "original_character": "⾐",
+    "meaning": "garment, clothes, dressing",
+    "onyomi": [
+      "イ",
+      "エ"
+    ],
+    "kunyomi": [
+      "ころも",
+      "きぬ",
+      "-ぎ"
+    ],
+    "stroke_count": 6,
+    "reading": "ころも"
+  },
+  {
+    "character": "襾",
+    "original_character": "⾑",
+    "meaning": "cover, place on top of, west radical variant (no. 146)",
+    "onyomi": [
+      "ア"
+    ],
+    "kunyomi": [
+      "け"
+    ],
+    "stroke_count": 6,
+    "reading": "にし"
+  },
+  {
+    "character": "覀",
+    "original_character": "⻃",
+    "meaning": "variant of radical 146",
+    "onyomi": [],
+    "kunyomi": [
+      "にし"
+    ],
+    "stroke_count": 6,
+    "reading": "にし"
+  },
+  {
+    "character": "瓜",
+    "original_character": "⽠",
+    "meaning": "melon",
+    "onyomi": [
+      "カ",
+      "ケ"
+    ],
+    "kunyomi": [
+      "うり"
+    ],
+    "stroke_count": 6,
+    "reading": "うり"
+  },
+  {
+    "character": "見",
+    "original_character": "⾒",
+    "meaning": "see, hopes, chances, idea, opinion, look at, visible",
+    "onyomi": [
+      "ケン"
+    ],
+    "kunyomi": [
+      "み.る",
+      "み.える",
+      "み.せる"
+    ],
+    "stroke_count": 7,
+    "reading": "みる"
+  },
+  {
+    "character": "角",
+    "original_character": "⾓",
+    "meaning": "angle, corner, square, horn, antlers",
+    "onyomi": [
+      "カク"
+    ],
+    "kunyomi": [
+      "かど",
+      "つの"
+    ],
+    "stroke_count": 7,
+    "reading": "つの"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "horn, corner",
+    "onyomi": [],
+    "kunyomi": [
+      "つのへん"
+    ],
+    "stroke_count": 7,
+    "reading": "つのへん"
+  },
+  {
+    "character": "言",
+    "original_character": "⾔",
+    "meaning": "say, word",
+    "onyomi": [
+      "ゲン",
+      "ゴン"
+    ],
+    "kunyomi": [
+      "い.う",
+      "こと"
+    ],
+    "stroke_count": 7,
+    "reading": "げん"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "words, to speak, say",
+    "onyomi": [],
+    "kunyomi": [
+      "ごんべん"
+    ],
+    "stroke_count": 7,
+    "reading": "ごんべん"
+  },
+  {
+    "character": "谷",
+    "original_character": "⾕",
+    "meaning": "valley",
+    "onyomi": [
+      "コク"
+    ],
+    "kunyomi": [
+      "たに",
+      "きわ.まる"
+    ],
+    "stroke_count": 7,
+    "reading": "たに"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "valley",
+    "onyomi": [],
+    "kunyomi": [
+      "たにへん"
+    ],
+    "stroke_count": 7,
+    "reading": "たにへん"
+  },
+  {
+    "character": "豆",
+    "original_character": "⾖",
+    "meaning": "beans, pea, midget",
+    "onyomi": [
+      "トウ",
+      "ズ"
+    ],
+    "kunyomi": [
+      "まめ",
+      "まめ-"
+    ],
+    "stroke_count": 7,
+    "reading": "まめ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "bean",
+    "onyomi": [],
+    "kunyomi": [
+      "まめへん"
+    ],
+    "stroke_count": 7,
+    "reading": "まめへん"
+  },
+  {
+    "character": "豕",
+    "original_character": "⾗",
+    "meaning": "pig, hog, pig radical (no. 152)",
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 7,
+    "reading": "いのこ"
+  },
+  {
+    "character": "豸",
+    "original_character": "⾘",
+    "meaning": "snake, legless insect, badger or clawed dog radical (no. 153)",
+    "onyomi": [
+      "タイ",
+      "チ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 7,
+    "reading": "むじなへん"
+  },
+  {
+    "character": "貝",
+    "original_character": "⾙",
+    "meaning": "shellfish",
+    "onyomi": [
+      "バイ"
+    ],
+    "kunyomi": [
+      "かい"
+    ],
+    "stroke_count": 7,
+    "reading": "かい"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "shell, property, wealth",
+    "onyomi": [],
+    "kunyomi": [
+      "かいへん"
+    ],
+    "stroke_count": 7,
+    "reading": "かいへん"
+  },
+  {
+    "character": "赤",
+    "original_character": "⾚",
+    "meaning": "red",
+    "onyomi": [
+      "セキ",
+      "シャク"
+    ],
+    "kunyomi": [
+      "あか",
+      "あか-",
+      "あか.い",
+      "あか.らむ",
+      "あか.らめる"
+    ],
+    "stroke_count": 7,
+    "reading": "あか"
+  },
+  {
+    "character": "走",
+    "original_character": "⾛",
+    "meaning": "run",
+    "onyomi": [
+      "ソウ"
+    ],
+    "kunyomi": [
+      "はし.る"
+    ],
+    "stroke_count": 7,
+    "reading": "はしる"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "to run",
+    "onyomi": [],
+    "kunyomi": [
+      "そうにょう"
+    ],
+    "stroke_count": 7,
+    "reading": "そうにょう"
+  },
+  {
+    "character": "足",
+    "original_character": "⾜",
+    "meaning": "leg, foot, be sufficient, counter for pairs of footwear",
+    "onyomi": [
+      "ソク"
+    ],
+    "kunyomi": [
+      "あし",
+      "た.りる",
+      "た.る",
+      "た.す"
+    ],
+    "stroke_count": 7,
+    "reading": "あし"
+  },
+  {
+    "character": "𧾷",
+    "original_character": "⻊",
+    "meaning": "foot, leg",
+    "onyomi": [],
+    "kunyomi": [
+      "あしへん"
+    ],
+    "stroke_count": 7,
+    "reading": "あしへん"
+  },
+  {
+    "character": "身",
+    "original_character": "⾝",
+    "meaning": "somebody, person, one's station in life",
+    "onyomi": [
+      "シン"
+    ],
+    "kunyomi": [
+      "み"
+    ],
+    "stroke_count": 7,
+    "reading": "み"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "body",
+    "onyomi": [],
+    "kunyomi": [
+      "みへん"
+    ],
+    "stroke_count": 7,
+    "reading": "みへん"
+  },
+  {
+    "character": "車",
+    "original_character": "⾞",
+    "meaning": "car",
+    "onyomi": [
+      "シャ"
+    ],
+    "kunyomi": [
+      "くるま"
+    ],
+    "stroke_count": 7,
+    "reading": "くるま"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "vehicle, wheel, car",
+    "onyomi": [],
+    "kunyomi": [
+      "くるまへん"
+    ],
+    "stroke_count": 7,
+    "reading": "くるまへん"
+  },
+  {
+    "character": "辛",
+    "original_character": "⾟",
+    "meaning": "spicy, bitter, hot, acrid",
+    "onyomi": [
+      "シン"
+    ],
+    "kunyomi": [
+      "から.い",
+      "つら.い",
+      "-づら.い",
+      "かのと"
+    ],
+    "stroke_count": 7,
+    "reading": "からい"
+  },
+  {
+    "character": "辰",
+    "original_character": "⾠",
+    "meaning": "sign of the dragon, 7-9AM, fifth sign of Chinese zodiac, shin dragon radical (no. 161)",
+    "onyomi": [
+      "シン",
+      "ジン"
+    ],
+    "kunyomi": [
+      "たつ"
+    ],
+    "stroke_count": 7,
+    "reading": "しんのたつ"
+  },
+  {
+    "character": "辵",
+    "original_character": "⾡",
+    "meaning": "walk, walking, road radical (no. 162)",
+    "onyomi": [
+      "チャク"
+    ],
+    "kunyomi": [],
+    "stroke_count": 7,
+    "reading": "しんにょう"
+  },
+  {
+    "character": "邑",
+    "original_character": "⾢",
+    "meaning": "village, rural community, right village radical (no. 163)",
+    "onyomi": [
+      "ユウ"
+    ],
+    "kunyomi": [
+      "むら"
+    ],
+    "stroke_count": 7,
+    "reading": "むら"
+  },
+  {
+    "character": "酉",
+    "original_character": "⾣",
+    "meaning": "west, bird, sign of the bird, 5-7PM, tenth sign of Chinese zodiac, sake radical (no. 164)",
+    "onyomi": [
+      "ユウ"
+    ],
+    "kunyomi": [
+      "とり"
+    ],
+    "stroke_count": 7,
+    "reading": "ひよみのとり"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "sake jar, bird",
+    "onyomi": [],
+    "kunyomi": [
+      "とりへん"
+    ],
+    "stroke_count": 7,
+    "reading": "とりへん"
+  },
+  {
+    "character": "釆",
+    "original_character": "⾤",
+    "meaning": "separate, divide, topped rice radical (no. 165)",
+    "onyomi": [
+      "ハン",
+      "ベン",
+      "サイ"
+    ],
+    "kunyomi": [
+      "と.る",
+      "いろどり",
+      "のごめ"
+    ],
+    "stroke_count": 7,
+    "reading": "のごめ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "to separate",
+    "onyomi": [],
+    "kunyomi": [
+      "のごめへん"
+    ],
+    "stroke_count": 7,
+    "reading": "のごめへん"
+  },
+  {
+    "character": "里",
+    "original_character": "⾥",
+    "meaning": "ri, village, parent's home, league",
+    "onyomi": [
+      "リ"
+    ],
+    "kunyomi": [
+      "さと"
+    ],
+    "stroke_count": 7,
+    "reading": "さと"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "village, (3.93 km)",
+    "onyomi": [],
+    "kunyomi": [
+      "さとへん"
+    ],
+    "stroke_count": 7,
+    "reading": "さとへん"
+  },
+  {
+    "character": "臣",
+    "original_character": "⾂",
+    "meaning": "retainer, subject",
+    "onyomi": [
+      "シン",
+      "ジン"
+    ],
+    "kunyomi": [],
+    "stroke_count": 7,
+    "reading": "しん"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "contrary, to err",
+    "onyomi": [],
+    "kunyomi": [
+      "まいあし"
+    ],
+    "stroke_count": 7,
+    "reading": "まいあし"
+  },
+  {
+    "character": "麦",
+    "original_character": "⻨",
+    "meaning": "barley, wheat",
+    "onyomi": [
+      "バク"
+    ],
+    "kunyomi": [
+      "むぎ"
+    ],
+    "stroke_count": 7,
+    "reading": "むぎ"
+  },
+  {
+    "character": "金",
+    "original_character": "⾦",
+    "meaning": "gold",
+    "onyomi": [
+      "キン",
+      "コン",
+      "ゴン"
+    ],
+    "kunyomi": [
+      "かね",
+      "かな-",
+      "-がね"
+    ],
+    "stroke_count": 8,
+    "reading": "かね"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "metal, gold, mineral",
+    "onyomi": [],
+    "kunyomi": [
+      "かねへん"
+    ],
+    "stroke_count": 8,
+    "reading": "かねへん"
+  },
+  {
+    "character": "長",
+    "original_character": "⻑",
+    "meaning": "long, leader, superior, senior",
+    "onyomi": [
+      "チョウ"
+    ],
+    "kunyomi": [
+      "なが.い",
+      "おさ"
+    ],
+    "stroke_count": 8,
+    "reading": "ながい"
+  },
+  {
+    "character": "門",
+    "original_character": "⾨",
+    "meaning": "gate, counter for cannons",
+    "onyomi": [
+      "モン"
+    ],
+    "kunyomi": [
+      "かど",
+      "と"
+    ],
+    "stroke_count": 8,
+    "reading": "もんがまえ"
+  },
+  {
+    "character": "阜",
+    "original_character": "⾩",
+    "meaning": "hill, mound, left village radical (no. 170)",
+    "onyomi": [
+      "フ",
+      "フウ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 8,
+    "reading": "こざと"
+  },
+  {
+    "character": "隶",
+    "original_character": "⾪",
+    "meaning": "extend, give, cast, slave radical (no. 171)",
+    "onyomi": [
+      "タイ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 8,
+    "reading": "れいづくり"
+  },
+  {
+    "character": "隹",
+    "original_character": "⾫",
+    "meaning": "bird, old bird radical (no. 172)",
+    "onyomi": [
+      "サイ",
+      "スイ"
+    ],
+    "kunyomi": [
+      "とり"
+    ],
+    "stroke_count": 8,
+    "reading": "ふるとり"
+  },
+  {
+    "character": "雨",
+    "original_character": "⾬",
+    "meaning": "rain",
+    "onyomi": [
+      "ウ"
+    ],
+    "kunyomi": [
+      "あめ",
+      "あま-",
+      "-さめ"
+    ],
+    "stroke_count": 8,
+    "reading": "あめ"
+  },
+  {
+    "character": "雨",
+    "original_character": "⻗",
+    "meaning": "rain",
+    "onyomi": [
+      "ウ"
+    ],
+    "kunyomi": [
+      "あめ",
+      "あま-",
+      "-さめ"
+    ],
+    "stroke_count": 8,
+    "reading": "あめかんむり"
+  },
+  {
+    "character": "靑",
+    "original_character": "⾭",
+    "meaning": "blue, green",
+    "onyomi": [],
+    "kunyomi": [
+      "あお"
+    ],
+    "stroke_count": 8,
+    "reading": "あお"
+  },
+  {
+    "character": "青",
+    "original_character": "⻘",
+    "meaning": "blue, green",
+    "onyomi": [
+      "セイ",
+      "ショウ"
+    ],
+    "kunyomi": [
+      "あお",
+      "あお-",
+      "あお.い"
+    ],
+    "stroke_count": 8,
+    "reading": "あお"
+  },
+  {
+    "character": "非",
+    "original_character": "⾮",
+    "meaning": "un-, mistake, negative, injustice, non-",
+    "onyomi": [
+      "ヒ"
+    ],
+    "kunyomi": [
+      "あら.ず"
+    ],
+    "stroke_count": 8,
+    "reading": "あらず"
+  },
+  {
+    "character": "飠",
+    "original_character": "⻟",
+    "meaning": "eat, food, radical number 184",
+    "onyomi": [],
+    "kunyomi": [
+      "しょくへん"
+    ],
+    "stroke_count": 8,
+    "reading": "しょくへん"
+  },
+  {
+    "character": "斉",
+    "original_character": "⻫",
+    "meaning": "adjusted, alike, equal, similar variety of",
+    "onyomi": [
+      "セイ",
+      "サイ"
+    ],
+    "kunyomi": [
+      "そろ.う",
+      "ひと.しい",
+      "ひと.しく",
+      "あたる",
+      "はやい"
+    ],
+    "stroke_count": 8,
+    "reading": "せい"
+  },
+  {
+    "character": "面",
+    "original_character": "⾯",
+    "meaning": "mask, face, features, surface",
+    "onyomi": [
+      "メン",
+      "ベン"
+    ],
+    "kunyomi": [
+      "おも",
+      "おもて",
+      "つら"
+    ],
+    "stroke_count": 9,
+    "reading": "めん"
+  },
+  {
+    "character": "革",
+    "original_character": "⾰",
+    "meaning": "leather, skin, reform, become serious",
+    "onyomi": [
+      "カク"
+    ],
+    "kunyomi": [
+      "かわ"
+    ],
+    "stroke_count": 9,
+    "reading": "つくりがわ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "leather",
+    "onyomi": [],
+    "kunyomi": [
+      "なめしがわ"
+    ],
+    "stroke_count": 9,
+    "reading": "なめしがわ"
+  },
+  {
+    "character": "韭",
+    "original_character": "⾲",
+    "meaning": "leek radical (no. 179)",
+    "onyomi": [
+      "キュウ",
+      "ク"
+    ],
+    "kunyomi": [],
+    "stroke_count": 9,
+    "reading": "にら"
+  },
+  {
+    "character": "音",
+    "original_character": "⾳",
+    "meaning": "sound, noise",
+    "onyomi": [
+      "オン",
+      "イン",
+      "-ノン"
+    ],
+    "kunyomi": [
+      "おと",
+      "ね"
+    ],
+    "stroke_count": 9,
+    "reading": "おと"
+  },
+  {
+    "character": "頁",
+    "original_character": "⾴",
+    "meaning": "page, leaf",
+    "onyomi": [
+      "ケツ"
+    ],
+    "kunyomi": [
+      "ぺえじ",
+      "おおがい",
+      "かしら"
+    ],
+    "stroke_count": 9,
+    "reading": "おおがい"
+  },
+  {
+    "character": "風",
+    "original_character": "⾵",
+    "meaning": "wind, air, style, manner",
+    "onyomi": [
+      "フウ",
+      "フ"
+    ],
+    "kunyomi": [
+      "かぜ",
+      "かざ-"
+    ],
+    "stroke_count": 9,
+    "reading": "かぜ"
+  },
+  {
+    "character": "飛",
+    "original_character": "⾶",
+    "meaning": "fly, skip (pages), scatter",
+    "onyomi": [
+      "ヒ"
+    ],
+    "kunyomi": [
+      "と.ぶ",
+      "と.ばす",
+      "-と.ばす"
+    ],
+    "stroke_count": 9,
+    "reading": "とぶ"
+  },
+  {
+    "character": "食",
+    "original_character": "⾷",
+    "meaning": "eat, food",
+    "onyomi": [
+      "ショク",
+      "ジキ"
+    ],
+    "kunyomi": [
+      "く.う",
+      "く.らう",
+      "た.べる",
+      "は.む"
+    ],
+    "stroke_count": 9,
+    "reading": "しょく"
+  },
+  {
+    "character": "首",
+    "original_character": "⾸",
+    "meaning": "neck, counter for songs and poems",
+    "onyomi": [
+      "シュ"
+    ],
+    "kunyomi": [
+      "くび"
+    ],
+    "stroke_count": 9,
+    "reading": "くび"
+  },
+  {
+    "character": "香",
+    "original_character": "⾹",
+    "meaning": "incense, smell, perfume",
+    "onyomi": [
+      "コウ",
+      "キョウ"
+    ],
+    "kunyomi": [
+      "か",
+      "かお.り",
+      "かお.る"
+    ],
+    "stroke_count": 9,
+    "reading": "かおり"
+  },
+  {
+    "character": "馬",
+    "original_character": "⾺",
+    "meaning": "horse",
+    "onyomi": [
+      "バ"
+    ],
+    "kunyomi": [
+      "うま",
+      "うま-",
+      "ま"
+    ],
+    "stroke_count": 10,
+    "reading": "うま"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "horse",
+    "onyomi": [],
+    "kunyomi": [
+      "うまへん"
+    ],
+    "stroke_count": 10,
+    "reading": "うまへん"
+  },
+  {
+    "character": "骨",
+    "original_character": "⾻",
+    "meaning": "skeleton, bone, remains, frame",
+    "onyomi": [
+      "コツ"
+    ],
+    "kunyomi": [
+      "ほね"
+    ],
+    "stroke_count": 10,
+    "reading": "ほね"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "bone",
+    "onyomi": [],
+    "kunyomi": [
+      "ほねへん"
+    ],
+    "stroke_count": 10,
+    "reading": "ほねへん"
+  },
+  {
+    "character": "高",
+    "original_character": "⾼",
+    "meaning": "tall, high, expensive",
+    "onyomi": [
+      "コウ"
+    ],
+    "kunyomi": [
+      "たか.い",
+      "たか",
+      "-だか",
+      "たか.まる",
+      "たか.める"
+    ],
+    "stroke_count": 10,
+    "reading": "たかい"
+  },
+  {
+    "character": "髟",
+    "original_character": "⾽",
+    "meaning": "hair hanging long, mane, long hair radical (no.190)",
+    "onyomi": [
+      "ヒュウ",
+      "ヒョウ"
+    ],
+    "kunyomi": [],
+    "stroke_count": 10,
+    "reading": "かみかんむり"
+  },
+  {
+    "character": "鬥",
+    "original_character": "⾾",
+    "meaning": "broken gate radical (no. 191)",
+    "onyomi": [],
+    "kunyomi": [
+      "たたかいがまえ"
+    ],
+    "stroke_count": 10,
+    "reading": "たたかいがまえ"
+  },
+  {
+    "character": "鬯",
+    "original_character": "⾿",
+    "meaning": "fragrant herbs, spiced liqueur, grow, spread",
+    "onyomi": [
+      "チョウ"
+    ],
+    "kunyomi": [
+      "かおりぐさ"
+    ],
+    "stroke_count": 10,
+    "reading": "においざけ"
+  },
+  {
+    "character": "鬲",
+    "original_character": "⿀",
+    "meaning": "tripod",
+    "onyomi": [
+      "カク",
+      "レキ"
+    ],
+    "kunyomi": [
+      "かなえ",
+      "へだ.てる"
+    ],
+    "stroke_count": 10,
+    "reading": "れき"
+  },
+  {
+    "character": "鬼",
+    "original_character": "⿁",
+    "meaning": "ghost, devil",
+    "onyomi": [
+      "キ"
+    ],
+    "kunyomi": [
+      "おに",
+      "おに-"
+    ],
+    "stroke_count": 10,
+    "reading": "おに"
+  },
+  {
+    "character": "韋",
+    "original_character": "⾱",
+    "meaning": "tanned leather radical (no. 178)",
+    "onyomi": [
+      "イ"
+    ],
+    "kunyomi": [
+      "そむ.く"
+    ],
+    "stroke_count": 10,
+    "reading": "なめしがわ"
+  },
+  {
+    "character": "魚",
+    "original_character": "⿂",
+    "meaning": "fish",
+    "onyomi": [
+      "ギョ"
+    ],
+    "kunyomi": [
+      "うお",
+      "さかな",
+      "-ざかな"
+    ],
+    "stroke_count": 11,
+    "reading": "うお"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "fish",
+    "onyomi": [],
+    "kunyomi": [
+      "うおへん"
+    ],
+    "stroke_count": 11,
+    "reading": "うおへん"
+  },
+  {
+    "character": "鳥",
+    "original_character": "⿃",
+    "meaning": "bird, chicken",
+    "onyomi": [
+      "チョウ"
+    ],
+    "kunyomi": [
+      "とり"
+    ],
+    "stroke_count": 11,
+    "reading": "とり"
+  },
+  {
+    "character": "鹵",
+    "original_character": "⿄",
+    "meaning": "salt",
+    "onyomi": [
+      "ロ"
+    ],
+    "kunyomi": [
+      "しお",
+      "しおち",
+      "たて"
+    ],
+    "stroke_count": 11,
+    "reading": "しお"
+  },
+  {
+    "character": "鹿",
+    "original_character": "⿅",
+    "meaning": "deer",
+    "onyomi": [
+      "ロク"
+    ],
+    "kunyomi": [
+      "しか",
+      "か"
+    ],
+    "stroke_count": 11,
+    "reading": "しか"
+  },
+  {
+    "character": "麥",
+    "original_character": "⿆",
+    "meaning": "wheat",
+    "onyomi": [
+      "バク"
+    ],
+    "kunyomi": [
+      "むぎ"
+    ],
+    "stroke_count": 11,
+    "reading": "むぎ"
+  },
+  {
+    "character": "麻",
+    "original_character": "⿇",
+    "meaning": "hemp, flax, numb",
+    "onyomi": [
+      "マ",
+      "マア"
+    ],
+    "kunyomi": [
+      "あさ"
+    ],
+    "stroke_count": 11,
+    "reading": "あさ"
+  },
+  {
+    "character": "",
+    "original_character": "",
+    "meaning": "hemp",
+    "onyomi": [],
+    "kunyomi": [
+      "あさかんむり"
+    ],
+    "stroke_count": 11,
+    "reading": "あさかんむり"
+  },
+  {
+    "character": "黄",
+    "original_character": "⻩",
+    "meaning": "yellow",
+    "onyomi": [
+      "コウ",
+      "オウ"
+    ],
+    "kunyomi": [
+      "き",
+      "こ-"
+    ],
+    "stroke_count": 11,
+    "reading": "き"
+  },
+  {
+    "character": "黒",
+    "original_character": "黒",
+    "meaning": "black",
+    "onyomi": [
+      "コク"
+    ],
+    "kunyomi": [
+      "くろ",
+      "くろ.ずむ",
+      "くろ.い"
+    ],
+    "stroke_count": 11,
+    "reading": "くろ"
+  },
+  {
+    "character": "亀",
+    "original_character": "⻲",
+    "meaning": "tortoise, turtle",
+    "onyomi": [
+      "キ",
+      "キュウ",
+      "キン"
+    ],
+    "kunyomi": [
+      "かめ"
+    ],
+    "stroke_count": 11,
+    "reading": "かめ"
+  },
+  {
+    "character": "黃",
+    "original_character": "⿈",
+    "meaning": "yellow, surname",
+    "onyomi": [
+      "コウ",
+      "オウ"
+    ],
+    "kunyomi": [
+      "き"
+    ],
+    "stroke_count": 12,
+    "reading": "き"
+  },
+  {
+    "character": "黍",
+    "original_character": "⿉",
+    "meaning": "millet",
+    "onyomi": [
+      "ショ"
+    ],
+    "kunyomi": [
+      "きび"
+    ],
+    "stroke_count": 12,
+    "reading": "きび"
+  },
+  {
+    "character": "黑",
+    "original_character": "⿊",
+    "meaning": "black, dark, evil, sinister",
+    "onyomi": [
+      "コク"
+    ],
+    "kunyomi": [
+      "くろい",
+      "くろ"
+    ],
+    "stroke_count": 12,
+    "reading": "くろ"
+  },
+  {
+    "character": "黹",
+    "original_character": "⿋",
+    "meaning": "sewing radical (no. 204)",
+    "onyomi": [
+      "チ"
+    ],
+    "kunyomi": [
+      "ぬう",
+      "ぬいとり"
+    ],
+    "stroke_count": 12,
+    "reading": "ぬいとり"
+  },
+  {
+    "character": "歯",
+    "original_character": "⻭",
+    "meaning": "tooth, cog",
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "よわい",
+      "は",
+      "よわ.い",
+      "よわい.する"
+    ],
+    "stroke_count": 12,
+    "reading": "は"
+  },
+  {
+    "character": "黽",
+    "original_character": "⿌",
+    "meaning": "green frog, industry",
+    "onyomi": [
+      "ボウ",
+      "ビン",
+      "ベン",
+      "ミン",
+      "メン"
+    ],
+    "kunyomi": [
+      "あおがえる",
+      "つと.める"
+    ],
+    "stroke_count": 13,
+    "reading": "かえる"
+  },
+  {
+    "character": "鼎",
+    "original_character": "⿍",
+    "meaning": "three legged kettle",
+    "onyomi": [
+      "テイ"
+    ],
+    "kunyomi": [
+      "かなえ"
+    ],
+    "stroke_count": 13,
+    "reading": "かなえ"
+  },
+  {
+    "character": "鼓",
+    "original_character": "⿎",
+    "meaning": "drum, beat, rouse, muster",
+    "onyomi": [
+      "コ"
+    ],
+    "kunyomi": [
+      "つづみ"
+    ],
+    "stroke_count": 13,
+    "reading": "つづみ"
+  },
+  {
+    "character": "鼠",
+    "original_character": "⿏",
+    "meaning": "rat, mouse, dark gray",
+    "onyomi": [
+      "ソ",
+      "ショ"
+    ],
+    "kunyomi": [
+      "ねずみ",
+      "ねず"
+    ],
+    "stroke_count": 13,
+    "reading": "ねずみ"
+  },
+  {
+    "character": "鼻",
+    "original_character": "⿐",
+    "meaning": "nose, snout",
+    "onyomi": [
+      "ビ"
+    ],
+    "kunyomi": [
+      "はな"
+    ],
+    "stroke_count": 14,
+    "reading": "はな"
+  },
+  {
+    "character": "齊",
+    "original_character": "⿑",
+    "meaning": "alike, equal, similar, Saito",
+    "onyomi": [
+      "セイ",
+      "サイ"
+    ],
+    "kunyomi": [
+      "そろ.う",
+      "ひと.しい",
+      "ひと.しく",
+      "あたる",
+      "はやい"
+    ],
+    "stroke_count": 14,
+    "reading": "せい"
+  },
+  {
+    "character": "齒",
+    "original_character": "⿒",
+    "meaning": "tooth, cog",
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "よわい",
+      "は",
+      "よわ.い",
+      "よわい.する"
+    ],
+    "stroke_count": 15,
+    "reading": "は"
+  },
+  {
+    "character": "龍",
+    "original_character": "⿓",
+    "meaning": "dragon, imperial",
+    "onyomi": [
+      "リュウ",
+      "リョウ",
+      "ロウ"
+    ],
+    "kunyomi": [
+      "たつ"
+    ],
+    "stroke_count": 16,
+    "reading": "りゅう"
+  },
+  {
+    "character": "龜",
+    "original_character": "⿔",
+    "meaning": "turtle, tortoise",
+    "onyomi": [
+      "キ",
+      "キュウ",
+      "キン"
+    ],
+    "kunyomi": [
+      "かめ"
+    ],
+    "stroke_count": 16,
+    "reading": "かめ"
+  },
+  {
+    "character": "龠",
+    "original_character": "⿕",
+    "meaning": "flute",
+    "onyomi": [
+      "ヤク"
+    ],
+    "kunyomi": [
+      "ふえ"
+    ],
+    "stroke_count": 17,
+    "reading": "やく"
+  },
+  {
+    "character": "々",
+    "original_character": "々",
+    "meaning": "n/a",
+    "onyomi": [],
+    "kunyomi": [
+      "n/a"
+    ],
+    "stroke_count": 0,
+    "reading": "n/a"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "name": "kmap",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "build-data": "node scripts/build-radical-data.cjs",
+    "dev": "npm run build-data && astro dev",
+    "build": "npm run build-data && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/svelte": "^8.1.2",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.4.6",
+    "svelte": "^5.56.3",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3"
+  }
+}

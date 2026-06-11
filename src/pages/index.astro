@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SandboxGrid from '../components/SandboxGrid.svelte';
+
+// Import JSON data directly at build time
+import radicalDataMap from '../data/radical_data.json';
+import radicalListArray from '../data/radical_list.json';
+import kanjiDataMap from '../data/kanji_data.json';
+---
+
+<Layout>
+	<SandboxGrid client:load radicalDataMap={radicalDataMap} radicalListArray={radicalListArray} kanjiDataMap={kanjiDataMap} />
+</Layout>
+

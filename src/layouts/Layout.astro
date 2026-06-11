@@ -1,0 +1,29 @@
+---
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro + Svelte + Tailwind Starter</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<style>
+			:root {
+				font-family: 'Plus Jakarta Sans', sans-serif;
+			}
+			h1, h2, h3, h4, h5, h6 {
+				font-family: 'Space Grotesk', sans-serif;
+			}
+		</style>
+	</head>
+	<body class="bg-[#121212] text-slate-100 min-h-screen selection:bg-red-650 selection:text-white antialiased overflow-x-hidden">
+		<slot />
+	</body>
+</html>
+
