@@ -19,6 +19,7 @@
   } = $props();
 
   let isHovered = $state(false);
+  let hoveredBadgeChar = $state(null);
   let hoverTimeout;
 
   function handleMouseEnter() {
@@ -33,6 +34,7 @@
   function handleMouseLeave() {
     onLeaveBlock();
     isHovered = false;
+    hoveredBadgeChar = null;
     if (isFirst) {
       onHoverFirst(false);
     }
@@ -40,6 +42,7 @@
 
   function handlePointerDown(e) {
     if (e.target.closest('button')) return;
+    if (e.target.closest('.radical-badge')) return;
     e.preventDefault();
     onStartDrag(cell.id, e);
   }
@@ -95,6 +98,45 @@
       jlpt: null
     };
   });
+
+  // Compute added radicals: difference between this block's radicals and parent's radicals
+  let addedRadicals = $derived.by(() => {
+    if (!cell.parentId) return [];
+    const parent = $gridStore.find(b => b.id === cell.parentId);
+    if (!parent) return [];
+
+    const parentRads = parent.type === 'radical'
+      ? [parent.character]
+      : (kanjiDataMap[parent.character]?.radicals || []);
+
+    const myRads = cell.type === 'radical'
+      ? [cell.character]
+      : (kanjiDataMap[cell.character]?.radicals || []);
+
+    return myRads.filter(r => !parentRads.includes(r));
+  });
+
+  // Build full data object for a radical character (for opening details)
+  function getRadicalData(radChar) {
+    const details = radicalDataMap[radChar] || {};
+    const item = radicals.find(r => r.character === radChar) || {};
+    const kanjiInfo = kanjiDataMap[radChar] || {};
+    return {
+      type: 'radical',
+      character: radChar,
+      meaning: details.meaning || item.meaning || 'Unknown',
+      onyomi: details.onyomi || item.onyomi || [],
+      kunyomi: details.kunyomi || item.kunyomi || [],
+      stroke_count: item.stroke_count || 1,
+      common_kanji: details.common_kanji || [],
+      jlpt: kanjiInfo.jlpt || null
+    };
+  }
+
+  function handleBadgeClick(e, radChar) {
+    e.stopPropagation();
+    onOpenDetails(getRadicalData(radChar));
+  }
 
   // Derived state to check if block can evolve further
   let canEvolve = $derived.by(() => {
@@ -206,6 +248,30 @@
         {/if}
       </div>
     </div>
+
+    <!-- Added Radicals Indicator Badges (bottom-left corner of child blocks) -->
+    {#if addedRadicals.length > 0}
+      <div class="absolute -bottom-3 left-0.5 flex gap-0.5 z-30">
+        {#each addedRadicals as radChar}
+          <button
+            class="radical-badge relative flex items-center justify-center w-6 h-6 text-[11px] font-bold border cursor-pointer transition-all duration-100 select-none bg-zinc-900 text-red-400 border-zinc-600 hover:bg-zinc-800 hover:border-red-500 hover:text-red-300"
+            title="{radicalDataMap[radChar]?.meaning || 'Radical'}: {radChar}"
+            onclick={(e) => handleBadgeClick(e, radChar)}
+            onmouseenter={() => hoveredBadgeChar = radChar}
+            onmouseleave={() => hoveredBadgeChar = null}
+          >
+            {radChar}
+          </button>
+        {/each}
+        <!-- Badge tooltip (positioned above the badge row) -->
+        {#if hoveredBadgeChar}
+          <div class="absolute bottom-full left-0 mb-1 z-50 px-2 py-1 bg-zinc-900 border border-zinc-600 text-[10px] text-zinc-200 whitespace-nowrap pointer-events-none">
+            <span class="text-red-400 font-bold">{hoveredBadgeChar}</span>
+            <span class="text-zinc-400 ml-1">{radicalDataMap[hoveredBadgeChar]?.meaning || 'Radical'}</span>
+          </div>
+        {/if}
+      </div>
+    {/if}
 
     <!-- Tooltip -->
     {#if cell.type === 'radical'}
