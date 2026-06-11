@@ -180,6 +180,20 @@
     };
   }
 
+  // Shorten connection lines so that arrowhead markers are visible at block boundaries
+  function getShortenedLine(p1, p2, offsetEnd = 58) {
+    const dx = p2.x - p1.x;
+    const dy = p2.y - p1.y;
+    const len = Math.sqrt(dx * dx + dy * dy);
+    if (len === 0) return { x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y };
+    return {
+      x1: p1.x,
+      y1: p1.y,
+      x2: p2.x - (dx / len) * offsetEnd,
+      y2: p2.y - (dy / len) * offsetEnd
+    };
+  }
+
   let notificationText = $state('');
   let notificationTimeout;
 
@@ -314,6 +328,43 @@
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
+
+          <!-- SVG Arrowhead Markers -->
+          <marker 
+            id="arrow" 
+            viewBox="0 0 10 10" 
+            refX="6" 
+            refY="5" 
+            markerWidth="6" 
+            markerHeight="6" 
+            orient="auto"
+          >
+            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#52525b" />
+          </marker>
+          
+          <marker 
+            id="arrowActive" 
+            viewBox="0 0 10 10" 
+            refX="6" 
+            refY="5" 
+            markerWidth="6" 
+            markerHeight="6" 
+            orient="auto"
+          >
+            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#dc2626" />
+          </marker>
+
+          <marker 
+            id="arrowTrigger" 
+            viewBox="0 0 10 10" 
+            refX="6" 
+            refY="5" 
+            markerWidth="6" 
+            markerHeight="6" 
+            orient="auto"
+          >
+            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#dc2626" />
+          </marker>
         </defs>
         
         {#each $gridStore as cell}
@@ -326,17 +377,19 @@
               {@const isHovered = hoveredBlockId === cell.id || 
                                   hoveredBlockId === parentBlock.id || 
                                   (cell.triggeredById && hoveredBlockId === cell.triggeredById)}
+              {@const coords = getShortenedLine(parentCenter, cellCenter, 58)}
               
               <line
-                x1={parentCenter.x}
-                y1={parentCenter.y}
-                x2={cellCenter.x}
-                y2={cellCenter.y}
+                x1={coords.x1}
+                y1={coords.y1}
+                x2={coords.x2}
+                y2={coords.y2}
                 stroke={isHovered ? "url(#webGradActive)" : "url(#webGrad)"}
                 stroke-width={isHovered ? "3.5" : "1.8"}
                 filter={isHovered ? "url(#webGlow)" : ""}
                 stroke-dasharray={isHovered ? "7 4" : ""}
                 class={isHovered ? "animate-dash" : ""}
+                marker-end={isHovered ? "url(#arrowActive)" : "url(#arrow)"}
               />
             {/if}
           {/if}
@@ -348,16 +401,34 @@
               {@const triggerCenter = getCellCenter(triggerBlock)}
               {@const cellCenter = getCellCenter(cell)}
               {@const isTriggerHovered = hoveredBlockId === cell.id || hoveredBlockId === triggerBlock.id}
+              {@const coords = getShortenedLine(triggerCenter, cellCenter, 58)}
+              {@const midX = (triggerCenter.x + cellCenter.x) / 2}
+              {@const midY = (triggerCenter.y + cellCenter.y) / 2}
+              
               <line
-                x1={triggerCenter.x}
-                y1={triggerCenter.y}
-                x2={cellCenter.x}
-                y2={cellCenter.y}
-                stroke={isTriggerHovered ? "url(#webGradActive)" : "url(#webGrad)"}
+                x1={coords.x1}
+                y1={coords.y1}
+                x2={coords.x2}
+                y2={coords.y2}
+                stroke={isTriggerHovered ? "url(#webGradActive)" : "#dc2626"}
                 stroke-width={isTriggerHovered ? "2.5" : "1.2"}
                 filter={isTriggerHovered ? "url(#webGlow)" : ""}
                 stroke-dasharray="3 3"
+                marker-end={isTriggerHovered ? "url(#arrowActive)" : "url(#arrowTrigger)"}
               />
+
+              <!-- Plus Sign Badge at Midpoint of the triggered connection -->
+              <g transform="translate({midX}, {midY})">
+                <circle r="9" fill="#dc2626" stroke="#ffffff" stroke-width="1.5" />
+                <text 
+                  text-anchor="middle" 
+                  dominant-baseline="central" 
+                  fill="#ffffff" 
+                  font-family="sans-serif" 
+                  font-size="12" 
+                  font-weight="bold"
+                >+</text>
+              </g>
             {/if}
           {/if}
         {/each}
