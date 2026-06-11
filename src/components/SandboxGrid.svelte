@@ -379,18 +379,49 @@
                                   (cell.triggeredById && hoveredBlockId === cell.triggeredById)}
               {@const coords = getShortenedLine(parentCenter, cellCenter, 58)}
               
-              <line
-                x1={coords.x1}
-                y1={coords.y1}
-                x2={coords.x2}
-                y2={coords.y2}
-                stroke={isHovered ? "url(#webGradActive)" : "url(#webGrad)"}
-                stroke-width={isHovered ? "3.5" : "1.8"}
-                filter={isHovered ? "url(#webGlow)" : ""}
-                stroke-dasharray={isHovered ? "7 4" : ""}
-                class={isHovered ? "animate-dash" : ""}
-                marker-end={isHovered ? "url(#arrowActive)" : "url(#arrow)"}
-              />
+              {#if cell.type === 'radical'}
+                <!-- Connection between Initial block and Added Radical: show plus sign -->
+                {@const midX = (parentCenter.x + cellCenter.x) / 2}
+                {@const midY = (parentCenter.y + cellCenter.y) / 2}
+                
+                <line
+                  x1={parentCenter.x}
+                  y1={parentCenter.y}
+                  x2={cellCenter.x}
+                  y2={cellCenter.y}
+                  stroke={isHovered ? "url(#webGradActive)" : "url(#webGrad)"}
+                  stroke-width={isHovered ? "3.5" : "1.8"}
+                  filter={isHovered ? "url(#webGlow)" : ""}
+                  stroke-dasharray={isHovered ? "7 4" : ""}
+                  class={isHovered ? "animate-dash" : ""}
+                />
+                
+                <g transform="translate({midX}, {midY})">
+                  <circle r="9" fill="#dc2626" stroke="#ffffff" stroke-width="1.5" />
+                  <text 
+                    text-anchor="middle" 
+                    dominant-baseline="central" 
+                    fill="#ffffff" 
+                    font-family="sans-serif" 
+                    font-size="12" 
+                    font-weight="bold"
+                  >+</text>
+                </g>
+              {:else}
+                <!-- Connection to Formed Kanji from parent block: show arrowhead pointing to Kanji -->
+                <line
+                  x1={coords.x1}
+                  y1={coords.y1}
+                  x2={coords.x2}
+                  y2={coords.y2}
+                  stroke={isHovered ? "url(#webGradActive)" : "url(#webGrad)"}
+                  stroke-width={isHovered ? "3.5" : "1.8"}
+                  filter={isHovered ? "url(#webGlow)" : ""}
+                  stroke-dasharray={isHovered ? "7 4" : ""}
+                  class={isHovered ? "animate-dash" : ""}
+                  marker-end={isHovered ? "url(#arrowActive)" : "url(#arrow)"}
+                />
+              {/if}
             {/if}
           {/if}
 
@@ -402,12 +433,8 @@
               {@const cellCenter = getCellCenter(cell)}
               {@const isTriggerHovered = hoveredBlockId === cell.id || hoveredBlockId === triggerBlock.id}
               {@const coords = getShortenedLine(triggerCenter, cellCenter, 58)}
-              {@const dx = cellCenter.x - triggerCenter.x}
-              {@const dy = cellCenter.y - triggerCenter.y}
-              {@const len = Math.sqrt(dx * dx + dy * dy)}
-              {@const plusX = triggerCenter.x + (len > 0 ? (dx / len) * 58 : 0)}
-              {@const plusY = triggerCenter.y + (len > 0 ? (dy / len) * 58 : 0)}
               
+              <!-- Connection to Formed Kanji from trigger block: show arrowhead pointing to Kanji -->
               <line
                 x1={coords.x1}
                 y1={coords.y1}
@@ -419,19 +446,6 @@
                 stroke-dasharray="3 3"
                 marker-end={isTriggerHovered ? "url(#arrowActive)" : "url(#arrowTrigger)"}
               />
-
-              <!-- Plus Sign Badge positioned towards the radical box -->
-              <g transform="translate({plusX}, {plusY})">
-                <circle r="9" fill="#dc2626" stroke="#ffffff" stroke-width="1.5" />
-                <text 
-                  text-anchor="middle" 
-                  dominant-baseline="central" 
-                  fill="#ffffff" 
-                  font-family="sans-serif" 
-                  font-size="12" 
-                  font-weight="bold"
-                >+</text>
-              </g>
             {/if}
           {/if}
         {/each}
