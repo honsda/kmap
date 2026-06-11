@@ -224,13 +224,6 @@
         除
       </button>
 
-      <!-- First tag -->
-      {#if isFirst}
-        <span class="absolute top-2 left-2 text-[8px] font-bold uppercase tracking-wider text-red-500 bg-black px-1.5 py-0.5 rounded-none border border-red-650/40">
-          Start
-        </span>
-      {/if}
-
       <!-- Large Character -->
       <div class="text-4xl font-bold font-sans tracking-tight mt-1">
         {cell.character}
