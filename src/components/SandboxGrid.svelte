@@ -343,8 +343,8 @@
             viewBox="0 0 10 10" 
             refX="4" 
             refY="5" 
-            markerWidth="10" 
-            markerHeight="10" 
+            markerWidth="7" 
+            markerHeight="7" 
             orient="auto"
           >
             <path d="M 0 2 L 8 5 L 0 8 z" fill="#a1a1aa" />
@@ -355,8 +355,8 @@
             viewBox="0 0 10 10" 
             refX="4" 
             refY="5" 
-            markerWidth="10" 
-            markerHeight="10" 
+            markerWidth="7" 
+            markerHeight="7" 
             orient="auto"
           >
             <path d="M 0 2 L 8 5 L 0 8 z" fill="#ef4444" />
@@ -367,8 +367,8 @@
             viewBox="0 0 10 10" 
             refX="4" 
             refY="5" 
-            markerWidth="10" 
-            markerHeight="10" 
+            markerWidth="7" 
+            markerHeight="7" 
             orient="auto"
           >
             <path d="M 0 2 L 8 5 L 0 8 z" fill="#ef4444" />
@@ -386,7 +386,7 @@
                                   hoveredBlockId === parentBlock.id || 
                                   cell.triggeredById === hoveredBlockId ||
                                   (cell.triggeredByIds && cell.triggeredByIds.includes(hoveredBlockId))}
-              {@const coords = getShortenedLine(parentCenter, cellCenter, 62)}
+              {@const coords = getShortenedLine(parentCenter, cellCenter, 66)}
               
               {#if cell.type === 'radical'}
                 <!-- Connection between Initial block and Added Radical: show plus sign -->
@@ -400,7 +400,6 @@
                   y2={cellCenter.y}
                   stroke={isHovered ? "url(#webGradActive)" : "url(#webGrad)"}
                   stroke-width={isHovered ? "4" : "2.4"}
-                  filter={isHovered ? "url(#webGlow)" : ""}
                   stroke-dasharray={isHovered ? "7 4" : ""}
                   class={isHovered ? "animate-dash" : ""}
                 />
@@ -425,7 +424,6 @@
                   y2={coords.y2}
                   stroke={isHovered ? "url(#webGradActive)" : "url(#webGrad)"}
                   stroke-width={isHovered ? "4" : "2.4"}
-                  filter={isHovered ? "url(#webGlow)" : ""}
                   stroke-dasharray={isHovered ? "7 4" : ""}
                   class={isHovered ? "animate-dash" : ""}
                   marker-end={isHovered ? "url(#arrowActive)" : "url(#arrow)"}
@@ -442,7 +440,7 @@
                 {@const triggerCenter = getCellCenter(triggerBlock)}
                 {@const cellCenter = getCellCenter(cell)}
                 {@const isTriggerHovered = hoveredBlockId === cell.id || hoveredBlockId === triggerBlock.id}
-                {@const coords = getShortenedLine(triggerCenter, cellCenter, 62)}
+                {@const coords = getShortenedLine(triggerCenter, cellCenter, 66)}
                 
                 <!-- Connection to Formed Kanji from trigger block: show arrowhead pointing to Kanji -->
                 <line
@@ -452,7 +450,6 @@
                   y2={coords.y2}
                   stroke={isTriggerHovered ? "url(#webGradActive)" : "#dc2626"}
                   stroke-width={isTriggerHovered ? "3" : "1.8"}
-                  filter={isTriggerHovered ? "url(#webGlow)" : ""}
                   stroke-dasharray="3 3"
                   marker-end={isTriggerHovered ? "url(#arrowActive)" : "url(#arrowTrigger)"}
                 />
