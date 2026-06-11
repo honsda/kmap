@@ -55,31 +55,12 @@ export function getRootBlockId(currentBlocks, blockId) {
   return current ? current.id : blockId;
 }
 
-// Helper to get all constituent radicals that formed/reached a block
-export function getBlockConstituentRadicals(currentBlocks, block, kanjiDataMap) {
-  if (!block) return [];
-  if (block.type === 'kanji') {
-    return kanjiDataMap[block.character]?.radicals || [];
-  }
-  // If it's a radical block:
-  if (!block.parentId) {
-    return [block.character];
-  }
-  const parent = currentBlocks.find(b => b.id === block.parentId);
-  if (parent) {
-    const parentRadicals = getBlockConstituentRadicals(currentBlocks, parent, kanjiDataMap);
-    const result = [...parentRadicals];
-    if (!result.includes(block.character)) {
-      result.push(block.character);
-    }
-    return result;
-  }
-  return [block.character];
-}
-
-// Check if a block can evolve, and get the list of candidate evolutions (radical + target kanji)
+// Check if a block can evolve, and get the list of candidate evolutions (target kanji)
 export function getAvailableEvolutions(currentBlocks, block, radicalDataMap, kanjiDataMap) {
-  const blockRadicals = getBlockConstituentRadicals(currentBlocks, block, kanjiDataMap);
+  const blockRadicals = block.type === 'radical'
+    ? [block.character]
+    : (kanjiDataMap[block.character]?.radicals || []);
+
   if (blockRadicals.length === 0) return [];
 
   // Find existing kanjis in this tree to avoid duplicates
@@ -102,7 +83,6 @@ export function getAvailableEvolutions(currentBlocks, block, radicalDataMap, kan
       if (missing.length > 0) {
         candidates.push({
           kanji: kanjiChar,
-          missingRadicals: missing,
           diffCount: missing.length
         });
       }
@@ -117,15 +97,9 @@ export function getAvailableEvolutions(currentBlocks, block, radicalDataMap, kan
   // Only keep candidates with the minimum diff count
   const bestCandidates = candidates.filter(c => c.diffCount === minDiff);
 
-  return bestCandidates.map(c => {
-    const firstMissing = c.missingRadicals[0];
-    const rDetails = radicalDataMap[firstMissing];
-    return {
-      radical: { character: firstMissing, meaning: rDetails?.meaning || 'Radical' },
-      kanji: c.kanji,
-      missingRadicals: c.missingRadicals
-    };
-  });
+  return bestCandidates.map(c => ({
+    kanji: c.kanji
+  }));
 }
 
 // Custom actions for the grid sandbox
@@ -359,7 +333,7 @@ export const gridActions = {
     return result;
   },
 
-  // Evolve a radical or kanji block by combining it with a random radical to form the next level kanji
+  // Evolve a radical or kanji block directly to the next level kanji
   evolveBlock(blockId, radicalListArray, radicalDataMap, kanjiDataMap) {
     let result = { success: true, message: '' };
 
@@ -385,43 +359,8 @@ export const gridActions = {
       // Choose a random candidate
       const chosen = candidates[Math.floor(Math.random() * candidates.length)];
 
-      const missingRadicals = chosen.missingRadicals || [chosen.radical.character];
-      
-      let newBlocks = [...currentBlocks];
-      let addedRadicalIds = [];
-      const addedAt = Date.now();
-
-      for (let i = 0; i < missingRadicals.length; i++) {
-        const radChar = missingRadicals[i];
-        const radicalItem = radicalListArray.find(r => r.character === radChar) || {
-          character: radChar,
-          meaning: radicalDataMap[radChar]?.meaning || 'Radical',
-          onyomi: radicalDataMap[radChar]?.onyomi || [],
-          kunyomi: radicalDataMap[radChar]?.kunyomi || [],
-          stroke_count: 1
-        };
-
-        const mainCoords = findEmptyCoords(newBlocks, block.x, block.y);
-        const mainBlockId = Math.random().toString(36).substring(2, 9);
-        
-        const newMainBlock = {
-          id: mainBlockId,
-          type: 'radical',
-          character: radChar,
-          x: mainCoords.x,
-          y: mainCoords.y,
-          addedAt: addedAt + i * 10,
-          parentId: block.id,
-          triggeredById: null,
-          data: radicalItem
-        };
-
-        newBlocks.push(newMainBlock);
-        addedRadicalIds.push(mainBlockId);
-      }
-
-      // Add the kanji block
-      const kanjiCoords = findEmptyCoords(newBlocks, block.x, block.y);
+      // Add the kanji block directly under block.id
+      const kanjiCoords = findEmptyCoords(currentBlocks, block.x, block.y);
       const kanjiBlockId = Math.random().toString(36).substring(2, 9);
 
       const newKanjiBlock = {
@@ -430,21 +369,20 @@ export const gridActions = {
         character: chosen.kanji,
         x: kanjiCoords.x,
         y: kanjiCoords.y,
-        addedAt: addedAt + (missingRadicals.length || 1) * 10,
+        addedAt: Date.now(),
         parentId: block.id,
-        triggeredById: addedRadicalIds[addedRadicalIds.length - 1] || null,
-        triggeredByIds: addedRadicalIds,
+        triggeredById: null,
+        triggeredByIds: null,
         data: { character: chosen.kanji }
       };
 
-      newBlocks.push(newKanjiBlock);
-      return newBlocks;
+      return [...currentBlocks, newKanjiBlock];
     });
 
     return result;
   },
 
-  // Add a specific combination (radical(s) + kanji) under a parent block, automatically adding all missing radicals
+  // Add a specific combination (only the kanji block itself) under a parent block
   addSpecificCombination(parentBlockId, kanjiChar, radicalListArray, radicalDataMap, kanjiDataMap) {
     let result = { success: true, message: '' };
 
@@ -464,53 +402,8 @@ export const gridActions = {
         return currentBlocks;
       }
 
-      // Get current radicals of the parent block
-      const baseRadicals = getBlockConstituentRadicals(currentBlocks, parent, kanjiDataMap);
-
-      // Get target radicals of the kanji
-      const targetRadicals = kanjiDataMap[kanjiChar]?.radicals || [];
-
-      // Find missing radicals
-      const missingRadicals = targetRadicals.filter(r => !baseRadicals.includes(r));
-      
-      let newBlocks = [...currentBlocks];
-      let addedRadicalIds = [];
-      let addedAt = Date.now();
-
-      if (missingRadicals.length > 0) {
-        // Add each missing radical block
-        for (let i = 0; i < missingRadicals.length; i++) {
-          const radChar = missingRadicals[i];
-          const radicalItem = radicalListArray.find(r => r.character === radChar) || {
-            character: radChar,
-            meaning: radicalDataMap[radChar]?.meaning || 'Radical',
-            onyomi: radicalDataMap[radChar]?.onyomi || [],
-            kunyomi: radicalDataMap[radChar]?.kunyomi || [],
-            stroke_count: 1
-          };
-
-          const mainCoords = findEmptyCoords(newBlocks, parent.x, parent.y);
-          const mainBlockId = Math.random().toString(36).substring(2, 9);
-          
-          const newMainBlock = {
-            id: mainBlockId,
-            type: 'radical',
-            character: radChar,
-            x: mainCoords.x,
-            y: mainCoords.y,
-            addedAt: addedAt + i * 10,
-            parentId: parent.id,
-            triggeredById: null,
-            data: radicalItem
-          };
-
-          newBlocks.push(newMainBlock);
-          addedRadicalIds.push(mainBlockId);
-        }
-      }
-
-      // Add the kanji block
-      const kanjiCoords = findEmptyCoords(newBlocks, parent.x, parent.y);
+      // Add the kanji block directly under parent.id
+      const kanjiCoords = findEmptyCoords(currentBlocks, parent.x, parent.y);
       const kanjiBlockId = Math.random().toString(36).substring(2, 9);
 
       const newKanjiBlock = {
@@ -519,15 +412,14 @@ export const gridActions = {
         character: kanjiChar,
         x: kanjiCoords.x,
         y: kanjiCoords.y,
-        addedAt: addedAt + (missingRadicals.length || 1) * 10,
+        addedAt: Date.now(),
         parentId: parent.id,
-        triggeredById: addedRadicalIds[addedRadicalIds.length - 1] || null,
-        triggeredByIds: addedRadicalIds,
+        triggeredById: null,
+        triggeredByIds: null,
         data: { character: kanjiChar }
       };
 
-      newBlocks.push(newKanjiBlock);
-      return newBlocks;
+      return [...currentBlocks, newKanjiBlock];
     });
 
     return result;
@@ -549,16 +441,11 @@ export const gridActions = {
     });
   },
 
-  // Remove a block and any dependent kanji blocks spawned by it
+  // Remove a block and all of its descendants
   removeBlock(id) {
     gridStore.update(currentBlocks => {
-      // Filter out the deleted block, and any kanji blocks that were triggered by it or listed in triggeredByIds
-      return currentBlocks.filter(b => {
-        if (b.id === id) return false;
-        if (b.triggeredById === id) return false;
-        if (b.triggeredByIds && b.triggeredByIds.includes(id)) return false;
-        return true;
-      });
+      const idsToRemove = getTreeBlockIds(currentBlocks, id);
+      return currentBlocks.filter(b => !idsToRemove.has(b.id));
     });
   },
 

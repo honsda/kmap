@@ -379,82 +379,25 @@
           {#if cell.parentId}
             {@const parentBlock = $gridStore.find(b => b.id === cell.parentId)}
             {#if parentBlock}
-              <!-- Line from Parent to this cell -->
+              <!-- Line from Parent to this cell (Formed Kanji) -->
               {@const parentCenter = getCellCenter(parentBlock)}
               {@const cellCenter = getCellCenter(cell)}
               {@const isHovered = hoveredBlockId === cell.id || 
-                                  hoveredBlockId === parentBlock.id || 
-                                  cell.triggeredById === hoveredBlockId ||
-                                  (cell.triggeredByIds && cell.triggeredByIds.includes(hoveredBlockId))}
+                                  hoveredBlockId === parentBlock.id}
               {@const coords = getShortenedLine(parentCenter, cellCenter, 66)}
               
-              {#if cell.type === 'radical'}
-                <!-- Connection between Initial block and Added Radical: show plus sign -->
-                {@const midX = (parentCenter.x + cellCenter.x) / 2}
-                {@const midY = (parentCenter.y + cellCenter.y) / 2}
-                
-                <line
-                  x1={parentCenter.x}
-                  y1={parentCenter.y}
-                  x2={cellCenter.x}
-                  y2={cellCenter.y}
-                  stroke={isHovered ? "url(#webGradActive)" : "url(#webGrad)"}
-                  stroke-width={isHovered ? "4" : "2.4"}
-                  stroke-dasharray={isHovered ? "7 4" : ""}
-                  class={isHovered ? "animate-dash" : ""}
-                />
-                
-                <g transform="translate({midX}, {midY})">
-                  <circle r="9" fill="#dc2626" stroke="#ffffff" stroke-width="1.5" />
-                  <text 
-                    text-anchor="middle" 
-                    dominant-baseline="central" 
-                    fill="#ffffff" 
-                    font-family="sans-serif" 
-                    font-size="12" 
-                    font-weight="bold"
-                  >+</text>
-                </g>
-              {:else}
-                <!-- Connection to Formed Kanji from parent block: show arrowhead pointing to Kanji -->
-                <line
-                  x1={coords.x1}
-                  y1={coords.y1}
-                  x2={coords.x2}
-                  y2={coords.y2}
-                  stroke={isHovered ? "url(#webGradActive)" : "url(#webGrad)"}
-                  stroke-width={isHovered ? "4" : "2.4"}
-                  stroke-dasharray={isHovered ? "7 4" : ""}
-                  class={isHovered ? "animate-dash" : ""}
-                  marker-end={isHovered ? "url(#arrowActive)" : "url(#arrow)"}
-                />
-              {/if}
+              <line
+                x1={coords.x1}
+                y1={coords.y1}
+                x2={coords.x2}
+                y2={coords.y2}
+                stroke={isHovered ? "url(#webGradActive)" : "url(#webGrad)"}
+                stroke-width={isHovered ? "4" : "2.4"}
+                stroke-dasharray={isHovered ? "7 4" : ""}
+                class={isHovered ? "animate-dash" : ""}
+                marker-end={isHovered ? "url(#arrowActive)" : "url(#arrow)"}
+              />
             {/if}
-          {/if}
-
-          <!-- If it's a kanji block and has triggering radicals, connect them as well to form a relation network -->
-          {#if cell.type === 'kanji'}
-            {#each (cell.triggeredByIds || (cell.triggeredById ? [cell.triggeredById] : [])) as triggerId}
-              {@const triggerBlock = $gridStore.find(b => b.id === triggerId)}
-              {#if triggerBlock}
-                {@const triggerCenter = getCellCenter(triggerBlock)}
-                {@const cellCenter = getCellCenter(cell)}
-                {@const isTriggerHovered = hoveredBlockId === cell.id || hoveredBlockId === triggerBlock.id}
-                {@const coords = getShortenedLine(triggerCenter, cellCenter, 66)}
-                
-                <!-- Connection to Formed Kanji from trigger block: show arrowhead pointing to Kanji -->
-                <line
-                  x1={coords.x1}
-                  y1={coords.y1}
-                  x2={coords.x2}
-                  y2={coords.y2}
-                  stroke={isTriggerHovered ? "url(#webGradActive)" : "#dc2626"}
-                  stroke-width={isTriggerHovered ? "3" : "1.8"}
-                  stroke-dasharray="3 3"
-                  marker-end={isTriggerHovered ? "url(#arrowActive)" : "url(#arrowTrigger)"}
-                />
-              {/if}
-            {/each}
           {/if}
         {/each}
       </svg>

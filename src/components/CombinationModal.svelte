@@ -1,5 +1,5 @@
 <script>
-  import { gridStore, gridActions, getBlockConstituentRadicals, getTreeBlockIds, getRootBlockId } from '../stores/gridStore.js';
+  import { gridStore, gridActions, getTreeBlockIds, getRootBlockId } from '../stores/gridStore.js';
 
   let {
     isOpen = false,
@@ -15,7 +15,11 @@
   let isDropdownOpen = $state(false);
 
   let primaryRads = $derived(
-    primaryRadical ? getBlockConstituentRadicals($gridStore, primaryRadical, kanjiDataMap) : []
+    primaryRadical
+      ? (primaryRadical.type === 'radical'
+          ? [primaryRadical.character]
+          : (kanjiDataMap[primaryRadical.character]?.radicals || []))
+      : []
   );
 
   let evolutionCandidates = $derived.by(() => {
@@ -41,8 +45,7 @@
         if (missing.length > 0) {
           candidates.push({
             kanji: kanjiChar,
-            diffCount: missing.length,
-            missingRadicals: missing
+            diffCount: missing.length
           });
         }
       }
