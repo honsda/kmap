@@ -28,6 +28,22 @@ export function findEmptyCoords(blocks, startX, startY) {
   }
 }
 
+// Helper to get all block IDs belonging to the tree rooted at rootId
+export function getTreeBlockIds(currentBlocks, rootId) {
+  const ids = new Set([rootId]);
+  let addedNew = true;
+  while (addedNew) {
+    addedNew = false;
+    for (const b of currentBlocks) {
+      if (b.parentId && ids.has(b.parentId) && !ids.has(b.id)) {
+        ids.add(b.id);
+        addedNew = true;
+      }
+    }
+  }
+  return ids;
+}
+
 // Check if a block can evolve, and get the list of candidate evolutions (radical + target kanji)
 export function getAvailableEvolutions(currentBlocks, blockCharacter, blockType, parentId, radicalDataMap, kanjiDataMap) {
   const blockRadicals = blockType === 'radical' 
@@ -36,10 +52,11 @@ export function getAvailableEvolutions(currentBlocks, blockCharacter, blockType,
 
   if (blockRadicals.length === 0) return [];
 
-  // Find existing kanjis under this parentId
+  // Find existing kanjis in this tree
+  const treeIds = getTreeBlockIds(currentBlocks, parentId);
   const existingKanjis = new Set(
     currentBlocks
-      .filter(b => b.type === 'kanji' && b.parentId === parentId)
+      .filter(b => b.type === 'kanji' && (treeIds.has(b.id) || b.parentId === parentId))
       .map(b => b.character)
   );
 
@@ -213,9 +230,10 @@ export const gridActions = {
         const rootKanjiList = rootDetails.common_kanji || [];
 
         // Find all kanji characters already present on the grid under this starting radical
+        const treeIds = getTreeBlockIds(currentBlocks, block.id);
         const existingKanjis = new Set(
           currentBlocks
-            .filter(b => b.type === 'kanji' && b.parentId === block.id)
+            .filter(b => b.type === 'kanji' && (treeIds.has(b.id) || b.parentId === block.id))
             .map(b => b.character)
         );
 
@@ -331,6 +349,14 @@ export const gridActions = {
       const addedAt = Date.now();
       const mainBlockId = Math.random().toString(36).substring(2, 9);
       
+      const radicalItem = radicalListArray.find(r => r.character === chosen.radical.character) || {
+        character: chosen.radical.character,
+        meaning: radicalDataMap[chosen.radical.character]?.meaning || 'Radical',
+        onyomi: radicalDataMap[chosen.radical.character]?.onyomi || [],
+        kunyomi: radicalDataMap[chosen.radical.character]?.kunyomi || [],
+        stroke_count: 1
+      };
+
       const newMainBlock = {
         id: mainBlockId,
         type: 'radical',
@@ -338,9 +364,9 @@ export const gridActions = {
         x: mainCoords.x,
         y: mainCoords.y,
         addedAt,
-        parentId: activeParentId,
+        parentId: block.id,
         triggeredById: null,
-        data: chosen.radical
+        data: radicalItem
       };
 
       const kanjiCoords = findEmptyCoords([...currentBlocks, newMainBlock], mainCoords.x, mainCoords.y);
@@ -353,7 +379,7 @@ export const gridActions = {
         x: kanjiCoords.x,
         y: kanjiCoords.y,
         addedAt: addedAt + 1,
-        parentId: activeParentId,
+        parentId: block.id,
         triggeredById: mainBlockId,
         data: { character: chosen.kanji }
       };
@@ -364,8 +390,8 @@ export const gridActions = {
     return result;
   },
 
-  // Add a specific combination (radical + kanji) under a parent block
-  addSpecificCombination(parentBlockId, secondaryRadicalChar, kanjiChar, radicalListArray, radicalDataMap) {
+  // Add a specific combination (radical(s) + kanji) under a parent block, automatically adding all missing radicals
+  addSpecificCombination(parentBlockId, kanjiChar, radicalListArray, radicalDataMap, kanjiDataMap) {
     let result = { success: true, message: '' };
 
     gridStore.update(currentBlocks => {
@@ -375,39 +401,64 @@ export const gridActions = {
         return currentBlocks;
       }
 
-      // Check if this kanji already exists under this parent
-      const exists = currentBlocks.some(b => b.type === 'kanji' && b.parentId === parent.id && b.character === kanjiChar);
+      // Check if this kanji already exists in this tree to avoid duplicates
+      const rootId = parent.parentId || parent.id;
+      const treeIds = getTreeBlockIds(currentBlocks, rootId);
+      const exists = currentBlocks.some(b => b.type === 'kanji' && (treeIds.has(b.id) || b.parentId === parent.id) && b.character === kanjiChar);
       if (exists) {
         result = { success: false, message: 'This Kanji is already on the grid.' };
         return currentBlocks;
       }
 
-      // Find the radical details
-      const radicalItem = radicalListArray.find(r => r.character === secondaryRadicalChar) || {
-        character: secondaryRadicalChar,
-        meaning: radicalDataMap[secondaryRadicalChar]?.meaning || 'Radical',
-        onyomi: radicalDataMap[secondaryRadicalChar]?.onyomi || [],
-        kunyomi: radicalDataMap[secondaryRadicalChar]?.kunyomi || [],
-        stroke_count: 1
-      };
+      // Get current radicals of the parent block
+      const baseRadicals = parent.type === 'radical'
+        ? [parent.character]
+        : (kanjiDataMap[parent.character]?.radicals || []);
 
-      const mainCoords = findEmptyCoords(currentBlocks, parent.x, parent.y);
-      const addedAt = Date.now();
-      const mainBlockId = Math.random().toString(36).substring(2, 9);
+      // Get target radicals of the kanji
+      const targetRadicals = kanjiDataMap[kanjiChar]?.radicals || [];
+
+      // Find missing radicals
+      const missingRadicals = targetRadicals.filter(r => !baseRadicals.includes(r));
       
-      const newMainBlock = {
-        id: mainBlockId,
-        type: 'radical',
-        character: secondaryRadicalChar,
-        x: mainCoords.x,
-        y: mainCoords.y,
-        addedAt,
-        parentId: parent.id,
-        triggeredById: null,
-        data: radicalItem
-      };
+      let newBlocks = [...currentBlocks];
+      let lastRadicalBlockId = null;
+      let addedAt = Date.now();
 
-      const kanjiCoords = findEmptyCoords([...currentBlocks, newMainBlock], mainCoords.x, mainCoords.y);
+      if (missingRadicals.length > 0) {
+        // Add each missing radical block
+        for (let i = 0; i < missingRadicals.length; i++) {
+          const radChar = missingRadicals[i];
+          const radicalItem = radicalListArray.find(r => r.character === radChar) || {
+            character: radChar,
+            meaning: radicalDataMap[radChar]?.meaning || 'Radical',
+            onyomi: radicalDataMap[radChar]?.onyomi || [],
+            kunyomi: radicalDataMap[radChar]?.kunyomi || [],
+            stroke_count: 1
+          };
+
+          const mainCoords = findEmptyCoords(newBlocks, parent.x, parent.y);
+          const mainBlockId = Math.random().toString(36).substring(2, 9);
+          
+          const newMainBlock = {
+            id: mainBlockId,
+            type: 'radical',
+            character: radChar,
+            x: mainCoords.x,
+            y: mainCoords.y,
+            addedAt: addedAt + i * 10,
+            parentId: parent.id,
+            triggeredById: null,
+            data: radicalItem
+          };
+
+          newBlocks.push(newMainBlock);
+          lastRadicalBlockId = mainBlockId;
+        }
+      }
+
+      // Add the kanji block
+      const kanjiCoords = findEmptyCoords(newBlocks, parent.x, parent.y);
       const kanjiBlockId = Math.random().toString(36).substring(2, 9);
 
       const newKanjiBlock = {
@@ -416,13 +467,14 @@ export const gridActions = {
         character: kanjiChar,
         x: kanjiCoords.x,
         y: kanjiCoords.y,
-        addedAt: addedAt + 1,
+        addedAt: addedAt + (missingRadicals.length || 1) * 10,
         parentId: parent.id,
-        triggeredById: mainBlockId,
+        triggeredById: lastRadicalBlockId,
         data: { character: kanjiChar }
       };
 
-      return [...currentBlocks, newMainBlock, newKanjiBlock];
+      newBlocks.push(newKanjiBlock);
+      return newBlocks;
     });
 
     return result;

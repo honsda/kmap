@@ -92,25 +92,16 @@
   }
 
   function addKanjiBlock(kanji) {
-    const kInfo = kanjiDataMap[kanji];
-    if (kInfo && kInfo.radicals) {
-      const addedRadicalChar = kInfo.radicals.find(r => !primaryRads.includes(r));
-      if (addedRadicalChar) {
-        const res = gridActions.addSpecificCombination(
-          primaryRadical.id,
-          addedRadicalChar,
-          kanji,
-          radicals,
-          radicalDataMap
-        );
-        if (res.success) {
-          onClose();
-        }
-        return;
-      }
+    const res = gridActions.addSpecificCombination(
+      primaryRadical.id,
+      kanji,
+      radicals,
+      radicalDataMap,
+      kanjiDataMap
+    );
+    if (res.success) {
+      onClose();
     }
-    gridActions.addBlock('kanji', kanji, { character: kanji }, {}, primaryRadical?.id);
-    onClose();
   }
 </script>
 

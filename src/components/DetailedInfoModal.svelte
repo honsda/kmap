@@ -9,25 +9,16 @@
   } = $props();
 
   function addKanjiBlock(kanji) {
-    const kInfo = kanjiDataMap[kanji];
-    if (kInfo && kInfo.radicals && data?.type === 'radical') {
-      const addedRadicalChar = kInfo.radicals.find(r => r !== data.character);
-      if (addedRadicalChar) {
-        const res = gridActions.addSpecificCombination(
-          data.id,
-          addedRadicalChar,
-          kanji,
-          $radicalList,
-          $radicalData
-        );
-        if (res.success) {
-          onClose();
-        }
-        return;
-      }
+    const res = gridActions.addSpecificCombination(
+      data.id,
+      kanji,
+      $radicalList,
+      $radicalData,
+      kanjiDataMap
+    );
+    if (res.success) {
+      onClose();
     }
-    gridActions.addBlock('kanji', kanji, { character: kanji }, {}, data?.id);
-    onClose();
   }
 
   // Sort common kanji by stroke count
