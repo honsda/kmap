@@ -322,12 +322,12 @@
       <svg class="absolute pointer-events-none top-0 left-0 w-[4000px] h-[4000px] z-0">
         <defs>
           <linearGradient id="webGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#3f3f46" stop-opacity="0.3" />
-            <stop offset="100%" stop-color="#27272a" stop-opacity="0.1" />
+            <stop offset="0%" stop-color="#a1a1aa" stop-opacity="0.85" />
+            <stop offset="100%" stop-color="#71717a" stop-opacity="0.6" />
           </linearGradient>
           <linearGradient id="webGradActive" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#dc2626" stop-opacity="0.8" />
-            <stop offset="100%" stop-color="#7f1d1d" stop-opacity="0.6" />
+            <stop offset="0%" stop-color="#ef4444" stop-opacity="1.0" />
+            <stop offset="100%" stop-color="#b91c1c" stop-opacity="0.8" />
           </linearGradient>
           <filter id="webGlow" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur stdDeviation="3.5" result="blur" />
@@ -341,37 +341,37 @@
           <marker 
             id="arrow" 
             viewBox="0 0 10 10" 
-            refX="6" 
+            refX="4" 
             refY="5" 
-            markerWidth="6" 
-            markerHeight="6" 
+            markerWidth="10" 
+            markerHeight="10" 
             orient="auto"
           >
-            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#52525b" />
+            <path d="M 0 2 L 8 5 L 0 8 z" fill="#a1a1aa" />
           </marker>
           
           <marker 
             id="arrowActive" 
             viewBox="0 0 10 10" 
-            refX="6" 
+            refX="4" 
             refY="5" 
-            markerWidth="6" 
-            markerHeight="6" 
+            markerWidth="10" 
+            markerHeight="10" 
             orient="auto"
           >
-            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#dc2626" />
+            <path d="M 0 2 L 8 5 L 0 8 z" fill="#ef4444" />
           </marker>
 
           <marker 
             id="arrowTrigger" 
             viewBox="0 0 10 10" 
-            refX="6" 
+            refX="4" 
             refY="5" 
-            markerWidth="6" 
-            markerHeight="6" 
+            markerWidth="10" 
+            markerHeight="10" 
             orient="auto"
           >
-            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#dc2626" />
+            <path d="M 0 2 L 8 5 L 0 8 z" fill="#ef4444" />
           </marker>
         </defs>
         
@@ -386,7 +386,7 @@
                                   hoveredBlockId === parentBlock.id || 
                                   cell.triggeredById === hoveredBlockId ||
                                   (cell.triggeredByIds && cell.triggeredByIds.includes(hoveredBlockId))}
-              {@const coords = getShortenedLine(parentCenter, cellCenter, 58)}
+              {@const coords = getShortenedLine(parentCenter, cellCenter, 62)}
               
               {#if cell.type === 'radical'}
                 <!-- Connection between Initial block and Added Radical: show plus sign -->
@@ -399,7 +399,7 @@
                   x2={cellCenter.x}
                   y2={cellCenter.y}
                   stroke={isHovered ? "url(#webGradActive)" : "url(#webGrad)"}
-                  stroke-width={isHovered ? "3.5" : "1.8"}
+                  stroke-width={isHovered ? "4" : "2.4"}
                   filter={isHovered ? "url(#webGlow)" : ""}
                   stroke-dasharray={isHovered ? "7 4" : ""}
                   class={isHovered ? "animate-dash" : ""}
@@ -424,7 +424,7 @@
                   x2={coords.x2}
                   y2={coords.y2}
                   stroke={isHovered ? "url(#webGradActive)" : "url(#webGrad)"}
-                  stroke-width={isHovered ? "3.5" : "1.8"}
+                  stroke-width={isHovered ? "4" : "2.4"}
                   filter={isHovered ? "url(#webGlow)" : ""}
                   stroke-dasharray={isHovered ? "7 4" : ""}
                   class={isHovered ? "animate-dash" : ""}
@@ -442,7 +442,7 @@
                 {@const triggerCenter = getCellCenter(triggerBlock)}
                 {@const cellCenter = getCellCenter(cell)}
                 {@const isTriggerHovered = hoveredBlockId === cell.id || hoveredBlockId === triggerBlock.id}
-                {@const coords = getShortenedLine(triggerCenter, cellCenter, 58)}
+                {@const coords = getShortenedLine(triggerCenter, cellCenter, 62)}
                 
                 <!-- Connection to Formed Kanji from trigger block: show arrowhead pointing to Kanji -->
                 <line
@@ -451,7 +451,7 @@
                   x2={coords.x2}
                   y2={coords.y2}
                   stroke={isTriggerHovered ? "url(#webGradActive)" : "#dc2626"}
-                  stroke-width={isTriggerHovered ? "2.5" : "1.2"}
+                  stroke-width={isTriggerHovered ? "3" : "1.8"}
                   filter={isTriggerHovered ? "url(#webGlow)" : ""}
                   stroke-dasharray="3 3"
                   marker-end={isTriggerHovered ? "url(#arrowActive)" : "url(#arrowTrigger)"}
