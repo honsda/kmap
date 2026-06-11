@@ -205,12 +205,20 @@
     }, 4000);
   }
 
-  // Add random radical
+  // Add random initiating radical
   function addRandomRadical() {
-    const res = gridActions.addRandomCombinedBlock(radicalListArray, radicalDataMap, kanjiDataMap, null);
-    if (!res.success) {
-      showNotification(res.message);
+    if (radicalListArray.length === 0) {
+      showNotification('No radicals available.');
+      return;
     }
+    // Filter out radicals that are already initiating on the board
+    const existingRootChars = new Set(
+      $gridStore.filter(b => b.type === 'radical' && !b.parentId).map(b => b.character)
+    );
+    const available = radicalListArray.filter(r => !existingRootChars.has(r.character));
+    const pool = available.length > 0 ? available : radicalListArray;
+    const randomRadical = pool[Math.floor(Math.random() * pool.length)];
+    gridActions.addBlock('radical', randomRadical.character, randomRadical, radicalDataMap);
   }
 
   // Add specific radical from modal selection
