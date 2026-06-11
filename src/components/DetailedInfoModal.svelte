@@ -39,6 +39,47 @@
       return strokeA - strokeB;
     });
   });
+
+  let sentences = $state([]);
+  let loadingSentences = $state(false);
+
+  $effect(() => {
+    if (isOpen && data && data.character) {
+      fetchSentences(data.character);
+    } else {
+      sentences = [];
+    }
+  });
+
+  async function fetchSentences(char) {
+    sentences = [];
+    loadingSentences = true;
+    try {
+      const targetUrl = `https://tatoeba.org/en/api_v0/search?from=jpn&to=eng&query=${encodeURIComponent(char)}`;
+      const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
+      const res = await fetch(proxyUrl);
+      if (!res.ok) throw new Error('Network error');
+      const result = await res.json();
+      const json = JSON.parse(result.contents);
+      
+      if (json.results && json.results.length > 0) {
+        sentences = json.results.slice(0, 2).map(item => {
+          const jpnText = item.text;
+          const engText = item.translations && item.translations.length > 0 
+            ? item.translations[0].map(t => t.text).join(' | ') 
+            : 'No translation available';
+          return { japanese: jpnText, english: engText };
+        });
+      } else {
+        sentences = [];
+      }
+    } catch (err) {
+      console.error('Failed to fetch example sentences:', err);
+      sentences = [];
+    } finally {
+      loadingSentences = false;
+    }
+  }
 </script>
 
 {#if isOpen && data}
@@ -83,6 +124,37 @@
             {data.kunyomi && data.kunyomi.length > 0 ? data.kunyomi.join(', ') : '—'}
           </span>
         </div>
+      </div>
+
+      <!-- Example Sentences Section -->
+      <div class="space-y-3 pb-1 border-b border-zinc-200">
+        <h3 class="text-xs font-bold text-black uppercase tracking-wider">Example Sentences</h3>
+        
+        {#if loadingSentences}
+          <div class="flex items-center gap-2 py-4 text-[11px] text-zinc-500 font-medium">
+            <span class="h-3 w-3 rounded-full border border-zinc-350 border-t-red-650 animate-spin"></span>
+            Loading examples from Tatoeba...
+          </div>
+        {:else if sentences.length === 0}
+          <div class="text-[11px] text-zinc-550 italic py-2">
+            No example sentences available for this character.
+          </div>
+        {:else}
+          <div class="space-y-2.5">
+            {#each sentences as sentence}
+              <div class="bg-zinc-50 border border-zinc-200 p-3 rounded-none space-y-1">
+                <!-- Japanese text -->
+                <p class="text-xs font-bold text-black tracking-normal leading-relaxed select-all">
+                  {sentence.japanese}
+                </p>
+                <!-- English translation -->
+                <p class="text-[10px] text-zinc-655 font-medium leading-normal select-all">
+                  {sentence.english}
+                </p>
+              </div>
+            {/each}
+          </div>
+        {/if}
       </div>
 
       <!-- Kanji Grid Section -->
