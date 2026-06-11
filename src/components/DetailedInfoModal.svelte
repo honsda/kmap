@@ -31,64 +31,56 @@
     });
   });
 
-  let sentences = $state([]);
-  let loadingSentences = $state(false);
+  let wordExamples = $state([]);
+  let loadingWords = $state(false);
 
   $effect(() => {
     if (isOpen && data && data.character) {
-      fetchSentences(data.character);
+      fetchWords(data.character);
     } else {
-      sentences = [];
+      wordExamples = [];
     }
   });
 
-  async function fetchSentences(char) {
-    sentences = [];
-    loadingSentences = true;
+  async function fetchWords(char) {
+    wordExamples = [];
+    loadingWords = true;
     try {
-      // Use Jisho.org sentences search
-      const res = await fetch(`https://jisho.org/api/v1/search/words?keyword=${encodeURIComponent(char)}`);
+      // kanjiapi.dev has Access-Control-Allow-Origin: * (fully CORS-friendly)
+      const res = await fetch(`https://kanjiapi.dev/v1/words/${encodeURIComponent(char)}`);
       if (!res.ok) throw new Error('Network error');
-      const json = await res.json();
-      
-      if (json.data && json.data.length > 0) {
-        // Build sentences from the top results' senses
-        const built = [];
-        for (const entry of json.data.slice(0, 8)) {
-          if (built.length >= 2) break;
-          
-          const word = entry.japanese?.[0];
-          if (!word) continue;
-          
-          const wordText = word.word || word.reading || '';
-          const reading = word.reading || '';
-          
-          // Only use entries that actually contain our character
-          if (!wordText.includes(char) && !reading.includes(char)) continue;
-          
-          const meanings = entry.senses?.[0]?.english_definitions?.join('; ') || '';
-          if (!meanings) continue;
+      const words = await res.json();
 
-          // Build a simple example using the word
-          const jpSentence = wordText;
-          const enMeaning = meanings;
+      if (words && words.length > 0) {
+        // Score words: prefer common (has priorities), short words, with the character in them
+        const scored = words
+          .filter(w => {
+            const v = w.variants?.[0];
+            return v && v.written && v.written.includes(char) && w.meanings?.[0]?.glosses?.length > 0;
+          })
+          .map(w => {
+            const v = w.variants[0];
+            const hasPriority = v.priorities && v.priorities.length > 0;
+            const wordLen = v.written.length;
+            // Lower score = better. Prefer common short words.
+            const score = (hasPriority ? 0 : 100) + wordLen;
+            return {
+              word: v.written,
+              reading: v.pronounced || '',
+              meaning: w.meanings[0].glosses.slice(0, 3).join('; '),
+              score
+            };
+          })
+          .sort((a, b) => a.score - b.score)
+          .slice(0, 3);
 
-          built.push({
-            word: wordText,
-            reading: reading,
-            meaning: enMeaning,
-            character: char
-          });
-        }
-        sentences = built;
-      } else {
-        sentences = [];
+        wordExamples = scored;
       }
     } catch (err) {
-      console.error('Failed to fetch word data:', err);
-      sentences = [];
+      console.error('Failed to fetch word examples:', err);
+      wordExamples = [];
     } finally {
-      loadingSentences = false;
+      loadingWords = false;
     }
   }
 
@@ -148,18 +140,18 @@
       <div class="space-y-3 pb-1 border-b border-zinc-200">
         <h3 class="text-xs font-bold text-black uppercase tracking-wider">Word Examples</h3>
         
-        {#if loadingSentences}
+        {#if loadingWords}
           <div class="flex items-center gap-2 py-4 text-[11px] text-zinc-500 font-medium">
             <span class="h-3 w-3 rounded-full border border-zinc-350 border-t-red-650 animate-spin"></span>
             Loading examples...
           </div>
-        {:else if sentences.length === 0}
+        {:else if wordExamples.length === 0}
           <div class="text-[11px] text-zinc-550 italic py-2">
             No word examples available for this character.
           </div>
         {:else}
           <div class="space-y-2.5">
-            {#each sentences as entry}
+            {#each wordExamples as entry}
               <div class="bg-zinc-50 border border-zinc-200 p-3 rounded-none space-y-1.5">
                 <!-- Word with highlighted kanji -->
                 <div class="flex items-baseline gap-2">
