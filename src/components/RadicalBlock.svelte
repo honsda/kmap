@@ -230,6 +230,17 @@
         {cell.character}
       </div>
 
+      <!-- Vertical Kunyomi -->
+      {#if cell.type === 'radical' && blockData?.kunyomi?.length > 0}
+        <div class="absolute right-1.5 top-2 bottom-6 text-[9px] font-mono opacity-40 overflow-hidden flex justify-start pt-1 tracking-widest pointer-events-none" style="writing-mode: vertical-rl; text-orientation: upright;">
+          {blockData.kunyomi[0]}
+        </div>
+      {:else if cell.type === 'kanji' && kanjiData?.kunyomi?.length > 0}
+        <div class="absolute right-1.5 top-2 bottom-6 text-[9px] font-mono opacity-40 overflow-hidden flex justify-start pt-1 tracking-widest pointer-events-none" style="writing-mode: vertical-rl; text-orientation: upright;">
+          {kanjiData.kunyomi[0]}
+        </div>
+      {/if}
+
       <!-- Footer Badge -->
       <div class="flex items-center justify-between w-full mt-1">
         <span class="text-[9px] uppercase tracking-wider font-semibold opacity-60">
