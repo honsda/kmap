@@ -140,7 +140,7 @@ export const gridActions = {
       // Find coordinate for main block
       const mainCoords = findEmptyCoords(currentBlocks, startX, startY);
       const addedAt = Date.now();
-      const mainBlockId = Math.random().toString(36).substring(2, 9);
+      const mainBlockId = crypto.randomUUID();
       
       const newMainBlock = {
         id: mainBlockId,
@@ -180,7 +180,7 @@ export const gridActions = {
         if (formedKanji) {
           // Find coordinate for the new kanji block
           const kanjiCoords = findEmptyCoords(newBlocks, mainCoords.x, mainCoords.y);
-          const kanjiBlockId = Math.random().toString(36).substring(2, 9);
+          const kanjiBlockId = crypto.randomUUID();
 
           const newKanjiBlock = {
             id: kanjiBlockId,
@@ -224,7 +224,7 @@ export const gridActions = {
         }
         const randomItem = radicalListArray[Math.floor(Math.random() * radicalListArray.length)];
         const mainCoords = findEmptyCoords(currentBlocks, 16, 16);
-        const mainBlockId = Math.random().toString(36).substring(2, 9);
+        const mainBlockId = crypto.randomUUID();
         const newMainBlock = {
           id: mainBlockId,
           type: 'radical',
@@ -298,7 +298,7 @@ export const gridActions = {
 
       const mainCoords = findEmptyCoords(currentBlocks, chosenStartBlock.x, chosenStartBlock.y);
       const addedAt = Date.now();
-      const mainBlockId = Math.random().toString(36).substring(2, 9);
+      const mainBlockId = crypto.randomUUID();
       
       const newMainBlock = {
         id: mainBlockId,
@@ -313,7 +313,7 @@ export const gridActions = {
       };
 
       const kanjiCoords = findEmptyCoords([...currentBlocks, newMainBlock], mainCoords.x, mainCoords.y);
-      const kanjiBlockId = Math.random().toString(36).substring(2, 9);
+      const kanjiBlockId = crypto.randomUUID();
 
       const newKanjiBlock = {
         id: kanjiBlockId,
@@ -361,7 +361,7 @@ export const gridActions = {
 
       // Add the kanji block directly under block.id
       const kanjiCoords = findEmptyCoords(currentBlocks, block.x, block.y);
-      const kanjiBlockId = Math.random().toString(36).substring(2, 9);
+      const kanjiBlockId = crypto.randomUUID();
 
       const newKanjiBlock = {
         id: kanjiBlockId,
@@ -404,7 +404,7 @@ export const gridActions = {
 
       // Add the kanji block directly under parent.id
       const kanjiCoords = findEmptyCoords(currentBlocks, parent.x, parent.y);
-      const kanjiBlockId = Math.random().toString(36).substring(2, 9);
+      const kanjiBlockId = crypto.randomUUID();
 
       const newKanjiBlock = {
         id: kanjiBlockId,

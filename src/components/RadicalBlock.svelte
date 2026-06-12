@@ -122,6 +122,7 @@
     const item = radicals.find(r => r.character === radChar) || {};
     const kanjiInfo = kanjiDataMap[radChar] || {};
     return {
+      id: cell.id,
       type: 'radical',
       character: radChar,
       meaning: details.meaning || item.meaning || 'Unknown',

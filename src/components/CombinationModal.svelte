@@ -13,6 +13,17 @@
   let selectedSecondChar = $state('');
   let searchDropdownQuery = $state('');
   let isDropdownOpen = $state(false);
+  let jlptFilter = $state('all'); // 'all', '5', '4', '3', '2', '1'
+
+  // Reset state when modal opens or primary radical changes
+  $effect(() => {
+    if (isOpen && primaryRadical) {
+      selectedSecondChar = '';
+      searchDropdownQuery = '';
+      isDropdownOpen = false;
+      jlptFilter = 'all';
+    }
+  });
 
   let primaryRads = $derived(
     primaryRadical
@@ -51,13 +62,8 @@
       }
     }
 
-    if (candidates.length === 0) return [];
-
-    // Find the minimum number of missing radicals
-    const minDiff = Math.min(...candidates.map(c => c.diffCount));
-    
-    // Return only the best candidates (i.e. those with minDiff missing radicals)
-    return candidates.filter(c => c.diffCount === minDiff).map(c => c.kanji);
+    // Return ALL valid candidates, not just minimum diff
+    return candidates.map(c => c.kanji);
   });
 
   // Filter radicals for selector dropdown
@@ -89,22 +95,27 @@
   let intersectingKanji = $derived.by(() => {
     if (!primaryRadical) return [];
 
-    if (!selectedSecondChar) {
-      // Sort candidates by stroke count
-      return [...evolutionCandidates].sort((a, b) => {
-        const strokeA = kanjiDataMap[a]?.strokeCount ?? 99;
-        const strokeB = kanjiDataMap[b]?.strokeCount ?? 99;
-        return strokeA - strokeB;
+    let base = evolutionCandidates;
+
+    // Filter by selected secondary radical
+    if (selectedSecondChar) {
+      base = base.filter(kanji => {
+        const kInfo = kanjiDataMap[kanji];
+        return kInfo && kInfo.radicals && kInfo.radicals.includes(selectedSecondChar);
       });
     }
 
-    // Filter candidates for those containing the selected secondary radical
-    const filtered = evolutionCandidates.filter(kanji => {
-      const kInfo = kanjiDataMap[kanji];
-      return kInfo && kInfo.radicals && kInfo.radicals.includes(selectedSecondChar);
-    });
+    // Filter by JLPT level
+    if (jlptFilter !== 'all') {
+      const level = parseInt(jlptFilter);
+      base = base.filter(kanji => {
+        const kInfo = kanjiDataMap[kanji];
+        return kInfo && kInfo.jlpt === level;
+      });
+    }
 
-    return [...filtered].sort((a, b) => {
+    // Sort by stroke count
+    return [...base].sort((a, b) => {
       const strokeA = kanjiDataMap[a]?.strokeCount ?? 99;
       const strokeB = kanjiDataMap[b]?.strokeCount ?? 99;
       return strokeA - strokeB;
@@ -223,16 +234,34 @@
               {#if selectedSecondChar}
                 Combined Kanji ({intersectingKanji.length})
               {:else}
-                All Kanji for Radical A ({intersectingKanji.length})
+                All Evolutions ({intersectingKanji.length})
               {/if}
             </h3>
             <span class="text-[10px] text-zinc-550 font-medium">Click a kanji to add to grid</span>
+          </div>
+
+          <!-- JLPT Filter -->
+          <div class="flex items-center gap-1.5">
+            <span class="text-[9px] text-zinc-500 uppercase tracking-wider font-semibold mr-1">JLPT:</span>
+            {#each ['all', '5', '4', '3', '2', '1'] as level}
+              <button
+                onclick={() => jlptFilter = level}
+                class="px-2 py-0.5 text-[10px] font-bold border transition-all cursor-pointer
+                  {jlptFilter === level
+                    ? 'bg-red-650 text-white border-red-650'
+                    : 'bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400'}"
+              >
+                {level === 'all' ? 'ALL' : `N${level}`}
+              </button>
+            {/each}
           </div>
 
           {#if intersectingKanji.length === 0}
             <div class="text-center py-12 text-zinc-500 text-sm bg-zinc-50 rounded-none border border-zinc-200 border-dashed">
               {#if selectedSecondChar}
                 No kanji contain both '{primaryRadical.character}' and '{selectedSecondChar}'.
+              {:else if jlptFilter !== 'all'}
+                No N{jlptFilter} kanji found for this radical.
               {:else}
                 No kanji contain this radical.
               {/if}

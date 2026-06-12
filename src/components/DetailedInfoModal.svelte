@@ -170,7 +170,7 @@
         {:else}
           <div class="space-y-2.5">
             {#each wordExamples as entry}
-              <div class="bg-zinc-50 border border-zinc-200 p-3 rounded-none space-y-1.5">
+              <div class="bg-zinc-50 border border-zinc-200 p-3 rounded-none space-y-2">
                 <!-- Word with highlighted kanji -->
                 <div class="flex items-baseline gap-2">
                   <p class="text-base font-bold text-black tracking-normal leading-relaxed select-all">
@@ -186,6 +186,19 @@
                 <p class="text-[11px] text-zinc-600 font-medium leading-normal select-all">
                   {entry.meaning}
                 </p>
+                <!-- Usage sentence -->
+                {#if entry.sentenceJp}
+                  <div class="border-t border-zinc-200 pt-1.5 mt-1">
+                    <p class="text-xs text-black leading-relaxed select-all">
+                      {#each highlightChar(entry.sentenceJp, data.character) as part, i}
+                        {part}{#if i < highlightChar(entry.sentenceJp, data.character).length - 1}<span class="text-red-600 font-bold">{data.character}</span>{/if}
+                      {/each}
+                    </p>
+                    <p class="text-[10px] text-zinc-500 italic mt-0.5 select-all">
+                      {entry.sentenceEn}
+                    </p>
+                  </div>
+                {/if}
               </div>
             {/each}
           </div>
