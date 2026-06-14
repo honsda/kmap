@@ -291,7 +291,7 @@
             class="flex items-center justify-center w-6 h-6 text-[10px] font-bold border bg-zinc-900 text-zinc-400 border-zinc-600 select-none"
             title="{overflow} more radical{overflow > 1 ? 's' : ''}"
           >
-            +{overflow}
+            {overflow}+
           </span>
         {/if}
         <!-- Badge tooltip (positioned above the badge row) -->
