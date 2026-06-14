@@ -270,8 +270,10 @@
 
     <!-- Added Radicals Indicator Badges (bottom-left corner of child blocks) -->
     {#if addedRadicals.length > 0}
+      {@const maxShow = addedRadicals.length > 4 ? 3 : addedRadicals.length}
+      {@const overflow = addedRadicals.length - maxShow}
       <div class="absolute -bottom-3 left-0.5 flex gap-0.5 z-30">
-        {#each addedRadicals as radChar}
+        {#each addedRadicals.slice(0, maxShow) as radChar}
           <button
             class="radical-badge relative flex items-center justify-center w-6 h-6 text-[11px] font-bold border cursor-pointer transition-all duration-100 select-none bg-zinc-900 text-red-400 border-zinc-600 hover:bg-zinc-800 hover:border-red-500 hover:text-red-300"
             title="{radicalDataMap[radChar]?.meaning || 'Radical'}: {radChar}"
@@ -282,6 +284,14 @@
             {radChar}
           </button>
         {/each}
+        {#if overflow > 0}
+          <span
+            class="flex items-center justify-center w-6 h-6 text-[10px] font-bold border bg-zinc-900 text-zinc-400 border-zinc-600 select-none"
+            title="{overflow} more radical{overflow > 1 ? 's' : ''}"
+          >
+            +{overflow}
+          </span>
+        {/if}
         <!-- Badge tooltip (positioned above the badge row) -->
         {#if hoveredBadgeChar}
           <div class="absolute bottom-full left-0 mb-1 z-50 px-2 py-1 bg-zinc-900 border border-zinc-600 text-[10px] text-zinc-200 whitespace-nowrap pointer-events-none">
