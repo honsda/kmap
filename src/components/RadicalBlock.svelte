@@ -113,7 +113,20 @@
       ? [cell.character]
       : (kanjiDataMap[cell.character]?.radicals || []);
 
-    return myRads.filter(r => !parentRads.includes(r));
+    const parentCounts = {};
+    for (const r of parentRads) {
+      parentCounts[r] = (parentCounts[r] || 0) + 1;
+    }
+
+    const added = [];
+    for (const r of myRads) {
+      if (parentCounts[r] > 0) {
+        parentCounts[r]--;
+      } else {
+        added.push(r);
+      }
+    }
+    return added;
   });
 
   // Build full data object for a radical character (for opening details)

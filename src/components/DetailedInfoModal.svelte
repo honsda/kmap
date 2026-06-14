@@ -42,13 +42,31 @@
       synonyms = [];
       return;
     }
-    const mainMeaning = meaningStr.split(/[,;]/)[0].trim();
+    const mainMeaning = meaningStr.split(/[,;]/)[0].trim().toLowerCase();
     loadingSynonyms = true;
     try {
-      const res = await fetch(`https://api.datamuse.com/words?ml=${encodeURIComponent(mainMeaning)}&max=5`);
+      const res = await fetch(`https://api.datamuse.com/words?ml=${encodeURIComponent(mainMeaning)}&max=20`);
       if (res.ok) {
         const words = await res.json();
-        synonyms = words.map(w => w.word);
+        const englishSynonyms = new Set(words.map(w => w.word.toLowerCase()));
+        englishSynonyms.add(mainMeaning);
+        
+        const relatedKanjis = [];
+        
+        for (const [k, kInfo] of Object.entries(kanjiDataMap)) {
+          if (k === data.character) continue;
+          if (!kInfo.meanings) continue;
+          
+          const kMeaningsList = typeof kInfo.meanings === 'string' 
+            ? kInfo.meanings.split(/[,;]/).map(m => m.trim().toLowerCase()) 
+            : (Array.isArray(kInfo.meanings) ? kInfo.meanings.map(m => m.trim().toLowerCase()) : []);
+            
+          if (kMeaningsList.some(m => englishSynonyms.has(m))) {
+             relatedKanjis.push(k);
+          }
+        }
+        
+        synonyms = relatedKanjis.slice(0, 8);
       }
     } catch (e) {
       console.error(e);
@@ -200,21 +218,42 @@
         </div>
       </div>
 
+      <!-- Constituent Radicals Section -->
+      {#if data.radicals && data.radicals.length > 0}
+        <div class="space-y-3 pb-1 border-b border-zinc-200">
+          <h3 class="text-xs font-bold text-black uppercase tracking-wider">Constituent Radicals</h3>
+          <div class="flex flex-wrap gap-2 mt-1">
+            {#each data.radicals as rad}
+              <div class="flex items-center gap-2 px-2.5 py-1.5 bg-zinc-50 border border-zinc-200 cursor-help" title={$radicalData[rad]?.meaning || 'Unknown'}>
+                <span class="text-xl font-bold text-red-650">{rad}</span>
+                <span class="text-[10px] font-medium text-zinc-600 capitalize">{$radicalData[rad]?.meaning || 'Unknown'}</span>
+              </div>
+            {/each}
+          </div>
+        </div>
+      {/if}
+
       <!-- Synonyms Section -->
       {#if synonyms.length > 0 || loadingSynonyms}
         <div class="space-y-3 pb-1 border-b border-zinc-200">
-          <h3 class="text-xs font-bold text-black uppercase tracking-wider">Related Concepts (Synonyms)</h3>
+          <h3 class="text-xs font-bold text-black uppercase tracking-wider">Related Kanji (Synonyms)</h3>
           {#if loadingSynonyms}
             <div class="flex items-center gap-2 py-2 text-[11px] text-zinc-500 font-medium">
               <span class="h-3 w-3 rounded-full border border-zinc-350 border-t-red-650 animate-spin"></span>
-              Finding synonyms...
+              Finding related kanji...
             </div>
           {:else}
             <div class="flex flex-wrap gap-2">
               {#each synonyms as syn}
-                <span class="px-2.5 py-1 bg-zinc-100 border border-zinc-200 text-xs font-medium text-zinc-700 capitalize">
-                  {syn}
-                </span>
+                {@const kInfo = kanjiDataMap[syn]}
+                <button
+                  onclick={() => addKanjiBlock(syn)}
+                  class="px-2.5 py-1.5 bg-white border border-zinc-300 hover:border-red-650 hover:text-red-650 transition-colors flex items-center gap-2 cursor-pointer group"
+                  title={kInfo ? (typeof kInfo.meanings === 'string' ? kInfo.meanings : kInfo.meanings.join(', ')) : 'Unknown'}
+                >
+                  <span class="text-lg font-bold group-hover:text-red-650 text-black">{syn}</span>
+                  <span class="text-[9px] text-zinc-500 capitalize max-w-[60px] truncate">{kInfo ? (typeof kInfo.meanings === 'string' ? kInfo.meanings.split(/[,;]/)[0] : kInfo.meanings[0]) : ''}</span>
+                </button>
               {/each}
             </div>
           {/if}
