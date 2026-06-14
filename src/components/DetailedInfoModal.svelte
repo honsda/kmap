@@ -1,5 +1,6 @@
 <script>
   import { gridActions, radicalList, radicalData } from '../stores/gridStore.js';
+  import * as wanakana from 'wanakana';
 
   let {
     isOpen = false,
@@ -33,12 +34,38 @@
 
   let wordExamples = $state([]);
   let loadingWords = $state(false);
+  let synonyms = $state([]);
+  let loadingSynonyms = $state(false);
+
+  async function fetchSynonyms(meaningStr) {
+    if (!meaningStr) {
+      synonyms = [];
+      return;
+    }
+    const mainMeaning = meaningStr.split(/[,;]/)[0].trim();
+    loadingSynonyms = true;
+    try {
+      const res = await fetch(`https://api.datamuse.com/words?ml=${encodeURIComponent(mainMeaning)}&max=5`);
+      if (res.ok) {
+        const words = await res.json();
+        synonyms = words.map(w => w.word);
+      }
+    } catch (e) {
+      console.error(e);
+      synonyms = [];
+    } finally {
+      loadingSynonyms = false;
+    }
+  }
 
   $effect(() => {
     if (isOpen && data && data.character) {
       fetchWords(data.character);
+      const meaningStr = typeof data.meaning === 'string' ? data.meaning : (Array.isArray(data.meaning) ? data.meaning[0] : (data.meanings ? (Array.isArray(data.meanings) ? data.meanings[0] : data.meanings) : ''));
+      fetchSynonyms(meaningStr);
     } else {
       wordExamples = [];
+      synonyms = [];
     }
   });
 
@@ -123,8 +150,13 @@
           {data.character}
         </div>
         <div>
-          <h2 class="text-xl font-bold text-black tracking-tight">{typeof data.meaning === 'string' ? data.meaning.toUpperCase() : (Array.isArray(data.meaning) ? data.meaning.join(', ').toUpperCase() : 'UNKNOWN')}</h2>
-          <p class="text-[11px] text-zinc-550 mt-1 font-medium">Details & Constituent Kanji</p>
+          <h2 class="text-xl font-bold text-black tracking-tight">{typeof data.meaning === 'string' ? data.meaning.toUpperCase() : (Array.isArray(data.meaning) ? data.meaning.join(', ').toUpperCase() : (data.meanings ? (Array.isArray(data.meanings) ? data.meanings.join(', ').toUpperCase() : data.meanings.toUpperCase()) : 'UNKNOWN'))}</h2>
+          <div class="flex items-center gap-2 mt-1">
+            <p class="text-[11px] text-zinc-550 font-medium">Details & Constituent Kanji</p>
+            {#if data.jlpt}
+              <span class="px-1.5 py-0.5 text-[9px] font-bold bg-red-100 text-red-700 rounded-sm uppercase">N{data.jlpt}</span>
+            {/if}
+          </div>
         </div>
       </div>
       <button 
@@ -142,17 +174,52 @@
       <div class="grid grid-cols-2 gap-4 bg-zinc-50 p-4 rounded-none border border-zinc-200">
         <div>
           <span class="text-zinc-500 font-semibold text-[9px] uppercase tracking-wider block">Onyomi</span>
-          <span class="text-zinc-800 font-mono text-sm block mt-1 font-bold">
-            {data.onyomi && data.onyomi.length > 0 ? data.onyomi.join(', ') : '—'}
-          </span>
+          {#if data.onyomi && data.onyomi.length > 0}
+            <span class="text-zinc-800 font-mono text-sm block mt-1 font-bold">
+              {data.onyomi.join(', ')}
+            </span>
+            <span class="text-zinc-500 font-mono text-[10px] block mt-0.5 capitalize">
+              {wanakana.toRomaji(data.onyomi.join(', '))}
+            </span>
+          {:else}
+            <span class="text-zinc-800 font-mono text-sm block mt-1 font-bold">—</span>
+          {/if}
         </div>
         <div>
           <span class="text-zinc-500 font-semibold text-[9px] uppercase tracking-wider block">Kunyomi</span>
-          <span class="text-zinc-800 font-mono text-sm block mt-1 font-bold">
-            {data.kunyomi && data.kunyomi.length > 0 ? data.kunyomi.join(', ') : '—'}
-          </span>
+          {#if data.kunyomi && data.kunyomi.length > 0}
+            <span class="text-zinc-800 font-mono text-sm block mt-1 font-bold">
+              {data.kunyomi.join(', ')}
+            </span>
+            <span class="text-zinc-500 font-mono text-[10px] block mt-0.5 capitalize">
+              {wanakana.toRomaji(data.kunyomi.join(', '))}
+            </span>
+          {:else}
+            <span class="text-zinc-800 font-mono text-sm block mt-1 font-bold">—</span>
+          {/if}
         </div>
       </div>
+
+      <!-- Synonyms Section -->
+      {#if synonyms.length > 0 || loadingSynonyms}
+        <div class="space-y-3 pb-1 border-b border-zinc-200">
+          <h3 class="text-xs font-bold text-black uppercase tracking-wider">Related Concepts (Synonyms)</h3>
+          {#if loadingSynonyms}
+            <div class="flex items-center gap-2 py-2 text-[11px] text-zinc-500 font-medium">
+              <span class="h-3 w-3 rounded-full border border-zinc-350 border-t-red-650 animate-spin"></span>
+              Finding synonyms...
+            </div>
+          {:else}
+            <div class="flex flex-wrap gap-2">
+              {#each synonyms as syn}
+                <span class="px-2.5 py-1 bg-zinc-100 border border-zinc-200 text-xs font-medium text-zinc-700 capitalize">
+                  {syn}
+                </span>
+              {/each}
+            </div>
+          {/if}
+        </div>
+      {/if}
 
       <!-- Word Examples Section -->
       <div class="space-y-3 pb-1 border-b border-zinc-200">

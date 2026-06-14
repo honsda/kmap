@@ -110,7 +110,7 @@
       const level = parseInt(jlptFilter);
       base = base.filter(kanji => {
         const kInfo = kanjiDataMap[kanji];
-        return kInfo && kInfo.jlpt === level;
+        return kInfo && kInfo.jlpt >= level;
       });
     }
 

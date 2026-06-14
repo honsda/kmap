@@ -232,7 +232,7 @@
       available = available.filter(r => {
         const details = radicalDataMap[r.character] || {};
         const kanjiList = details.common_kanji || [];
-        return kanjiList.some(k => kanjiDataMap[k]?.jlpt === level);
+        return kanjiList.some(k => kanjiDataMap[k]?.jlpt >= level);
       });
     }
 
