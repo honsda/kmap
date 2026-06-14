@@ -84,7 +84,8 @@
         onyomi: details.onyomi || [],
         kunyomi: details.kunyomi || [],
         stroke_count: details.strokeCount || 1,
-        jlpt: details.jlpt || null
+        jlpt: details.jlpt || null,
+        radicals: details.radicals || []
       };
     }
     return {
