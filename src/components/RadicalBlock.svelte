@@ -100,52 +100,25 @@
     };
   });
 
-  // Compute added radicals: radicals in this block that don't exist anywhere in the ancestor chain
+  // Compute added radicals: show only radicals new to THIS block vs its immediate parent
   let addedRadicals = $derived.by(() => {
     if (!cell.parentId) return [];
-    
-    // Collect ALL radicals from the entire ancestry chain
-    const ancestorRads = [];
-    let currentId = cell.parentId;
-    const visited = new Set();
-    while (currentId && !visited.has(currentId)) {
-      visited.add(currentId);
-      const ancestor = $gridStore.find(b => b.id === currentId);
-      if (!ancestor) break;
-      
-      // Add the ancestor's own character
-      ancestorRads.push(ancestor.character);
-      // Add the ancestor's constituent radicals if it's a kanji
-      if (ancestor.type === 'kanji') {
-        const rads = kanjiDataMap[ancestor.character]?.radicals || [];
-        for (const r of rads) ancestorRads.push(r);
-      }
-      
-      currentId = ancestor.parentId;
+    const parent = $gridStore.find(b => b.id === cell.parentId);
+    if (!parent) return [];
+
+    // Build a set of all radicals the parent already "contains"
+    const parentSet = new Set();
+    parentSet.add(parent.character);
+    const parentRads = kanjiDataMap[parent.character]?.radicals;
+    if (parentRads) {
+      for (const r of parentRads) parentSet.add(r);
     }
 
-    // Get this block's radicals
-    const myRads = cell.type === 'radical'
-      ? [cell.character]
-      : (kanjiDataMap[cell.character]?.radicals || []);
+    // Get this block's constituent radicals
+    const myRads = kanjiDataMap[cell.character]?.radicals || [];
 
-    // Count occurrences in ancestors
-    const ancestorCounts = {};
-    for (const r of ancestorRads) {
-      ancestorCounts[r] = (ancestorCounts[r] || 0) + 1;
-    }
-
-    // Only show radicals that are truly new
-    const added = [];
-    for (const r of myRads) {
-      if (r === cell.character) continue; // Don't show self
-      if (ancestorCounts[r] > 0) {
-        ancestorCounts[r]--;
-      } else {
-        added.push(r);
-      }
-    }
-    return added;
+    // Return only radicals not present in the parent
+    return myRads.filter(r => r !== cell.character && !parentSet.has(r));
   });
 
   // Build full data object for a radical character (for opening details)
