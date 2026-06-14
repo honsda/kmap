@@ -462,14 +462,14 @@
   </div>
 
   <!-- Action Buttons (Bottom Left Fixed inside viewport) -->
-  <div class="absolute bottom-6 left-6 z-30 flex flex-col gap-2 pointer-events-auto">
+  <div class="absolute bottom-6 left-6 z-30 flex flex-col gap-2 pointer-events-auto items-start">
     <!-- JLPT Filter -->
-    <div class="flex items-center gap-1 bg-white border border-zinc-300 p-1.5 shadow-2xl">
-      <span class="text-[9px] text-zinc-500 uppercase tracking-wider font-semibold mx-1">JLPT:</span>
+    <div class="flex flex-col items-center gap-1 bg-white border border-zinc-300 p-1.5 shadow-2xl w-14">
+      <span class="text-[9px] text-zinc-500 uppercase tracking-wider font-semibold mb-0.5">JLPT</span>
       {#each ['all', '5', '4', '3', '2', '1'] as level}
         <button
           onclick={() => $globalJlptFilter = level}
-          class="px-2 py-1 text-[10px] font-bold border transition-all cursor-pointer { $globalJlptFilter === level ? 'bg-red-600 text-white border-red-600' : 'bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400' }"
+          class="w-full py-1 text-[10px] font-bold border transition-all cursor-pointer { $globalJlptFilter === level ? 'bg-red-600 text-white border-red-600' : 'bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400' }"
         >
           {level === 'all' ? 'ALL' : `N${level}`}
         </button>
