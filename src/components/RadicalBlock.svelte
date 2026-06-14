@@ -187,7 +187,7 @@
     // Filter by JLPT if active
     if ($globalJlptFilter !== 'all') {
       const level = parseInt($globalJlptFilter);
-      list = list.filter(k => kanjiDataMap[k]?.jlpt >= level);
+      list = list.filter(k => !kanjiDataMap[k]?.jlpt || kanjiDataMap[k]?.jlpt >= level);
     }
 
     if (list.length > 0) {

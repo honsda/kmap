@@ -357,7 +357,7 @@ export const gridActions = {
         const level = parseInt(filterLevel);
         candidates = candidates.filter(c => {
           const kInfo = kanjiDataMap[c.kanji];
-          return kInfo && kInfo.jlpt >= level;
+          return kInfo && (!kInfo.jlpt || kInfo.jlpt >= level);
         });
       }
 
