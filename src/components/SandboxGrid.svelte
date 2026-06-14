@@ -181,11 +181,15 @@
   }
 
   // Shorten connection lines so they start/end exactly at the box boundaries with a margin
-  function getShortenedLine(p1, p2, padding = 18) {
+  function getShortenedLine(p1, p2, basePadding = 8) {
     const dx = p2.x - p1.x;
     const dy = p2.y - p1.y;
     const len = Math.sqrt(dx * dx + dy * dy);
     if (len === 0) return { x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y };
+    
+    // Decrease padding for straight horizontal/vertical lines because the cell gap is only 20px
+    const isStraight = Math.abs(dx) < 10 || Math.abs(dy) < 10;
+    const padding = isStraight ? 1 : basePadding;
     
     const boxHalfSize = 50; // The box is 100x100, so half size is 50
     // Distance from center to the square boundary along this direction
@@ -193,7 +197,7 @@
     
     // Total offset from the center for the start and end of the line
     const offsetStart = distToBoundary + padding;
-    const offsetEnd = distToBoundary + padding + 6; // Add extra margin for the arrowhead
+    const offsetEnd = distToBoundary + padding + (isStraight ? 4 : 6); // Add extra margin for the arrowhead
 
     return {
       x1: p1.x + (dx / len) * offsetStart,
