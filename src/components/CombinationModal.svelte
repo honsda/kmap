@@ -140,16 +140,30 @@
       onClose();
     }
   }
+
+  function handleKeydown(e) {
+    if (isOpen && e.key === 'Escape') {
+      onClose();
+    }
+  }
 </script>
 
+<svelte:window onkeydown={handleKeydown} />
+
 {#if isOpen && primaryRadical}
+  <!-- svelte-ignore a11y_click_events_have_key_events -->
+  <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
   <div 
     class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 animate-in fade-in duration-200"
     role="dialog"
     aria-modal="true"
+    onclick={onClose}
   >
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div 
       class="bg-white border-2 border-red-650 rounded-none w-full max-w-xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200 text-black"
+      onclick={(e) => e.stopPropagation()}
     >
       <!-- Header -->
       <div class="p-6 border-b border-zinc-200 flex items-center justify-between">

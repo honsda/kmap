@@ -223,6 +223,7 @@
       onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && triggerDetails()}
       tabindex="0"
       role="button"
+      aria-label={`View details for ${cell.character}`}
       class="w-full h-full rounded-none border text-left p-4 flex flex-col justify-between transition-all duration-150 relative z-10
       {cell.type === 'radical' 
         ? (isFirst 
@@ -235,6 +236,7 @@
         onclick={removeCell}
         class="absolute top-2 right-2 flex h-5 w-5 items-center justify-center bg-red-600 hover:bg-red-500 text-white opacity-0 group-hover:opacity-100 transition-opacity rounded-none z-20 cursor-pointer text-[10px] font-bold border border-red-600 hover:border-red-500 shadow-md select-none"
         title="Remove"
+        aria-label="Remove Block"
       >
         除
       </button>

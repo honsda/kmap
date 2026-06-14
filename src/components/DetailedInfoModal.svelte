@@ -161,7 +161,15 @@
     const parts = text.split(char);
     return parts;
   }
+
+  function handleKeydown(e) {
+    if (isOpen && e.key === 'Escape') {
+      onClose();
+    }
+  }
 </script>
+
+<svelte:window onkeydown={handleKeydown} />
 
 {#if isOpen && data}
   <div 

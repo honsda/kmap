@@ -473,6 +473,7 @@
       {#each ['all', '5', '4', '3', '2', '1'] as level}
         <button
           onclick={() => $globalJlptFilter = level}
+          aria-label={level === 'all' ? 'Show all JLPT levels' : `Filter by JLPT N${level}`}
           class="w-full py-1 text-[10px] font-bold border transition-all cursor-pointer { $globalJlptFilter === level ? 'bg-red-600 text-white border-red-600' : 'bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400' }"
         >
           {level === 'all' ? 'ALL' : `N${level}`}
@@ -486,6 +487,7 @@
       onclick={() => isSelectorOpen = true}
       class="flex h-14 w-14 items-center justify-center rounded-none bg-red-600 hover:bg-red-500 text-white shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 border border-red-600 hover:border-red-500 cursor-pointer"
       title="Add Radical"
+      aria-label="Add Radical"
     >
       <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -497,6 +499,7 @@
       onclick={addRandomRadical}
       class="flex h-14 w-14 items-center justify-center rounded-none bg-red-600 hover:bg-red-500 text-white border border-red-600 hover:border-red-500 shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer font-sans font-bold text-xl select-none"
       title="Add Random Radical"
+      aria-label="Add Random Radical"
     >
       部
     </button>
@@ -506,6 +509,7 @@
       onclick={() => gridActions.clearGrid()}
       class="flex h-14 w-14 items-center justify-center rounded-none bg-red-600 hover:bg-red-500 text-white border border-red-600 hover:border-red-500 shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer font-sans font-bold text-xl select-none"
       title="Clear Sandbox"
+      aria-label="Clear Sandbox"
     >
       消
     </button>
