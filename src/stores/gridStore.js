@@ -440,6 +440,39 @@ export const gridActions = {
     return result;
   },
 
+  // Add a standalone kanji directly to the grid without a parent
+  addStandaloneKanji(kanjiChar) {
+    let result = { success: true, message: '' };
+
+    gridStore.update(currentBlocks => {
+      const exists = currentBlocks.some(b => b.type === 'kanji' && b.character === kanjiChar);
+      if (exists) {
+        result = { success: false, message: 'This Kanji is already on the grid.' };
+        return currentBlocks;
+      }
+
+      // Find an empty spot globally, e.g. near the center view
+      const kanjiCoords = findEmptyCoords(currentBlocks, 10, 10);
+      const kanjiBlockId = crypto.randomUUID();
+
+      const newKanjiBlock = {
+        id: kanjiBlockId,
+        type: 'kanji',
+        character: kanjiChar,
+        x: kanjiCoords.x,
+        y: kanjiCoords.y,
+        addedAt: Date.now(),
+        parentId: null,
+        triggeredById: null,
+        data: { character: kanjiChar }
+      };
+
+      return [...currentBlocks, newKanjiBlock];
+    });
+
+    return result;
+  },
+
   // Move a block to new grid coordinates
   moveBlock(id, newX, newY) {
     gridStore.update(currentBlocks => {

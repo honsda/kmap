@@ -22,6 +22,13 @@
     }
   }
 
+  function addStandaloneKanjiBlock(kanji) {
+    const res = gridActions.addStandaloneKanji(kanji);
+    if (res.success) {
+      onClose();
+    }
+  }
+
   // Sort common kanji by stroke count
   let sortedCommonKanji = $derived.by(() => {
     if (!data || !data.common_kanji) return [];
@@ -247,7 +254,7 @@
               {#each synonyms as syn}
                 {@const kInfo = kanjiDataMap[syn]}
                 <button
-                  onclick={() => addKanjiBlock(syn)}
+                  onclick={() => addStandaloneKanjiBlock(syn)}
                   class="px-2.5 py-1.5 bg-white border border-zinc-300 hover:border-red-650 hover:text-red-650 transition-colors flex items-center gap-2 cursor-pointer group"
                   title={kInfo ? (typeof kInfo.meanings === 'string' ? kInfo.meanings : kInfo.meanings.join(', ')) : 'Unknown'}
                 >

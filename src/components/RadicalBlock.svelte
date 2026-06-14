@@ -107,7 +107,7 @@
 
     const parentRads = parent.type === 'radical'
       ? [parent.character]
-      : (kanjiDataMap[parent.character]?.radicals || []);
+      : [parent.character, ...(kanjiDataMap[parent.character]?.radicals || [])];
 
     const myRads = cell.type === 'radical'
       ? [cell.character]
@@ -120,6 +120,7 @@
 
     const added = [];
     for (const r of myRads) {
+      if (r === cell.character) continue; // Exclude itself
       if (parentCounts[r] > 0) {
         parentCounts[r]--;
       } else {
