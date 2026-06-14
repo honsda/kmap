@@ -1,46 +1,52 @@
-# Astro Starter Kit: Basics
+# Kanji Radical Sandbox (kmap)
 
-```sh
-npm create astro@latest -- --template basics
+An interactive, visual sandbox for exploring Japanese Kanji through their constituent radicals. 
+
+This project allows users to start with basic radicals, combine them to form more complex Kanji, and trace the evolution of characters in a visual grid format.
+
+## Features
+
+- **Interactive Node Graph**: Place radicals and Kanji on a grid and move them around.
+- **Kanji Evolution**: Combine radicals to discover which Kanji they form, showing all valid evolution candidates.
+- **Detailed Information**: View detailed data about any Kanji or radical, including:
+  - Meanings and readings (Onyomi, Kunyomi)
+  - Stroke counts
+  - JLPT levels
+  - Common word examples with Japanese sentences and English translations
+- **Filtering**: Find kanji by their JLPT level.
+
+## Development
+
+The project is built using:
+- **Astro**: Static site generator
+- **Svelte 5**: Interactive UI components and reactivity
+- **Tailwind CSS**: Styling
+
+### Setup
+
+```bash
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Data Generation
 
-## 🚀 Project Structure
+The project fetches and parses extensive Kanji dictionaries during the build process to generate a static dataset.
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```bash
+# Build data and project
+npm run build
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+This runs the script `scripts/build-radical-data.cjs`, which uses sources like KANJIDIC2 and KanjiVG to produce `radical_data.json` and `radical_list.json` in the `public/data/` directory.
 
-## 🧞 Commands
+## Deployment
 
-All commands are run from the root of the project, from a terminal:
+The project is configured to automatically deploy to GitHub Pages on every push to the `main` branch via GitHub Actions.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## License
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+MIT
