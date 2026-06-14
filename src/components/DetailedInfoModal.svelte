@@ -41,6 +41,7 @@
 
   let wordExamples = $state([]);
   let loadingWords = $state(false);
+  let synonymsOpen = $state(false);
   let synonyms = $state([]);
   let loadingSynonyms = $state(false);
 
@@ -242,26 +243,41 @@
 
       <!-- Synonyms Section -->
       {#if synonyms.length > 0 || loadingSynonyms}
-        <div class="space-y-3 pb-1 border-b border-zinc-200">
-          <h3 class="text-xs font-bold text-black uppercase tracking-wider">Related Kanji (Synonyms)</h3>
-          {#if loadingSynonyms}
-            <div class="flex items-center gap-2 py-2 text-[11px] text-zinc-500 font-medium">
-              <span class="h-3 w-3 rounded-full border border-zinc-350 border-t-red-650 animate-spin"></span>
-              Finding related kanji...
-            </div>
-          {:else}
-            <div class="flex flex-wrap gap-2">
-              {#each synonyms as syn}
-                {@const kInfo = kanjiDataMap[syn]}
-                <button
-                  onclick={() => addStandaloneKanjiBlock(syn)}
-                  class="px-2.5 py-1.5 bg-white border border-zinc-300 hover:border-red-650 hover:text-red-650 transition-colors flex items-center gap-2 cursor-pointer group"
-                  title={kInfo ? (typeof kInfo.meanings === 'string' ? kInfo.meanings : kInfo.meanings.join(', ')) : 'Unknown'}
-                >
-                  <span class="text-lg font-bold group-hover:text-red-650 text-black">{syn}</span>
-                  <span class="text-[9px] text-zinc-500 capitalize max-w-[60px] truncate">{kInfo ? (typeof kInfo.meanings === 'string' ? kInfo.meanings.split(/[,;]/)[0] : kInfo.meanings[0]) : ''}</span>
-                </button>
-              {/each}
+        <div class="pb-1 border-b border-zinc-200">
+          <button
+            onclick={() => synonymsOpen = !synonymsOpen}
+            class="flex items-center justify-between w-full py-1 cursor-pointer group"
+          >
+            <h3 class="text-xs font-bold text-black uppercase tracking-wider">Related Kanji (Synonyms)</h3>
+            <svg
+              class="w-4 h-4 text-red-600 transition-transform duration-200 {synonymsOpen ? 'rotate-180' : ''}"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          {#if synonymsOpen}
+            <div class="mt-2">
+              {#if loadingSynonyms}
+                <div class="flex items-center gap-2 py-2 text-[11px] text-zinc-500 font-medium">
+                  <span class="h-3 w-3 rounded-full border border-zinc-350 border-t-red-650 animate-spin"></span>
+                  Finding related kanji...
+                </div>
+              {:else}
+                <div class="flex flex-wrap gap-2">
+                  {#each synonyms as syn}
+                    {@const kInfo = kanjiDataMap[syn]}
+                    <button
+                      onclick={() => addStandaloneKanjiBlock(syn)}
+                      class="px-2.5 py-1.5 bg-white border border-zinc-300 hover:border-red-650 hover:text-red-650 transition-colors flex items-center gap-2 cursor-pointer group"
+                      title={kInfo ? (typeof kInfo.meanings === 'string' ? kInfo.meanings : kInfo.meanings.join(', ')) : 'Unknown'}
+                    >
+                      <span class="text-lg font-bold group-hover:text-red-650 text-black">{syn}</span>
+                      <span class="text-[9px] text-zinc-500 capitalize max-w-[60px] truncate">{kInfo ? (typeof kInfo.meanings === 'string' ? kInfo.meanings.split(/[,;]/)[0] : kInfo.meanings[0]) : ''}</span>
+                    </button>
+                  {/each}
+                </div>
+              {/if}
             </div>
           {/if}
         </div>
