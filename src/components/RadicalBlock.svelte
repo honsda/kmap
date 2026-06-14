@@ -99,30 +99,47 @@
     };
   });
 
-  // Compute added radicals: difference between this block's radicals and parent's radicals
+  // Compute added radicals: radicals in this block that don't exist anywhere in the ancestor chain
   let addedRadicals = $derived.by(() => {
     if (!cell.parentId) return [];
-    const parent = $gridStore.find(b => b.id === cell.parentId);
-    if (!parent) return [];
+    
+    // Collect ALL radicals from the entire ancestry chain
+    const ancestorRads = [];
+    let currentId = cell.parentId;
+    const visited = new Set();
+    while (currentId && !visited.has(currentId)) {
+      visited.add(currentId);
+      const ancestor = $gridStore.find(b => b.id === currentId);
+      if (!ancestor) break;
+      
+      // Add the ancestor's own character
+      ancestorRads.push(ancestor.character);
+      // Add the ancestor's constituent radicals if it's a kanji
+      if (ancestor.type === 'kanji') {
+        const rads = kanjiDataMap[ancestor.character]?.radicals || [];
+        for (const r of rads) ancestorRads.push(r);
+      }
+      
+      currentId = ancestor.parentId;
+    }
 
-    const parentRads = parent.type === 'radical'
-      ? [parent.character]
-      : [parent.character, ...(kanjiDataMap[parent.character]?.radicals || [])];
-
+    // Get this block's radicals
     const myRads = cell.type === 'radical'
       ? [cell.character]
       : (kanjiDataMap[cell.character]?.radicals || []);
 
-    const parentCounts = {};
-    for (const r of parentRads) {
-      parentCounts[r] = (parentCounts[r] || 0) + 1;
+    // Count occurrences in ancestors
+    const ancestorCounts = {};
+    for (const r of ancestorRads) {
+      ancestorCounts[r] = (ancestorCounts[r] || 0) + 1;
     }
 
+    // Only show radicals that are truly new
     const added = [];
     for (const r of myRads) {
-      if (r === cell.character) continue; // Exclude itself
-      if (parentCounts[r] > 0) {
-        parentCounts[r]--;
+      if (r === cell.character) continue; // Don't show self
+      if (ancestorCounts[r] > 0) {
+        ancestorCounts[r]--;
       } else {
         added.push(r);
       }
