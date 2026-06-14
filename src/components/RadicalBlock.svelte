@@ -1,5 +1,5 @@
 <script>
-  import { gridStore, gridActions, getAvailableEvolutions } from '../stores/gridStore.js';
+  import { gridStore, gridActions, getAvailableEvolutions, globalJlptFilter } from '../stores/gridStore.js';
   import Tooltip from './Tooltip.svelte';
   import FloatingMenu from './FloatingMenu.svelte';
 
@@ -169,7 +169,14 @@
   }
 
   function addRandomKanji() {
-    const list = blockData?.common_kanji || [];
+    let list = blockData?.common_kanji || [];
+
+    // Filter by JLPT if active
+    if ($globalJlptFilter !== 'all') {
+      const level = parseInt($globalJlptFilter);
+      list = list.filter(k => kanjiDataMap[k]?.jlpt === level);
+    }
+
     if (list.length > 0) {
       const randomKanji = list[Math.floor(Math.random() * list.length)];
       const res = gridActions.addSpecificCombination(cell.id, randomKanji, radicals, radicalDataMap, kanjiDataMap);
@@ -177,7 +184,9 @@
         onShowNotification(res.message);
       }
     } else {
-      onShowNotification("No common kanji associated with this radical.");
+      onShowNotification($globalJlptFilter === 'all' 
+        ? "No common kanji associated with this radical." 
+        : `No N${$globalJlptFilter} kanji associated with this radical.`);
     }
   }
 </script>

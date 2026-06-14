@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { gridStore, radicalData, radicalList, gridActions } from '../stores/gridStore.js';
+  import { gridStore, radicalData, radicalList, gridActions, globalJlptFilter } from '../stores/gridStore.js';
   import RadicalBlock from './RadicalBlock.svelte';
   import RadicalSelectorModal from './RadicalSelectorModal.svelte';
   import DetailedInfoModal from './DetailedInfoModal.svelte';
@@ -215,8 +215,25 @@
     const existingRootChars = new Set(
       $gridStore.filter(b => b.type === 'radical' && !b.parentId).map(b => b.character)
     );
-    const available = radicalListArray.filter(r => !existingRootChars.has(r.character));
-    const pool = available.length > 0 ? available : radicalListArray;
+    let available = radicalListArray.filter(r => !existingRootChars.has(r.character));
+    
+    // Filter by JLPT if active
+    if ($globalJlptFilter !== 'all') {
+      const level = parseInt($globalJlptFilter);
+      available = available.filter(r => {
+        const details = radicalDataMap[r.character] || {};
+        const kanjiList = details.common_kanji || [];
+        return kanjiList.some(k => kanjiDataMap[k]?.jlpt === level);
+      });
+    }
+
+    const pool = available.length > 0 ? available : [];
+    if (pool.length === 0) {
+      showNotification($globalJlptFilter === 'all' 
+        ? 'No compatible radicals available.' 
+        : `No N${$globalJlptFilter} compatible radicals available.`);
+      return;
+    }
     const randomRadical = pool[Math.floor(Math.random() * pool.length)];
     gridActions.addBlock('radical', randomRadical.character, randomRadical, radicalDataMap);
   }
@@ -436,8 +453,22 @@
   </div>
 
   <!-- Action Buttons (Bottom Left Fixed inside viewport) -->
-  <div class="absolute bottom-6 left-6 z-30 flex items-center gap-2">
-    <!-- Add Radical Button -->
+  <div class="absolute bottom-6 left-6 z-30 flex flex-col gap-2 pointer-events-auto">
+    <!-- JLPT Filter -->
+    <div class="flex items-center gap-1 bg-white border border-zinc-300 p-1.5 shadow-2xl">
+      <span class="text-[9px] text-zinc-500 uppercase tracking-wider font-semibold mx-1">JLPT:</span>
+      {#each ['all', '5', '4', '3', '2', '1'] as level}
+        <button
+          onclick={() => $globalJlptFilter = level}
+          class="px-2 py-1 text-[10px] font-bold border transition-all cursor-pointer { $globalJlptFilter === level ? 'bg-red-650 text-white border-red-650' : 'bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400' }"
+        >
+          {level === 'all' ? 'ALL' : `N${level}`}
+        </button>
+      {/each}
+    </div>
+
+    <div class="flex items-center gap-2">
+      <!-- Add Radical Button -->
     <button
       onclick={() => isSelectorOpen = true}
       class="flex h-14 w-14 items-center justify-center rounded-none bg-red-600 hover:bg-red-500 text-white shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 border border-red-600 hover:border-red-500 cursor-pointer"
@@ -465,6 +496,7 @@
     >
       消
     </button>
+    </div>
   </div>
 </div>
 

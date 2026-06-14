@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { writable, get } from 'svelte/store';
 
 // Grid layout parameters
 export const CELL_SIZE = 120; // Size of each cell in pixels
@@ -7,6 +7,7 @@ export const CELL_SIZE = 120; // Size of each cell in pixels
 export const gridStore = writable([]); // Array of blocks: { id, type, character, x, y, addedAt, parentId, triggeredById, data }
 export const radicalData = writable({});
 export const radicalList = writable([]);
+export const globalJlptFilter = writable('all');
 
 // Helper to find an empty spot spirally around a starting coordinate
 export function findEmptyCoords(blocks, startX, startY) {
@@ -344,15 +345,29 @@ export const gridActions = {
         return currentBlocks;
       }
 
-      const candidates = getAvailableEvolutions(
+      let candidates = getAvailableEvolutions(
         currentBlocks, 
         block, 
         radicalDataMap, 
         kanjiDataMap
       );
 
+      const filterLevel = get(globalJlptFilter);
+      if (filterLevel !== 'all') {
+        const level = parseInt(filterLevel);
+        candidates = candidates.filter(c => {
+          const kInfo = kanjiDataMap[c.kanji];
+          return kInfo && kInfo.jlpt === level;
+        });
+      }
+
       if (candidates.length === 0) {
-        result = { success: false, message: 'This block has reached its final form and cannot evolve any further!' };
+        result = { 
+          success: false, 
+          message: filterLevel === 'all' 
+            ? 'This block has reached its final form and cannot evolve any further!' 
+            : `No N${filterLevel} evolutions available for this block.` 
+        };
         return currentBlocks;
       }
 
