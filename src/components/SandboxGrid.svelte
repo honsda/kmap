@@ -189,7 +189,7 @@
     
     // Decrease padding for straight horizontal/vertical lines because the cell gap is only 20px
     const isStraight = Math.abs(dx) < 10 || Math.abs(dy) < 10;
-    const padding = isStraight ? 1 : basePadding;
+    const padding = isStraight ? 2 : basePadding;
     
     const boxHalfSize = 50; // The box is 100x100, so half size is 50
     // Distance from center to the square boundary along this direction
@@ -197,7 +197,7 @@
     
     // Total offset from the center for the start and end of the line
     const offsetStart = distToBoundary + padding;
-    const offsetEnd = distToBoundary + padding + (isStraight ? 4 : 6); // Add extra margin for the arrowhead
+    const offsetEnd = distToBoundary + padding + (isStraight ? 5 : 6); // Add extra margin for the arrowhead
 
     return {
       x1: p1.x + (dx / len) * offsetStart,
