@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./public/kmap.svg" alt="kmap logo" width="150" />
+</p>
+
 # kmap — Kanji Radical Map
 
 An interactive visual sandbox for exploring how Japanese Kanji are built from radicals. Start with a basic radical, evolve it into Kanji, and watch an evolution tree grow on an infinite canvas.
